@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "Evolutionary Minimalism: A Comparative Analysis of the Universal EML Operator versus Heterogeneous Operators in Genetic Programming"
+title: "Evolutionary Minimalism and Phase-Space Brittleness: A Comparative Analysis of the Universal EML Operator versus Heterogeneous Operators in Genetic Programming"
 authors:
   - family-names: Kazakaev
     given-names: Dimitar
@@ -11,7 +11,7 @@ url: "https://github.com/romkaz/EML-GP"
 license: MIT
 preferred-citation:
   type: article
-  title: "Evolutionary Minimalism: A Comparative Analysis of the Universal EML Operator versus Heterogeneous Operators in Genetic Programming"
+  title: "Evolutionary Minimalism and Phase-Space Brittleness: A Comparative Analysis of the Universal EML Operator versus Heterogeneous Operators in Genetic Programming"
   authors:
     - family-names: Kazakaev
       given-names: Dimitar
