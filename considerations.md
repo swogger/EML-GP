@@ -1,0 +1,38 @@
+# Experimental Controls: Standard GP vs EML-GP
+
+| Consideration | Control measure |
+|---|---|
+| **Search budget** | Both systems are allocated an identical maximum tree size (2,000 nodes) and corresponding maximum depth. Neither representation is structurally capped relative to the other. |
+| **Maximum depth derivation** | Maximum depth is derived analytically from the node budget rather than set arbitrarily, ensuring EML trees can reach the structural complexity required to represent any target function in the test suite. The budget of 2,000 nodes comfortably exceeds the largest known EML witness used in the test suite (sin, K=351) and the most complex composition tested (test 4.2, estimated ~1,200 nodes). |
+| **Fitness evaluation** | Both systems are evaluated against the same 200-point held-out validation set, fixed before evolution begins and never used for selection. |
+| **Training stochasticity** | Selection pressure is applied via a fresh random sample of 75 points per generation, drawn from the same random stream for both systems. |
+| **Randomness control** | Three statistically independent random streams are derived from a single master seed: one for the validation set, one for population initialisation, and one for evolutionary operations. The validation set is therefore identical across both systems; population and evolution are independently seeded. |
+| **Reproducibility** | Thirty deterministic seeds are generated once from a fixed master and used consistently across all runs, making every trial reproducible and each run independent of the others. |
+| **Operator arity** | Unary and binary operators are distinguished through a single shared definition used at every stage: tree generation, crossover, mutation, and operator substitution. There is no inconsistency in arity handling between the two systems. |
+| **Terminal sampling** | Leaf nodes are drawn from a uniform distribution over all variables and constants combined, preventing any input variable from being underrepresented in generated trees. |
+| **Initial population coverage** | One individual consisting solely of each input variable is seeded into the initial population before standard ramped half-and-half generation. All input dimensions are structurally present from the first generation. |
+| **Standard GP operator set** | Standard GP is given the complete set of operators appropriate to each test phase — arithmetic, exponential, trigonometric, hyperbolic, inverse trigonometric, and power functions. It is not restricted. |
+| **EML operator set** | EML is restricted to a single binary primitive, `exp(x) − ln(y)`, and the constant 1. This reflects the theoretical claim under investigation and is not an imposed limitation. |
+| **Early stopping patience** | The patience window for early stopping is scaled by the mean EML K-complexity of the operators in each test's standard set. This compensates for the greater structural depth EML requires to realise each primitive, without granting disproportionate patience on simpler tests. |
+| **K-complexity values** | Complexity values are taken from the published EML witness library (arXiv:2603.21852, Table 4). Proven-minimal values are used where established; certified upper bounds are used otherwise. |
+| **Operator substitution mutation** | Operator substitution is disabled for EML, as the only available operator cannot be meaningfully replaced by itself. Standard GP uses this operator normally. This avoids wasting reproductive budget on vacuous operations. |
+| **Convergence criterion** | Both systems are stopped when validation error falls below 1×10⁻⁶. The threshold is identical. |
+| **Tree size enforcement** | Trees exceeding the node budget are rejected at both the fitness evaluation and reproduction stages, with the parent retained as a fallback. This applies equally to both systems. |
+| **Numerical edge cases** | Division by zero and the logarithm of zero are assigned consistent finite or extended-real values. These conventions are applied identically across both systems and do not influence their relative performance. |
+| **Concurrent execution** | Standard GP and EML trials are executed concurrently within the same hardware environment. Both have equal access to computational resources; no scheduling priority is assigned to either. |
+| **Depth during crossover** | Crossover does not enforce a depth limit, but trees produced by crossover are immediately subject to the node budget constraint. This behaviour is identical for both systems and introduces no differential bias. |
+
+## Limitations
+
+| Limitation | Scope and implication |
+|---|---|
+| **K-complexity upper bounds** | Several EML K-values used to calibrate patience (sin, cos, tan, hyperbolic functions, arctan, sqrt) are certified upper bounds from the witness library, not proven minima. If tighter constructions exist, the patience window for those tests is slightly over-generous to EML. Results on trig and hyperbolic tests should be interpreted with this in mind. |
+| **Single constant terminal** | Both systems are restricted to the constant 1 as the sole numeric terminal. Solutions requiring other constants must construct them through operator composition. This is a known constraint of the EML framework and is applied equally, but it may disadvantage standard GP on targets where rational constants would otherwise appear directly. |
+| **Real-valued inputs only** | All target functions are evaluated over real-valued inputs. The fitness function uses complex arithmetic internally for numerical stability, but the comparison is conducted entirely in the real domain. Behaviour in the complex plane is not assessed. |
+| **Smooth analytic targets only** | All test functions are infinitely differentiable and globally well-behaved. Neither system is tested on piecewise, discontinuous, or near-singular functions. Conclusions do not extend to that class of targets. |
+| **Fixed genetic operators** | Crossover probability (75%), subtree mutation rate (20%), and tournament size (5) are fixed and identical for both systems. These values are conventional but not tuned. It is possible that EML would benefit from different operator rates given its structurally deeper search space. |
+| **Tree-based representation only** | Both systems use binary expression trees. Graph-based or linear representations are not considered. The comparison is specific to tree-based GP. |
+| **No constants evolution** | Numeric constants are not evolved or refined (e.g. no gradient-based constant optimisation). Both systems are equally affected, but absolute convergence rates may be lower than implementations that include constant tuning. |
+| **Single-machine execution** | All trials run on a single machine with shared CPU and memory resources. Although trials are scheduled concurrently with equal priority, transient resource contention between processes cannot be entirely excluded. |
+| **Budget grid covers 3×3 combinations** | The experiment sweeps generations [100, 200, 500] and population sizes [100, 200, 500]. The upper range of both axes (gen=1000, pop=1000) is excluded for computational reasons. Scaling behaviour beyond these limits is not characterised. |
+| **No active parsimony pressure** | A size penalty is applied to training fitness only when MSE falls below 1×10⁻⁵, i.e. near convergence. During the majority of the search, trees of equal error are scored identically regardless of size. Bloat is controlled solely by a hard node-count ceiling. Both systems are subject to this equally, but reported tree sizes will be larger than they would be under continuous parsimony pressure. Node count comparisons should be interpreted in this context. |

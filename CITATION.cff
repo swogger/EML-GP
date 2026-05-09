@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Evolutionary Minimalism: A Comparative Analysis of the Universal EML Operator versus Heterogeneous Operators in Genetic Programming"
+authors:
+  - family-names: Kazakaev
+    given-names: Dimitar
+    orcid: "https://orcid.org/0009-0006-5618-9174"
+version: "1.0.0"
+date-released: "2026-05-07"
+url: "https://github.com/romkaz/EML-GP"
+license: MIT
+preferred-citation:
+  type: article
+  title: "Evolutionary Minimalism: A Comparative Analysis of the Universal EML Operator versus Heterogeneous Operators in Genetic Programming"
+  authors:
+    - family-names: Kazakaev
+      given-names: Dimitar
+      orcid: "https://orcid.org/0009-0006-5618-9174"
+  year: 2026 

@@ -5,13 +5,15 @@ class Node:
         self.right = right
         self.is_operator = is_operator
 
+    # All operators that consume only the left child.
+    UNARY_OPS = {'sin', 'cos', 'exp', 'log', 'tan', 'sinh', 'cosh', 'tanh', 'atan', 'sqrt'}
+
     def to_formula(self):
         if self.is_operator:
-            if self.value in ['sin', 'cos', 'exp', 'log']:
+            if self.value in Node.UNARY_OPS:
                 left_str = self.left.to_formula() if self.left else ""
                 return f"{self.value}({left_str})"
-            # assuming binary operators
-            left_str = self.left.to_formula() if self.left else ""
+            left_str  = self.left.to_formula()  if self.left  else ""
             right_str = self.right.to_formula() if self.right else ""
             return f"({left_str} {self.value} {right_str})"
         else:
@@ -38,6 +40,24 @@ class Node:
         if self.value == 'cos':
             try: return cmath.cos(left_val)
             except: return complex(float('inf'), float('inf'))
+        if self.value == 'tan':
+            try: return cmath.tan(left_val)
+            except: return complex(float('inf'), float('inf'))
+        if self.value == 'sinh':
+            try: return cmath.sinh(left_val)
+            except: return complex(float('inf'), float('inf'))
+        if self.value == 'cosh':
+            try: return cmath.cosh(left_val)
+            except: return complex(float('inf'), float('inf'))
+        if self.value == 'tanh':
+            try: return cmath.tanh(left_val)
+            except: return complex(float('inf'), float('inf'))
+        if self.value == 'atan':
+            try: return cmath.atan(left_val)
+            except: return complex(float('inf'), float('inf'))
+        if self.value == 'sqrt':
+            try: return cmath.sqrt(left_val)
+            except: return complex(float('inf'), float('inf'))
         if self.value == 'exp':
             try: return cmath.exp(left_val)
             except: return complex(float('inf'), float('inf'))
@@ -46,7 +66,14 @@ class Node:
             except: return complex(float('inf'), float('inf'))
         if self.value == 'eml':
             try:
-                return cmath.exp(left_val) - cmath.log(right_val)
+                # Handle extended reals for log(0)
+                if right_val == 0j or right_val == 0:
+                    log_val = complex(float('-inf'), 0.0)
+                else:
+                    log_val = cmath.log(right_val)
+                    
+                exp_val = cmath.exp(left_val)
+                return exp_val - log_val
             except Exception:
                 return complex(float('inf'), float('inf'))
             
