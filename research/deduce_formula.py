@@ -25,7 +25,6 @@ MAX_NODES       = 2_000
 MAX_DEPTH       = math.ceil(math.log2(MAX_NODES + 1)) - 1   # 10
 BATCH_SIZE      = 75
 VALIDATION_SIZE = 200
-PRINT_INTERVAL  = 10
 # plateau_gens = max(50, generations // 10) computed per run
 
 
@@ -49,6 +48,10 @@ def main():
     parser.add_argument("--plateau_mult", type=int,  default=1,
                         help="Multiply plateau patience by this factor. "
                              "Use 3 for EML to account for its slower structural convergence.")
+    parser.add_argument("--print_interval", type=int, default=10,
+                        help="How often to print generation metrics")
+    parser.add_argument("--mutation_only", action="store_true",
+                        help="Disable crossover, use 100% mutation (95% subtree, 5% point).")
     args = parser.parse_args()
 
     # ------------------------------------------------------------------
@@ -209,12 +212,15 @@ def main():
         else:
             gens_no_improve += 1
 
-        if gen % PRINT_INTERVAL == 0 or gen == args.generations - 1:
+        if gen % args.print_interval == 0 or gen == args.generations - 1:
+            tree_sizes = sorted([count_nodes(ind) for ind in population])
+            median_nodes = tree_sizes[len(tree_sizes)//2]
             print(
                 f"Generation {gen:03d}"
                 f" - Best Error: {best_val_error:.6f}"
                 f" - Val Error: {gen_val_err:.6f}"
                 f" - Nodes: {n:>5}"
+                f" - Median Nodes: {median_nodes:>5}"
                 f" - Formula: {gen_best_tree.to_formula()}"
             )
 
@@ -237,7 +243,7 @@ def main():
             t1.sort(key=lambda x: x[1])
             parent1 = t1[0][0]
 
-            if evo_rng.random() < 0.75 and len(new_pop) < args.pop_size - 1:
+            if not args.mutation_only and evo_rng.random() < 0.75 and len(new_pop) < args.pop_size - 1:
                 t2 = evo_rng.sample(fitness_scores, k=5)
                 t2.sort(key=lambda x: x[1])
                 parent2 = t2[0][0]
@@ -251,14 +257,25 @@ def main():
                 new_pop.append(parent1.copy())
 
         for i in range(1, len(new_pop)):
-            if evo_rng.random() < 0.20:
-                candidate = mutate(
-                    new_pop[i], operators, terminals, variables,
-                    mut_depth, absolute_max_depth=MAX_DEPTH
-                )
-                new_pop[i] = candidate if count_nodes(candidate) <= MAX_NODES else new_pop[i]
-            elif use_point_mutate and evo_rng.random() < 0.05:
-                new_pop[i] = point_mutate(new_pop[i], operators, terminals, variables)
+            if args.mutation_only:
+                # 100% mutation: 95% subtree, 5% point
+                if use_point_mutate and evo_rng.random() < 0.05:
+                    new_pop[i] = point_mutate(new_pop[i], operators, terminals, variables)
+                else:
+                    candidate = mutate(
+                        new_pop[i], operators, terminals, variables,
+                        mut_depth, absolute_max_depth=MAX_DEPTH
+                    )
+                    new_pop[i] = candidate if count_nodes(candidate) <= MAX_NODES else new_pop[i]
+            else:
+                if evo_rng.random() < 0.20:
+                    candidate = mutate(
+                        new_pop[i], operators, terminals, variables,
+                        mut_depth, absolute_max_depth=MAX_DEPTH
+                    )
+                    new_pop[i] = candidate if count_nodes(candidate) <= MAX_NODES else new_pop[i]
+                elif use_point_mutate and evo_rng.random() < 0.05:
+                    new_pop[i] = point_mutate(new_pop[i], operators, terminals, variables)
 
         population = new_pop[:args.pop_size]
 

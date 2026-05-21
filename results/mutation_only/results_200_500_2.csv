@@ -1,0 +1,13 @@
+Test ID,Test Case,Std Error,EML Error,Std Nodes,EML Nodes,Std Gens,EML Gens,Std Status,EML Status,Std Formula,EML Formula
+1.1,Phase 1: f(x) = exp(x),0.000000,0.000000,2,3,0,0,CONVERGED,CONVERGED,exp(x),exp(x)
+1.2,Phase 1: f(x) = ln(x),0.000000,0.000000,2,7,0,0,CONVERGED,CONVERGED,log(x),-log(1/x)
+1.3,"Phase 1: f(x1, x2) = x1 + x2",0.000000,FAIL,3,,0,200,CONVERGED,TIMEOUT,(x2 + x1),TIMEOUT
+1.4,Phase 1: f(x) = exp(x) * exp(-x^2)  [EML home territory],0.000000,FAIL,16,,0,200,CONVERGED,TIMEOUT,(exp(((x / 1.0) * (1.0 - x))) * ((1.0 - 1.0) / (x - x))),TIMEOUT
+2.1,Phase 2: f(x) = sin(x) + cos(x),0.000000,0.176869,5,55,0,199,CONVERGED,BUDGET EXHAUSTED,(sin(x) + cos(x)),exp(-x*exp(exp(exp(x)))/(x*log(E - log(-log((-(log(x) - E)*log(-x + exp(x)) - exp(exp(exp(x))))/(log(x) - E)) + exp(E))) - exp(exp(exp(x)))))/(exp(x) - log(exp(x) - log(E - log((-(log(x) - E)*log((-(log(x) - E)*log(E - log(E - log(x))) - exp(exp(x)))/(log(x) - E)) - exp(E))/(log(x) - E)))))
+3.1,Phase 3: f(x) = sinh(x),0.000000,0.410539,2,45,0,100,CONVERGED,BUDGET EXHAUSTED,sinh(x),exp(x) - log(-log(exp(x) - log(-x + exp(exp(x)))) + exp(exp(E)/(-log(E - log(-x + exp(E))) + exp(exp(E)/(E - log(x)))/(-log(exp(x) - log(x)) + exp(exp(x))/x)))/(E - log(E - x)))
+3.2,Phase 3: f(x) = arctan(x),0.000000,FAIL,2,,0,200,CONVERGED,TIMEOUT,atan(x),TIMEOUT
+3.3,Phase 3: f(x) = x^x,0.000000,FAIL,5,,160,200,CONVERGED,TIMEOUT,exp((x * log(x))),TIMEOUT
+3.4,Phase 3: f(x) = 1 / (1 + exp(-x))  [sigmoid],0.000271,0.001308,38,71,50,120,BUDGET EXHAUSTED,BUDGET EXHAUSTED,exp((log(log(exp((exp((x / x)) - ((x + x) / x))))) * (exp((x / (exp((x * 1.0)) + ((x / x) + 1.0)))) * exp((log((1.0 + (x / x))) - x))))),exp(exp(exp(x))/(exp(-1)*exp(exp(exp(x))) - log(-log(exp(exp(exp(x))) - log(-1 + exp(-1)*exp(E))) + exp(exp(E)/(-1 + exp(E))))))*exp(-exp(-x)*exp(exp(exp(E)/(-x + exp(E)/x))/(-log(-log(x) + exp(E)) + exp(-x)*exp(exp(exp(x))))))
+3.5,Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers],0.000000,FAIL,29,,0,200,CONVERGED,TIMEOUT,((((1.0 * (1.0 - x)) * (x - (x * x))) / 1.0) - (((x - x) / (x - 1.0)) * ((1.0 + x) - (x - 1.0)))),TIMEOUT
+4.1,Phase 4: f(x) = exp(sin(x)) + ln(x^2 + 1),0.007862,FAIL,42,,140,200,BUDGET EXHAUSTED,TIMEOUT,log((log(exp((exp((((1.0 - 1.0) + sin(x)) * (cos(x) + (x * x)))) - tan((cos(tan(x)) * cos(x)))))) + exp((exp(sin((x - cos(sin(x))))) + tan(cos(cos((x + cos(1.0))))))))),TIMEOUT
+4.2,"Phase 4: f(x1, x2) = sin(x1*exp(x2)) - cos(ln(x1^2+x2^2+0.1))",0.416766,FAIL,11,,20,200,BUDGET EXHAUSTED,TIMEOUT,log(cos(sin(tan(sin((exp(sin(x1)) + cos(x2))))))),TIMEOUT
