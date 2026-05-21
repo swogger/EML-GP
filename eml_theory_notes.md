@@ -1,7 +1,7 @@
 # EML Operator: Theory, Implementation, and K-Complexity Notes
 
 Source: arXiv:2603.21852, "All elementary functions from a single operator" (Odrzywolek).
-Implementation audited: eml-skill (yaniv-golan/eml-skill).
+Implementation: Local directory `eml-skill/` (originally yaniv-golan/eml-skill).
 
 ---
 
