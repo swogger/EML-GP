@@ -102,7 +102,41 @@ Generates a violin plot to visualize the tree size distribution for target tests
 
 ---
 
-### 4. Statistical Analysis
+### 4. Baseline Comparison Experiments
+
+#### `run_sr_benchmarks.py`
+Runs 4 standard symbolic regression benchmarks (Nguyen-1, Nguyen-7, Keijzer-6, Vladislavleva-4) under all four regime combinations: Std-GP and EML-GP, each in Regime A (crossover + mutation) and Regime B (mutation only). 30 seeded runs per configuration (200 generations, population 100).
+* **Usage**:
+  ```bash
+  python3 run_sr_benchmarks.py [output_dir]
+  ```
+* **Expected Output** (written to `output_dir`, default `sr_benchmark_results/`):
+  * `runs/sr_<benchmark>_<algo>_<run>.csv`: Per-run convergence trajectory (`generation`, `best_fitness`, `converged`).
+  * `sr_benchmark_results_summary.csv`: Convergence rates and median final MSE for all benchmarks and configurations.
+  * `sr_benchmark_convergence_data.csv`: Aggregated median/Q1/Q3 fitness per generation for all configurations.
+  * `sr_benchmark_<benchmark>.png`: Convergence plot per benchmark.
+* **Notes**:
+  * Each run is spawned as an independent subprocess with a 600s CPU-time limit (`RLIMIT_CPU`) enforced by the kernel, so runs are fully isolated from each other.
+  * Automatically resumes if interrupted — completed run files on disk are skipped.
+
+#### `run_ssc_baseline.py`
+Runs a Semantic Similarity-based Crossover (SSC) baseline experiment (Uy et al., 2011) on 6 representative test functions, comparing SSC against standard crossover and mutation-only variants. Loads existing Regime A and B data from disk for the standard crossover baselines; runs only the new SSC configurations.
+* **Usage**:
+  ```bash
+  python3 run_ssc_baseline.py [output_dir]
+  ```
+* **Expected Output** (written to `output_dir`, default `ssc_results/`):
+  * `runs/ssc_<test>_<algo>_<run>.csv`: Per-run convergence trajectory for SSC configurations.
+  * `ssc_results_summary.csv`: Median final MSE comparison across all 5 configurations per test.
+  * `ssc_convergence_data.csv`: Aggregated median/Q1/Q3 fitness per generation.
+  * `ssc_test_<id>.png`: Convergence plot per test.
+* **Notes**:
+  * Same subprocess-per-run isolation model as `run_sr_benchmarks.py`.
+  * Requires existing convergence data in `results/standard_gp/convergence_data/` and `results/mutation_only/convergence_data/` for the reference cell (200 generations, population 100).
+
+---
+
+### 5. Statistical Analysis
 
 #### `eml_gp_stats.py`
 Calculates statistics for a specific grid cell comparison (Default: `200x100`).
