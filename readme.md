@@ -159,9 +159,22 @@ Automates the statistical analysis across all grid cells found in the results di
 * **Expected Output**:
   * Generates `all_cells_analysis.md` inside the results directory, containing full convergence and tree-size tables across all Swept grid cells.
 
+#### `dump_target_k.py`
+Computes the EML token count `K` for every study target and SR benchmark by **compiling** the formula into an actual EML tree (via `eml_core.compile`, substituting library witnesses and counting tokens) rather than relying on hand-written estimates. Replaces the hand-tabulated `K` values in Appendix C with compiler-produced upper bounds, numerically verifies each compiled tree against its target, and reports the associated plateau patience multipliers.
+* **Usage**:
+  ```bash
+  python3 dump_target_k.py [--json]
+  ```
+* **Expected Output**:
+  * A formatted table (or `--json` blob) of primitives, study targets, and SR benchmarks, each with `K`, operator count `m = (K-1)/2`, oddness check, patience multiplier, and a numerical `verified` flag (max relative error vs. the reference `cmath` implementation).
+  * Flags any tree whose token count is inconsistent with the reported `K`, and prints blocking/diagnostic notes for targets the compiler cannot synthesize.
+* **Notes**:
+  * Every `K` is an **upper bound** (a construction of that size exists) except where the underlying witness is annotated as proven minimal. `K` is always odd — an EML tree with `m` operators has exactly `2m+1` tokens.
+  * Requires the `eml-skill` witness library on the path (resolved automatically relative to this directory).
+
 ---
 
-### 5. Utility / Auxiliary Files
+### 6. Utility / Auxiliary Files
 
 #### `eml_simplify.py`
 A module containing helpers that convert a GP tree containing `eml` operators into a standard algebraic expression via SymPy.
@@ -183,3 +196,50 @@ Defines the `TEST_MATRIX` for all 12 test functions, data bounds, standard opera
 
 #### `seeds.py`
 Contains the 31 fixed deterministic seeds ensuring experimental replication.
+
+---
+
+### 7. Dense-K Synthetic-Target Experiment (`research/synthetic/`)
+
+A self-contained experiment that isolates the effect of EML complexity `K` on convergence by searching for targets whose `K` is **known by construction**. Every target is an EML tree over `{x, 1}` with exactly `m = (K-1)/2` operators, so expressibility is guaranteed and a 0% convergence result is unambiguously a *search* failure rather than an inexpressibility. The search itself is the main study's EML-GP verbatim (same `ga-lib` operators, ramped init, tournament, elitism, node cap, and plateau rule at the reference cell: pop 100, gen 200, node cap 2000, 600 s timeout), with two deliberate, documented deviations — normalised fitness (nMSE = MSE / Var(target)) and a numpy-vectorised evaluator.
+
+Full provenance, definitions, results-at-a-glance, and caveats live in **[`results/synthetic_dense_k/README.md`](results/synthetic_dense_k/README.md)** and the machine-readable `results/synthetic_dense_k/run_metadata.json`.
+
+Pipeline order: `make_targets.py` → (`make_targets_lowk.py`) → `run_synthetic.py` → `summarize.py` → `calibration.py` / `analysis_ncrit_vs_k.py` / `evaluator_agreement.py`.
+
+#### `eml_synth_core.py`
+Core library for the experiment: target parsing/evaluation, the vectorised evaluator, grid and held-out sampling, and a line-for-line transcription of `deduce_formula.py`'s reproduction loop at the reference cell. Documents the two deviations from the main study and provides `check_evaluator_agreement()`. Imported by the other scripts; not run directly.
+
+#### `make_targets.py`
+Generates, filters, and structurally measures the pre-registered dense-K targets (13 K levels, 7…31 × 30 targets, plus `reviewer_ce`). Acceptance filters run in protocol order (viability → novelty → irreducibility, with an exhaustive minimality audit for K ≤ 11).
+* **Usage**: `python3 make_targets.py`
+* **Writes** (to `results/synthetic_dense_k/`): `synthetic_targets.csv` (File 2), `synthetic_targets_extra.csv` (diagnostics), `targets.json` (input for the run), `target_generation_log.json` (rejection accounting).
+
+#### `make_targets_lowk.py`
+**Post-hoc** extension to K = 3 and K = 5 (outside the pre-registration), used to anchor the logistic fit's upper asymptote and calibrate against `exp(x)`. Spaces are enumerated exhaustively (4 trees at K=3, 16 at K=5). Writes `*_lowk` files kept separate from the contract; do **not** merge into Files 1–2.
+
+#### `run_synthetic.py`
+Executes the GP runs: 10 paired seeds × 2 regimes per target at the reference cell. Resumable — completed `(target_id, regime, seed)` triples are read back from the output CSV and skipped.
+* **Usage**: `python3 run_synthetic.py`
+* **Writes**: `synthetic_runs.csv` (File 1, one row per run).
+
+#### `summarize.py`
+Aggregates runs into `synthetic_summary_by_K.csv` (File 3, one row per (K, regime) with Wilson intervals) and assembles `run_metadata.json` (configuration, definitions, provenance including file SHA-1s, and caveats).
+* **Usage**: `python3 summarize.py`
+
+#### `calibration.py`
+Calibrates the synthetic instrument against the main study's real targets at the pop 100 / G 200 cell — both same-function (`exp(x) = K03_01`, `ln(x) = K07_07`, each re-scored under the main study's absolute MSE ≤ 1e-6 rule) and band-placement. Writes `calibration_same_function.csv` and `calibration_real_targets.csv`.
+
+#### `analysis_ncrit_vs_k.py`
+Indicative model comparison of `conv ~ K` vs. `conv ~ n_crit` (deviance / AIC / AUC) plus the within-K test of whether rigidity `α` separates outcomes at fixed K, fitted at both run level (cluster-robust SEs) and target level. Underlies `analysis_scale_vs_rigidity.txt`. Requires `statsmodels`.
+
+#### `evaluator_agreement.py`
+Validates the vectorised evaluator against the reference `cmath` evaluator on trees drawn from the GP's own generator, reporting the best fitness among disagreeing trees (`min_nmse_among_disagreements`) to confirm no disagreement can flip a converged outcome. Writes `evaluator_agreement.json`.
+
+---
+
+### 8. Reviewer Response Data (`results/*/`)
+
+Supporting data files for `review_response_generation_invariance.md` (the reviewer point on identical convergence rates across generation budgets in Tables 4 & 5):
+* `results/standard_gp/termination_generation_analysis.csv`, `results/mutation_only/termination_generation_analysis.csv` — per test × algorithm distribution of first-convergence and failure-termination generations across the 100/200/500 budgets.
+* `results/mutation_only/regimeB_convergence_rates_std.csv`, `results/mutation_only/regimeB_convergence_rates_eml.csv` — Regime B (mutation-only) convergence rates across the full 3×3 grid, documenting where the budget invariance is exact vs. approximate.

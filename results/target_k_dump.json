@@ -1,0 +1,634 @@
+{
+  "primitives": {
+    "+": {
+      "K": 19,
+      "odd": true,
+      "m_operators": 9,
+      "minimal": true
+    },
+    "-": {
+      "K": 11,
+      "odd": true,
+      "m_operators": 5,
+      "minimal": true
+    },
+    "*": {
+      "K": 17,
+      "odd": true,
+      "m_operators": 8,
+      "minimal": true
+    },
+    "/": {
+      "K": 17,
+      "odd": true,
+      "m_operators": 8,
+      "minimal": false
+    },
+    "exp": {
+      "K": 3,
+      "odd": true,
+      "m_operators": 1,
+      "minimal": true
+    },
+    "log": {
+      "K": 7,
+      "odd": true,
+      "m_operators": 3,
+      "minimal": true
+    },
+    "sqrt": {
+      "K": 59,
+      "odd": true,
+      "m_operators": 29,
+      "minimal": false
+    },
+    "sin": {
+      "K": 351,
+      "odd": true,
+      "m_operators": 175,
+      "minimal": false
+    },
+    "cos": {
+      "K": 269,
+      "odd": true,
+      "m_operators": 134,
+      "minimal": false
+    },
+    "tan": {
+      "K": 651,
+      "odd": true,
+      "m_operators": 325,
+      "minimal": false
+    },
+    "sinh": {
+      "K": 81,
+      "odd": true,
+      "m_operators": 40,
+      "minimal": false
+    },
+    "cosh": {
+      "K": 89,
+      "odd": true,
+      "m_operators": 44,
+      "minimal": false
+    },
+    "tanh": {
+      "K": 201,
+      "odd": true,
+      "m_operators": 100,
+      "minimal": false
+    },
+    "atan": {
+      "K": 355,
+      "odd": true,
+      "m_operators": 177,
+      "minimal": false
+    }
+  },
+  "targets": {
+    "1.1": {
+      "label": "1.1",
+      "name": "Phase 1: f(x) = exp(x)",
+      "formula": "exp(x)",
+      "patience_mult": 12,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log"
+      ],
+      "K": 3,
+      "odd": true,
+      "m_operators": 1,
+      "depth": 1,
+      "leaves": {
+        "1": 1,
+        "x": 1,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "exp"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 0.0,
+      "verified": true
+    },
+    "1.2": {
+      "label": "1.2",
+      "name": "Phase 1: f(x) = ln(x)",
+      "formula": "log(x)",
+      "patience_mult": 12,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log"
+      ],
+      "K": 7,
+      "odd": true,
+      "m_operators": 3,
+      "depth": 3,
+      "leaves": {
+        "1": 3,
+        "x": 1,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "ln"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 2.220446049250313e-16,
+      "verified": true
+    },
+    "1.3": {
+      "label": "1.3",
+      "name": "Phase 1: f(x1, x2) = x1 + x2",
+      "formula": "x + y",
+      "patience_mult": 16,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/"
+      ],
+      "K": 19,
+      "odd": true,
+      "m_operators": 9,
+      "depth": 8,
+      "leaves": {
+        "1": 8,
+        "x": 1,
+        "y": 1
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "add"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 3.700743415417188e-16,
+      "verified": true
+    },
+    "1.4": {
+      "label": "1.4",
+      "name": "Phase 1: f(x) = exp(x) * exp(-x^2)  [EML home territory]",
+      "formula": "exp(x)*exp(-x**2)",
+      "patience_mult": 12,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log"
+      ],
+      "K": 53,
+      "odd": true,
+      "m_operators": 26,
+      "depth": 19,
+      "leaves": {
+        "1": 24,
+        "x": 3,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "exp",
+        "exp",
+        "mult",
+        "mult",
+        "neg"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 8.668068716254647e-16,
+      "verified": true
+    },
+    "2.1": {
+      "label": "2.1",
+      "name": "Phase 2: f(x) = sin(x) + cos(x)",
+      "formula": "sin(x) + cos(x)",
+      "patience_mult": 191,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "sin",
+        "cos",
+        "tan"
+      ],
+      "K": 637,
+      "odd": true,
+      "m_operators": 318,
+      "depth": 58,
+      "leaves": {
+        "1": 315,
+        "x": 4,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "add",
+        "cos",
+        "sin"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 1.7159246124112605e-15,
+      "verified": true
+    },
+    "3.1": {
+      "label": "3.1",
+      "name": "Phase 3: f(x) = sinh(x)",
+      "formula": "sinh(x)",
+      "patience_mult": 49,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log",
+        "sinh",
+        "cosh",
+        "tanh"
+      ],
+      "K": 81,
+      "odd": true,
+      "m_operators": 40,
+      "depth": 18,
+      "leaves": {
+        "1": 39,
+        "x": 2,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "sinh"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 2.220446049250313e-16,
+      "verified": true
+    },
+    "3.2": {
+      "label": "3.2",
+      "name": "Phase 3: f(x) = arctan(x)",
+      "formula": "atan(x)",
+      "patience_mult": 170,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log",
+        "sin",
+        "cos",
+        "tan",
+        "atan"
+      ],
+      "K": 355,
+      "odd": true,
+      "m_operators": 177,
+      "depth": 46,
+      "leaves": {
+        "1": 176,
+        "x": 2,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "atan"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 5.551115123125783e-16,
+      "verified": true
+    },
+    "3.3": {
+      "label": "3.3",
+      "name": "Phase 3: f(x) = x^x",
+      "formula": "x**x",
+      "patience_mult": 19,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log",
+        "sqrt"
+      ],
+      "K": 25,
+      "odd": true,
+      "m_operators": 12,
+      "depth": 9,
+      "leaves": {
+        "1": 11,
+        "x": 2,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "pow"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 6.661338147750939e-16,
+      "verified": true
+    },
+    "3.4": {
+      "label": "3.4",
+      "name": "Phase 3: f(x) = 1 / (1 + exp(-x))  [sigmoid]",
+      "formula": "1/(1 + exp(-x))",
+      "patience_mult": 12,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log"
+      ],
+      "K": 53,
+      "odd": true,
+      "m_operators": 26,
+      "depth": 17,
+      "leaves": {
+        "1": 26,
+        "x": 1,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "add",
+        "exp",
+        "inv",
+        "neg"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 5.551115123125783e-16,
+      "verified": true
+    },
+    "3.5": {
+      "label": "3.5",
+      "name": "Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]",
+      "formula": "x**3 - 2*x**2 + x",
+      "patience_mult": 16,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/"
+      ],
+      "K": 135,
+      "odd": true,
+      "m_operators": 67,
+      "depth": 26,
+      "leaves": {
+        "1": 62,
+        "x": 6,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "add",
+        "add",
+        "add",
+        "mult",
+        "mult",
+        "mult",
+        "mult",
+        "neg"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 2.44288661604267e-15,
+      "verified": true
+    },
+    "4.1": {
+      "label": "4.1",
+      "name": "Phase 4: f(x) = exp(sin(x)) + ln(x^2 + 1)",
+      "formula": "exp(sin(x)) + log(x**2 + 1)",
+      "patience_mult": 149,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log",
+        "sin",
+        "cos",
+        "tan"
+      ],
+      "K": 411,
+      "odd": true,
+      "m_operators": 205,
+      "depth": 57,
+      "leaves": {
+        "1": 202,
+        "x": 4,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "add",
+        "add",
+        "exp",
+        "ln",
+        "mult",
+        "sin"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 4.984614438088129e-16,
+      "verified": true
+    },
+    "4.2": {
+      "label": "4.2",
+      "name": "Phase 4: f(x1, x2) = sin(x1*exp(x2)) - cos(ln(x1^2+x2^2+0.1))",
+      "formula": "sin(x*exp(y)) - cos(log(x**2 + y**2 + Rational(1,10)))",
+      "patience_mult": 149,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log",
+        "sin",
+        "cos",
+        "tan"
+      ],
+      "K": 1085,
+      "odd": true,
+      "m_operators": 542,
+      "depth": 86,
+      "leaves": {
+        "1": 531,
+        "x": 6,
+        "y": 6
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "add",
+        "add",
+        "add",
+        "add",
+        "cos",
+        "exp",
+        "inv",
+        "ln",
+        "mult",
+        "mult",
+        "mult",
+        "mult",
+        "mult",
+        "mult",
+        "sin",
+        "sub"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 1.4779364494563462e-15,
+      "verified": true
+    }
+  },
+  "sr_benchmarks": {
+    "nguyen1": {
+      "label": "nguyen1",
+      "name": "nguyen1",
+      "formula": "x**3 + x**2 + x",
+      "patience_mult": 12,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log"
+      ],
+      "K": 85,
+      "odd": true,
+      "m_operators": 42,
+      "depth": 20,
+      "leaves": {
+        "1": 37,
+        "x": 6,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "add",
+        "add",
+        "mult",
+        "mult",
+        "mult"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 2.896863730267858e-16,
+      "verified": true
+    },
+    "nguyen7": {
+      "label": "nguyen7",
+      "name": "nguyen7",
+      "formula": "log(x + 1) + log(x**2 + 1)",
+      "patience_mult": 12,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log"
+      ],
+      "K": 83,
+      "odd": true,
+      "m_operators": 41,
+      "depth": 19,
+      "leaves": {
+        "1": 39,
+        "x": 3,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [],
+      "used_witnesses": [
+        "add",
+        "add",
+        "add",
+        "ln",
+        "ln",
+        "mult"
+      ],
+      "status": "compiled",
+      "verify_max_rel_error": 5.551115123125783e-16,
+      "verified": true
+    },
+    "keijzer6": {
+      "label": "keijzer6",
+      "name": "keijzer6",
+      "formula": null,
+      "patience_mult": 12,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log"
+      ],
+      "K": null,
+      "status": "not an elementary closed form; no compilation"
+    },
+    "vladislavleva4": {
+      "label": "vladislavleva4",
+      "name": "vladislavleva4",
+      "formula": "10/(5 + (x1-3)**2 + (x2-3)**2 + (x3-3)**2 + (x4-3)**2 + (x5-3)**2)",
+      "patience_mult": 12,
+      "std_ops": [
+        "+",
+        "-",
+        "*",
+        "/",
+        "exp",
+        "log"
+      ],
+      "K": null,
+      "odd": null,
+      "m_operators": null,
+      "depth": -1,
+      "leaves": {
+        "1": 0,
+        "x": 0,
+        "y": 0
+      },
+      "needs_tree": [],
+      "diagnostics": [
+        "unknown symbol 'x1' (only x and y are leaves)"
+      ],
+      "used_witnesses": [
+        "add",
+        "add",
+        "add",
+        "mult",
+        "mult",
+        "neg"
+      ],
+      "status": "blocked"
+    }
+  }
+}
