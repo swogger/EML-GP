@@ -1,0 +1,21 @@
+Loaded Test 1.2: Phase 1: f(x) = ln(x)
+Mode: EML-only  |  operator set: ['eml']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=600  master_seed=18993484
+GEN 0 BEST 7.412729420e-02 VAL 7.412729420e-02 NODES 205 MEDIAN 63
+GEN 1 BEST 7.412729420e-02 VAL 7.412729420e-02 NODES 205 MEDIAN 39
+GEN 2 BEST 6.981353294e-04 VAL 6.981353294e-04 NODES 9 MEDIAN 33
+GEN 3 BEST 1.605421535e-33 VAL 1.605421535e-33 NODES 227 MEDIAN 195
+Perfect solution found at generation 3! Stopping.
+STOP_REASON converged
+LAST_GEN 3
+FINAL_ERR 1.6054215354829923e-33
+FINAL_NODES 227
+FINAL_TREE (((1.0 eml (1.0 eml ((((x eml (1.0 eml x)) eml ((1.0 eml x) eml (x eml x))) eml ((((1.0 eml (1.0 eml 1.0)) eml ((x eml x) eml (1.0 eml x))) eml x) eml ((1.0 eml x) eml 1.0))) eml 1.0))) eml ((x eml (((((x eml 1.0) eml (x eml x)) eml (1.0 eml (1.0 eml x))) eml (((x eml x) eml (1.0 eml 1.0)) eml 1.0)) eml 1.0)) eml ((x eml ((((1.0 eml 1.0) eml (1.0 eml 1.0)) eml ((1.0 eml 1.0) eml (x eml 1.0))) eml x)) eml (((((1.0 eml 1.0) eml (x eml 1.0)) eml ((1.0 eml 1.0) eml (1.0 eml 1.0))) eml ((x eml (x eml 1.0)) eml (1.0 eml (x eml 1.0)))) eml ((((1.0 eml x) eml (x eml x)) eml ((1.0 eml x) eml (1.0 eml 1.0))) eml x))))) eml ((((((x eml ((1.0 eml (1.0 eml 1.0)) eml (1.0 eml 1.0))) eml (((x eml 1.0) eml (x eml x)) eml ((x eml 1.0) eml (1.0 eml 1.0)))) eml ((((x eml x) eml (1.0 eml x)) eml (x eml (1.0 eml 1.0))) eml (((x eml 1.0) eml (1.0 eml 1.0)) eml 1.0))) eml ((1.0 eml (x eml ((1.0 eml x) eml (1.0 eml 1.0)))) eml ((((x eml x) eml (1.0 eml 1.0)) eml ((x eml x) eml x)) eml (x eml ((1.0 eml 1.0) eml (1.0 eml x)))))) eml x) eml 1.0))
+
+===============================
+EML GP Evolution complete.
+Best Formula: Result = (((1.0 eml (1.0 eml ((((x eml (1.0 eml x)) eml ((1.0 eml x) eml (x eml x))) eml ((((1.0 eml (1.0 eml 1.0)) eml ((x eml x) eml (1.0 eml x))) eml x) eml ((1.0 eml x) eml 1.0))) eml 1.0))) eml ((x eml (((((x eml 1.0) eml (x eml x)) eml (1.0 eml (1.0 eml x))) eml (((x eml x) eml (1.0 eml 1.0)) eml 1.0)) eml 1.0)) eml ((x eml ((((1.0 eml 1.0) eml (1.0 eml 1.0)) eml ((1.0 eml 1.0) eml (x eml 1.0))) eml x)) eml (((((1.0 eml 1.0) eml (x eml 1.0)) eml ((1.0 eml 1.0) eml (1.0 eml 1.0))) eml ((x eml (x eml 1.0)) eml (1.0 eml (x eml 1.0)))) eml ((((1.0 eml x) eml (x eml x)) eml ((1.0 eml x) eml (1.0 eml 1.0))) eml x))))) eml ((((((x eml ((1.0 eml (1.0 eml 1.0)) eml (1.0 eml 1.0))) eml (((x eml 1.0) eml (x eml x)) eml ((x eml 1.0) eml (1.0 eml 1.0)))) eml ((((x eml x) eml (1.0 eml x)) eml (x eml (1.0 eml 1.0))) eml (((x eml 1.0) eml (1.0 eml 1.0)) eml 1.0))) eml ((1.0 eml (x eml ((1.0 eml x) eml (1.0 eml 1.0)))) eml ((((x eml x) eml (1.0 eml 1.0)) eml ((x eml x) eml x)) eml (x eml ((1.0 eml 1.0) eml (1.0 eml x)))))) eml x) eml 1.0))
+EML Raw Tree: (((1.0 eml (1.0 eml ((((x eml (1.0 eml x)) eml ((1.0 eml x) eml (x eml x))) eml ((((1.0 eml (1.0 eml 1.0)) eml ((x eml x) eml (1.0 eml x))) eml x) eml ((1.0 eml x) eml 1.0))) eml 1.0))) eml ((x eml (((((x eml 1.0) eml (x eml x)) eml (1.0 eml (1.0 eml x))) eml (((x eml x) eml (1.0 eml 1.0)) eml 1.0)) eml 1.0)) eml ((x eml ((((1.0 eml 1.0) eml (1.0 eml 1.0)) eml ((1.0 eml 1.0) eml (x eml 1.0))) eml x)) eml (((((1.0 eml 1.0) eml (x eml 1.0)) eml ((1.0 eml 1.0) eml (1.0 eml 1.0))) eml ((x eml (x eml 1.0)) eml (1.0 eml (x eml 1.0)))) eml ((((1.0 eml x) eml (x eml x)) eml ((1.0 eml x) eml (1.0 eml 1.0))) eml x))))) eml ((((((x eml ((1.0 eml (1.0 eml 1.0)) eml (1.0 eml 1.0))) eml (((x eml 1.0) eml (x eml x)) eml ((x eml 1.0) eml (1.0 eml 1.0)))) eml ((((x eml x) eml (1.0 eml x)) eml (x eml (1.0 eml 1.0))) eml (((x eml 1.0) eml (1.0 eml 1.0)) eml 1.0))) eml ((1.0 eml (x eml ((1.0 eml x) eml (1.0 eml 1.0)))) eml ((((x eml x) eml (1.0 eml 1.0)) eml ((x eml x) eml x)) eml (x eml ((1.0 eml 1.0) eml (1.0 eml x)))))) eml x) eml 1.0))
+Node count: 227
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

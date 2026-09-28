@@ -1,0 +1,28 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=2107424273
+GEN 0 BEST 1.001363358e+02 VAL 1.001363358e+02 NODES 37 MEDIAN 26
+GEN 1 BEST 1.001363358e+02 VAL 1.001363358e+02 NODES 37 MEDIAN 80
+GEN 2 BEST 1.001363358e+02 VAL 1.001363358e+02 NODES 37 MEDIAN 69
+GEN 3 BEST 9.360571223e+00 VAL 9.360571223e+00 NODES 46 MEDIAN 51
+GEN 4 BEST 5.234706423e+00 VAL 5.234706423e+00 NODES 47 MEDIAN 43
+GEN 5 BEST 4.985710146e+00 VAL 4.985710146e+00 NODES 44 MEDIAN 41
+GEN 6 BEST 4.238249835e+00 VAL 4.238249835e+00 NODES 43 MEDIAN 44
+GEN 7 BEST 1.361511273e+00 VAL 1.361511273e+00 NODES 43 MEDIAN 46
+GEN 8 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 54 MEDIAN 50
+GEN 9 BEST 5.351796203e-01 VAL 5.351796203e-01 NODES 58 MEDIAN 56
+GEN 10 BEST 2.059889928e-29 VAL 2.059889928e-29 NODES 21 MEDIAN 47
+Perfect solution found at generation 10! Stopping.
+STOP_REASON converged
+LAST_GEN 10
+FINAL_ERR 2.0598899275990345e-29
+FINAL_NODES 21
+FINAL_TREE (x - ((((1.0 - 1.0) + (x * x)) * ((1.0 * 1.0) + (1.0 - x))) + (1.0 - 1.0)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (x - ((((1.0 - 1.0) + (x * x)) * ((1.0 * 1.0) + (1.0 - x))) + (1.0 - 1.0)))
+Node count: 21
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

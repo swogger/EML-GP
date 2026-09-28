@@ -1,0 +1,30 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Mode: Standard  |  operator set: ['+', '-', '*', '/']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=957201023
+GEN 0 BEST 1.638164555e+03 VAL 1.638164555e+03 NODES 17 MEDIAN 63
+GEN 1 BEST 5.049546638e+02 VAL 5.049546638e+02 NODES 41 MEDIAN 19
+GEN 2 BEST 5.049546638e+02 VAL 5.091795868e+02 NODES 43 MEDIAN 23
+GEN 3 BEST 1.242157655e+02 VAL 1.242157655e+02 NODES 49 MEDIAN 29
+GEN 4 BEST 1.128827520e+02 VAL 1.128827520e+02 NODES 73 MEDIAN 41
+GEN 5 BEST 3.381375389e+01 VAL 3.381375389e+01 NODES 47 MEDIAN 49
+GEN 6 BEST 3.381375389e+01 VAL 3.381375389e+01 NODES 47 MEDIAN 55
+GEN 7 BEST 3.381375389e+01 VAL 4.898355829e+01 NODES 81 MEDIAN 63
+GEN 8 BEST 8.444760216e+00 VAL 8.444760216e+00 NODES 49 MEDIAN 57
+GEN 9 BEST 8.444760216e+00 VAL 8.962116727e+00 NODES 53 MEDIAN 49
+GEN 10 BEST 8.444760216e+00 VAL 8.444760216e+00 NODES 49 MEDIAN 49
+GEN 11 BEST 8.444760216e+00 VAL 8.444760216e+00 NODES 49 MEDIAN 55
+GEN 12 BEST 8.444760216e+00 VAL 8.444760216e+00 NODES 49 MEDIAN 51
+GEN 13 BEST 3.765605672e-29 VAL 3.765605672e-29 NODES 53 MEDIAN 53
+Perfect solution found at generation 13! Stopping.
+STOP_REASON converged
+LAST_GEN 13
+FINAL_ERR 3.765605671767631e-29
+FINAL_NODES 53
+FINAL_TREE ((1.0 + (((x - x) / ((((x - (x + 1.0)) * 1.0) * x) - (x + 1.0))) * (x - ((1.0 - 1.0) / (1.0 - (x + x)))))) * (((x * (x * x)) + x) - (((x * x) / (1.0 / 1.0)) + ((1.0 * x) * x))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = ((1.0 + (((x - x) / ((((x - (x + 1.0)) * 1.0) * x) - (x + 1.0))) * (x - ((1.0 - 1.0) / (1.0 - (x + x)))))) * (((x * (x * x)) + x) - (((x * x) / (1.0 / 1.0)) + ((1.0 * x) * x))))
+Node count: 53
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

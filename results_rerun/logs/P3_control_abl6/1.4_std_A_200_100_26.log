@@ -1,0 +1,26 @@
+Loaded Test 1.4: Phase 1: f(x) = exp(x) * exp(-x^2)  [EML home territory]
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1920334965
+GEN 0 BEST 3.787840463e-01 VAL 3.787840463e-01 NODES 7 MEDIAN 27
+GEN 1 BEST 3.787840463e-01 VAL 3.787840463e-01 NODES 7 MEDIAN 9
+GEN 2 BEST 3.787840463e-01 VAL 4.006295857e-01 NODES 14 MEDIAN 7
+GEN 3 BEST 1.593745073e-01 VAL 1.593745073e-01 NODES 34 MEDIAN 11
+GEN 4 BEST 1.593745073e-01 VAL 1.593745073e-01 NODES 34 MEDIAN 12
+GEN 5 BEST 7.450754217e-02 VAL 7.450754217e-02 NODES 28 MEDIAN 14
+GEN 6 BEST 7.410317151e-02 VAL 7.410317151e-02 NODES 29 MEDIAN 23
+GEN 7 BEST 7.410317151e-02 VAL 7.450754217e-02 NODES 28 MEDIAN 25
+GEN 8 BEST 5.686188731e-33 VAL 5.686188731e-33 NODES 12 MEDIAN 28
+Perfect solution found at generation 8! Stopping.
+STOP_REASON converged
+LAST_GEN 8
+FINAL_ERR 5.68618873057727e-33
+FINAL_NODES 12
+FINAL_TREE (exp((exp((x - x)) * x)) / exp((x * x)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (exp((exp((x - x)) * x)) / exp((x * x)))
+Node count: 12
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

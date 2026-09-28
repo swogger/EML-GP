@@ -1,0 +1,25 @@
+Loaded Test 1.4: Phase 1: f(x) = exp(x) * exp(-x^2)  [EML home territory]
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=215858185
+GEN 0 BEST 1.485765046e-01 VAL 1.485765046e-01 NODES 18 MEDIAN 18
+GEN 1 BEST 9.015097855e-02 VAL 9.015097855e-02 NODES 14 MEDIAN 14
+GEN 2 BEST 9.015097855e-02 VAL 9.015097855e-02 NODES 14 MEDIAN 15
+GEN 3 BEST 8.512618974e-02 VAL 8.512618974e-02 NODES 10 MEDIAN 18
+GEN 4 BEST 7.982040306e-02 VAL 7.982040306e-02 NODES 10 MEDIAN 15
+GEN 5 BEST 7.982040306e-02 VAL 7.982040306e-02 NODES 10 MEDIAN 15
+GEN 6 BEST 7.982040306e-02 VAL 7.982040306e-02 NODES 10 MEDIAN 18
+GEN 7 BEST 7.373166064e-33 VAL 7.373166064e-33 NODES 6 MEDIAN 19
+Perfect solution found at generation 7! Stopping.
+STOP_REASON converged
+LAST_GEN 7
+FINAL_ERR 7.373166064120313e-33
+FINAL_NODES 6
+FINAL_TREE exp((x - (x * x)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp((x - (x * x)))
+Node count: 6
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

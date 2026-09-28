@@ -1,0 +1,56 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Mode: Standard  |  operator set: ['+', '-', '*', '/']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=449904892
+GEN 0 BEST 1.315702972e+03 VAL 1.315702972e+03 NODES 71 MEDIAN 63
+GEN 1 BEST 1.076512534e+02 VAL 1.076512534e+02 NODES 41 MEDIAN 21
+GEN 2 BEST 1.076512534e+02 VAL 1.076512534e+02 NODES 41 MEDIAN 41
+GEN 3 BEST 5.546015531e+01 VAL 5.546015531e+01 NODES 53 MEDIAN 71
+GEN 4 BEST 2.952171457e-01 VAL 2.952171457e-01 NODES 91 MEDIAN 71
+GEN 5 BEST 2.952171457e-01 VAL 2.952171457e-01 NODES 91 MEDIAN 69
+GEN 6 BEST 2.952171457e-01 VAL 2.952171457e-01 NODES 91 MEDIAN 67
+GEN 7 BEST 1.760197026e-01 VAL 1.760197026e-01 NODES 49 MEDIAN 85
+GEN 8 BEST 1.760197026e-01 VAL 1.760197026e-01 NODES 49 MEDIAN 93
+GEN 9 BEST 1.760197026e-01 VAL 1.760197026e-01 NODES 49 MEDIAN 95
+GEN 10 BEST 1.760197026e-01 VAL 1.760197026e-01 NODES 49 MEDIAN 107
+GEN 11 BEST 1.760197026e-01 VAL 1.992041843e-01 NODES 93 MEDIAN 109
+GEN 12 BEST 1.760197026e-01 VAL 1.992041843e-01 NODES 95 MEDIAN 113
+GEN 13 BEST 1.760197026e-01 VAL 1.795774528e-01 NODES 93 MEDIAN 97
+GEN 14 BEST 4.221277721e-02 VAL 4.221277721e-02 NODES 103 MEDIAN 61
+GEN 15 BEST 4.221277721e-02 VAL 4.221277721e-02 NODES 103 MEDIAN 99
+GEN 16 BEST 4.221277721e-02 VAL 2.459693890e-01 NODES 199 MEDIAN 123
+GEN 17 BEST 4.221277721e-02 VAL 2.027620700e-01 NODES 307 MEDIAN 179
+GEN 18 BEST 2.423479210e-02 VAL 2.423479210e-02 NODES 137 MEDIAN 155
+GEN 19 BEST 1.271998602e-03 VAL 1.271998602e-03 NODES 265 MEDIAN 155
+GEN 20 BEST 1.271998602e-03 VAL 3.237221240e-02 NODES 137 MEDIAN 149
+GEN 21 BEST 5.130140166e-04 VAL 5.130140166e-04 NODES 177 MEDIAN 149
+GEN 22 BEST 2.946823213e-04 VAL 2.946823213e-04 NODES 229 MEDIAN 145
+GEN 23 BEST 2.186921274e-04 VAL 2.186921274e-04 NODES 253 MEDIAN 145
+GEN 24 BEST 1.721503608e-04 VAL 1.721503608e-04 NODES 229 MEDIAN 227
+GEN 25 BEST 1.721503608e-04 VAL 1.721503608e-04 NODES 229 MEDIAN 229
+GEN 26 BEST 1.394937474e-04 VAL 1.394937474e-04 NODES 309 MEDIAN 233
+GEN 27 BEST 1.146330508e-04 VAL 1.146330508e-04 NODES 283 MEDIAN 235
+GEN 28 BEST 1.146330508e-04 VAL 4.326211181e-04 NODES 419 MEDIAN 309
+GEN 29 BEST 4.134092989e-05 VAL 4.134092989e-05 NODES 327 MEDIAN 447
+GEN 30 BEST 4.134092989e-05 VAL 8.960486024e-03 NODES 743 MEDIAN 459
+GEN 31 BEST 4.134092989e-05 VAL 8.960486024e-03 NODES 743 MEDIAN 531
+GEN 32 BEST 4.134092989e-05 VAL 7.488058029e-05 NODES 551 MEDIAN 549
+GEN 33 BEST 2.908370060e-05 VAL 2.908370060e-05 NODES 425 MEDIAN 551
+GEN 34 BEST 2.908370060e-05 VAL 4.538903042e-05 NODES 551 MEDIAN 551
+GEN 35 BEST 2.908370060e-05 VAL 2.913895680e-05 NODES 497 MEDIAN 553
+GEN 36 BEST 1.358614271e-05 VAL 1.358614271e-05 NODES 443 MEDIAN 553
+GEN 37 BEST 2.133416293e-06 VAL 2.133416293e-06 NODES 499 MEDIAN 449
+GEN 38 BEST 2.133416293e-06 VAL 2.101530043e-05 NODES 921 MEDIAN 451
+GEN 39 BEST 8.523107491e-07 VAL 8.523107491e-07 NODES 495 MEDIAN 465
+Perfect solution found at generation 39! Stopping.
+STOP_REASON converged
+LAST_GEN 39
+FINAL_ERR 8.523107490996438e-07
+FINAL_NODES 495
+FINAL_TREE (x * (((1.0 - (((x * (((((x * 1.0) / 1.0) - ((x / ((x / x) + ((x - 1.0) + (((x / 1.0) / (x / 1.0)) - (((((x * x) / (x / ((((((x * x) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) - (((((((((x * x) / x) - (x - (x * x))) - (((((x * x) / (x / 1.0)) - x) + 1.0) / ((1.0 / x) + ((x + 1.0) + 1.0)))) - (x / (x * (1.0 / (x + (1.0 / (x / 1.0))))))) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) - (x * x))) - (((((x * x) / (x / 1.0)) - x) + 1.0) / ((1.0 / x) + ((x + 1.0) + 1.0)))) - (x / (x * (1.0 / (x + ((x * (x / 1.0)) / (x / 1.0))))))))))) - x)) - x) - x)) / ((1.0 / x) + (x + (((x / 1.0) / (x / 1.0)) - (((((x * x) / (x / ((((((((((x * x) / (x / ((((((x * (x / 1.0)) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) - (x - (x * x))) - (((((x * x) / (x / 1.0)) - x) + 1.0) / ((1.0 / x) + ((x + 1.0) + 1.0)))) - (x / (x * (1.0 / (x + (1.0 / (x / 1.0))))))) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / ((((((((x * x) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) + (x / (x * (1.0 / (x + x))))) * 1.0) + (x / (x * ((x * (1.0 / (x + x))) / (x + x))))) / 1.0))))) - ((x / x) - (x * x))) - (((((x * x) / (x / x)) - x) + 1.0) / ((1.0 / x) + ((x + 1.0) + 1.0)))) - (x / (x * (1.0 / (x + (x - 1.0)))))))))) - (x * x))) - x) - x))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (x * (((1.0 - (((x * (((((x * 1.0) / 1.0) - ((x / ((x / x) + ((x - 1.0) + (((x / 1.0) / (x / 1.0)) - (((((x * x) / (x / ((((((x * x) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) - (((((((((x * x) / x) - (x - (x * x))) - (((((x * x) / (x / 1.0)) - x) + 1.0) / ((1.0 / x) + ((x + 1.0) + 1.0)))) - (x / (x * (1.0 / (x + (1.0 / (x / 1.0))))))) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) - (x * x))) - (((((x * x) / (x / 1.0)) - x) + 1.0) / ((1.0 / x) + ((x + 1.0) + 1.0)))) - (x / (x * (1.0 / (x + ((x * (x / 1.0)) / (x / 1.0))))))))))) - x)) - x) - x)) / ((1.0 / x) + (x + (((x / 1.0) / (x / 1.0)) - (((((x * x) / (x / ((((((((((x * x) / (x / ((((((x * (x / 1.0)) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) - (x - (x * x))) - (((((x * x) / (x / 1.0)) - x) + 1.0) / ((1.0 / x) + ((x + 1.0) + 1.0)))) - (x / (x * (1.0 / (x + (1.0 / (x / 1.0))))))) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / ((((((((x * x) / (x / ((((1.0 * x) * 1.0) + (x / (x * (1.0 / (x + x))))) / ((x - 1.0) / (x / 1.0))))) * x) * 1.0) + (x / (x * (1.0 / (x + x))))) * 1.0) + (x / (x * ((x * (1.0 / (x + x))) / (x + x))))) / 1.0))))) - ((x / x) - (x * x))) - (((((x * x) / (x / x)) - x) + 1.0) / ((1.0 / x) + ((x + 1.0) + 1.0)))) - (x / (x * (1.0 / (x + (x - 1.0)))))))))) - (x * x))) - x) - x))
+Node count: 495
+Final MSE:  0.00000085
+Status: CONVERGED (perfect solution)

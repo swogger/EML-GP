@@ -1,0 +1,38 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1845143962
+GEN 0 BEST 5.406771532e+02 VAL 5.406771532e+02 NODES 43 MEDIAN 15
+GEN 1 BEST 2.839996506e+02 VAL 2.839996506e+02 NODES 58 MEDIAN 20
+GEN 2 BEST 2.839996506e+02 VAL 2.839996506e+02 NODES 58 MEDIAN 69
+GEN 3 BEST 2.749147708e+02 VAL 2.749147708e+02 NODES 64 MEDIAN 69
+GEN 4 BEST 1.554036196e+02 VAL 1.554036196e+02 NODES 50 MEDIAN 57
+GEN 5 BEST 1.454487204e+02 VAL 1.454487204e+02 NODES 51 MEDIAN 62
+GEN 6 BEST 9.158633732e+01 VAL 9.158633732e+01 NODES 45 MEDIAN 62
+GEN 7 BEST 2.818170729e+01 VAL 2.818170729e+01 NODES 72 MEDIAN 64
+GEN 8 BEST 2.818170729e+01 VAL 2.818170729e+01 NODES 72 MEDIAN 62
+GEN 9 BEST 2.818170729e+01 VAL 2.818170729e+01 NODES 72 MEDIAN 62
+GEN 10 BEST 1.810163868e+01 VAL 1.810163868e+01 NODES 77 MEDIAN 72
+GEN 11 BEST 8.688529512e+00 VAL 8.688529512e+00 NODES 42 MEDIAN 74
+GEN 12 BEST 8.688529512e+00 VAL 8.688529512e+00 NODES 42 MEDIAN 75
+GEN 13 BEST 8.688529512e+00 VAL 8.688529512e+00 NODES 42 MEDIAN 79
+GEN 14 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 42 MEDIAN 97
+GEN 15 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 42 MEDIAN 110
+GEN 16 BEST 4.679364250e-01 VAL 4.679364250e-01 NODES 38 MEDIAN 115
+GEN 17 BEST 4.679364250e-01 VAL 4.679364250e-01 NODES 38 MEDIAN 117
+GEN 18 BEST 4.679364250e-01 VAL 5.078542325e-01 NODES 38 MEDIAN 123
+GEN 19 BEST 4.565571062e-01 VAL 4.565571062e-01 NODES 43 MEDIAN 111
+GEN 20 BEST 7.913364903e-29 VAL 7.913364903e-29 NODES 101 MEDIAN 94
+Perfect solution found at generation 20! Stopping.
+STOP_REASON converged
+LAST_GEN 20
+FINAL_ERR 7.913364903392729e-29
+FINAL_NODES 101
+FINAL_TREE ((exp(log(x)) * (((((log(1.0) * log(((exp(log(log(x))) * (((((log(cos(1.0)) * (1.0 * 1.0)) - ((1.0 - x) * cos(cos(cos((1.0 + 1.0)))))) / (1.0 - log(cos(1.0)))) - ((1.0 * ((1.0 - x) * x)) * cos(cos(((1.0 * ((1.0 - x) * x)) * 1.0))))) + log((log(exp((x - 1.0))) * sin((1.0 - (1.0 - 1.0))))))) + x))) - x) / (1.0 - log(1.0))) - ((1.0 * ((1.0 - x) * x)) * 1.0)) + 1.0)) + sin(((1.0 - 1.0) * (1.0 + x))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = ((exp(log(x)) * (((((log(1.0) * log(((exp(log(log(x))) * (((((log(cos(1.0)) * (1.0 * 1.0)) - ((1.0 - x) * cos(cos(cos((1.0 + 1.0)))))) / (1.0 - log(cos(1.0)))) - ((1.0 * ((1.0 - x) * x)) * cos(cos(((1.0 * ((1.0 - x) * x)) * 1.0))))) + log((log(exp((x - 1.0))) * sin((1.0 - (1.0 - 1.0))))))) + x))) - x) / (1.0 - log(1.0))) - ((1.0 * ((1.0 - x) * x)) * 1.0)) + 1.0)) + sin(((1.0 - 1.0) * (1.0 + x))))
+Node count: 101
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

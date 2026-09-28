@@ -1,0 +1,19 @@
+Loaded Test 3.2: Phase 3: f(x) = arctan(x)
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos', 'tan', 'atan']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=957201023
+GEN 0 BEST 8.107674530e-02 VAL 8.107674530e-02 NODES 6 MEDIAN 12
+GEN 1 BEST 1.493588512e-02 VAL 1.493588512e-02 NODES 12 MEDIAN 13
+GEN 2 BEST 6.631368003e-34 VAL 6.631368003e-34 NODES 13 MEDIAN 14
+Perfect solution found at generation 2! Stopping.
+STOP_REASON converged
+LAST_GEN 2
+FINAL_ERR 6.631368003045207e-34
+FINAL_NODES 13
+FINAL_TREE log(exp(atan(((cos((x / 1.0)) * (1.0 - 1.0)) + x))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = log(exp(atan(((cos((x / 1.0)) * (1.0 - 1.0)) + x))))
+Node count: 13
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

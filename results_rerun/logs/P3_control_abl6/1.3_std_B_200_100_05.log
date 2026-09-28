@@ -1,0 +1,18 @@
+Loaded Test 1.3: Phase 1: f(x1, x2) = x1 + x2
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1753007184
+GEN 0 BEST 1.191287002e-31 VAL 1.191287002e-31 NODES 13 MEDIAN 28
+Perfect solution found at generation 0! Stopping.
+STOP_REASON converged
+LAST_GEN 0
+FINAL_ERR 1.191287002121845e-31
+FINAL_NODES 13
+FINAL_TREE (exp((log((log(x1) / (x2 - x2))) + log(x1))) + x2)
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (exp((log((log(x1) / (x2 - x2))) + log(x1))) + x2)
+Node count: 13
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

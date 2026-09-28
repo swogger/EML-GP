@@ -1,0 +1,5 @@
+== P8_control_fix8: 720 rows, 720 unique keys, duplicates 0, statuses {'converged': 227, 'plateau': 218, 'budget': 126, 'cpu_limit': 149}
+   status vs final_err inconsistencies: 0 []
+   functional equivalence: 224/227 converged runs equivalent (1e-9 relative, dense grid)
+   by algo/regime: {'std-A': '111/113', 'std-B': '113/114'}
+   non-equivalent converged runs (key, worst rel err): [('1.3|std|B|200|100|26', '3.94e-04'), ('3.4|std|A|200|100|01', '3.87e-08'), ('3.5|std|A|200|100|03', '1.21e-03')]

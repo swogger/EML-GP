@@ -1,0 +1,23 @@
+Loaded Test 1.2: Phase 1: f(x) = ln(x)
+Mode: EML-only  |  operator set: ['eml']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=600  master_seed=1683375127
+GEN 0 BEST 1.133032786e+00 VAL 1.133032786e+00 NODES 37 MEDIAN 63
+GEN 1 BEST 6.893198837e-01 VAL 6.893198837e-01 NODES 1 MEDIAN 41
+GEN 2 BEST 6.893198837e-01 VAL 6.893198837e-01 NODES 1 MEDIAN 25
+GEN 3 BEST 5.163123221e-02 VAL 5.163123221e-02 NODES 9 MEDIAN 11
+GEN 4 BEST 5.163123221e-02 VAL 5.163123221e-02 NODES 9 MEDIAN 3
+GEN 5 BEST 5.056590759e-30 VAL 5.056590759e-30 NODES 7 MEDIAN 1
+Perfect solution found at generation 5! Stopping.
+STOP_REASON converged
+LAST_GEN 5
+FINAL_ERR 5.056590758932219e-30
+FINAL_NODES 7
+FINAL_TREE (x eml ((x eml x) eml 1.0))
+
+===============================
+EML GP Evolution complete.
+Best Formula: Result = (x eml ((x eml x) eml 1.0))
+EML Raw Tree: (x eml ((x eml x) eml 1.0))
+Node count: 7
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

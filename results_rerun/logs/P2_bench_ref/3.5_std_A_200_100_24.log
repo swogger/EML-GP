@@ -1,0 +1,32 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Mode: Standard  |  operator set: ['+', '-', '*', '/']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1097259117
+GEN 0 BEST 1.265523095e+02 VAL 1.265523095e+02 NODES 255 MEDIAN 63
+GEN 1 BEST 1.265523095e+02 VAL 1.265523095e+02 NODES 255 MEDIAN 25
+GEN 2 BEST 9.201233696e+01 VAL 9.201233696e+01 NODES 353 MEDIAN 101
+GEN 3 BEST 4.719457001e+01 VAL 4.719457001e+01 NODES 233 MEDIAN 253
+GEN 4 BEST 4.719457001e+01 VAL 9.147414956e+01 NODES 235 MEDIAN 257
+GEN 5 BEST 6.952686787e+00 VAL 6.952686787e+00 NODES 221 MEDIAN 249
+GEN 6 BEST 6.952686787e+00 VAL 4.179259409e+01 NODES 221 MEDIAN 249
+GEN 7 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 163 MEDIAN 237
+GEN 8 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 163 MEDIAN 227
+GEN 9 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 163 MEDIAN 219
+GEN 10 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 163 MEDIAN 175
+GEN 11 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 173 MEDIAN 165
+GEN 12 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 183 MEDIAN 165
+GEN 13 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 173 MEDIAN 165
+GEN 14 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 173 MEDIAN 169
+GEN 15 BEST 6.733991379e-29 VAL 6.733991379e-29 NODES 161 MEDIAN 171
+Perfect solution found at generation 15! Stopping.
+STOP_REASON converged
+LAST_GEN 15
+FINAL_ERR 6.733991378743406e-29
+FINAL_NODES 161
+FINAL_TREE (((((((x * 1.0) - (x * x)) + ((x / x) * (x - 1.0))) / (((1.0 - 1.0) + (1.0 * 1.0)) / ((1.0 + 1.0) - (1.0 + x)))) + ((((1.0 + x) - (1.0 + 1.0)) / ((x + 1.0) - (1.0 + x))) + (1.0 + 1.0))) + (((((1.0 / x) - (1.0 * 1.0)) + ((1.0 * 1.0) - (x * x))) - 1.0) + (((1.0 - 1.0) / (1.0 + 1.0)) - (((x + x) * (1.0 - x)) + ((x + 1.0) / (x / 1.0)))))) - ((((((1.0 * 1.0) - (1.0 * 1.0)) / ((x - 1.0) * (x / 1.0))) / (((x * x) + (1.0 * x)) + ((x * x) - (x - x)))) / ((((1.0 - x) - (1.0 - 1.0)) * ((1.0 * x) + (1.0 + x))) * (((1.0 - 1.0) / (1.0 + 1.0)) - ((1.0 / 1.0) + (x - x))))) * (x + 1.0)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (((((((x * 1.0) - (x * x)) + ((x / x) * (x - 1.0))) / (((1.0 - 1.0) + (1.0 * 1.0)) / ((1.0 + 1.0) - (1.0 + x)))) + ((((1.0 + x) - (1.0 + 1.0)) / ((x + 1.0) - (1.0 + x))) + (1.0 + 1.0))) + (((((1.0 / x) - (1.0 * 1.0)) + ((1.0 * 1.0) - (x * x))) - 1.0) + (((1.0 - 1.0) / (1.0 + 1.0)) - (((x + x) * (1.0 - x)) + ((x + 1.0) / (x / 1.0)))))) - ((((((1.0 * 1.0) - (1.0 * 1.0)) / ((x - 1.0) * (x / 1.0))) / (((x * x) + (1.0 * x)) + ((x * x) - (x - x)))) / ((((1.0 - x) - (1.0 - 1.0)) * ((1.0 * x) + (1.0 + x))) * (((1.0 - 1.0) / (1.0 + 1.0)) - ((1.0 / 1.0) + (x - x))))) * (x + 1.0)))
+Node count: 161
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

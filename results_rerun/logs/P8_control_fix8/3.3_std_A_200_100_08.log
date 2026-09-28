@@ -1,0 +1,25 @@
+Loaded Test 3.3: Phase 3: f(x) = x^x
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=215858185
+GEN 0 BEST 4.335401210e+00 VAL 4.335401210e+00 NODES 11 MEDIAN 18
+GEN 1 BEST 4.335401210e+00 VAL 4.335401210e+00 NODES 11 MEDIAN 9
+GEN 2 BEST 4.335401210e+00 VAL 4.335401210e+00 NODES 11 MEDIAN 8
+GEN 3 BEST 4.013687110e+00 VAL 4.013687110e+00 NODES 8 MEDIAN 11
+GEN 4 BEST 4.013687110e+00 VAL 4.013687110e+00 NODES 8 MEDIAN 11
+GEN 5 BEST 4.013687110e+00 VAL 4.286847436e+00 NODES 7 MEDIAN 10
+GEN 6 BEST 3.577388947e+00 VAL 3.577388947e+00 NODES 11 MEDIAN 10
+GEN 7 BEST 2.042903225e-30 VAL 2.042903225e-30 NODES 5 MEDIAN 11
+Perfect solution found at generation 7! Stopping.
+STOP_REASON converged
+LAST_GEN 7
+FINAL_ERR 2.042903225489539e-30
+FINAL_NODES 5
+FINAL_TREE exp((x * log(x)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp((x * log(x)))
+Node count: 5
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

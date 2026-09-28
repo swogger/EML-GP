@@ -1,0 +1,24 @@
+Loaded Test 3.3: Phase 3: f(x) = x^x
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sqrt']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=18993484
+GEN 0 BEST 6.267945475e+00 VAL 6.267945475e+00 NODES 8 MEDIAN 19
+GEN 1 BEST 6.267945475e+00 VAL 6.267945475e+00 NODES 8 MEDIAN 9
+GEN 2 BEST 6.267945475e+00 VAL 6.267945475e+00 NODES 8 MEDIAN 8
+GEN 3 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 9 MEDIAN 8
+GEN 4 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 9 MEDIAN 9
+GEN 5 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 9 MEDIAN 10
+GEN 6 BEST 8.307293281e-01 VAL 8.307293281e-01 NODES 18 MEDIAN 11
+GEN 7 BEST 1.008700416e-29 VAL 1.008700416e-29 NODES 13 MEDIAN 9
+Perfect solution found at generation 7! Stopping.
+STOP_REASON converged
+LAST_GEN 7
+FINAL_ERR 1.0087004157689705e-29
+FINAL_NODES 13
+FINAL_TREE ((x / 1.0) - (x - exp((exp(log(x)) * log(x)))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = ((x / 1.0) - (x - exp((exp(log(x)) * log(x)))))
+Node count: 13
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

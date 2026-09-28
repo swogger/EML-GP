@@ -1,0 +1,19 @@
+Loaded Test 1.4: Phase 1: f(x) = exp(x) * exp(-x^2)  [EML home territory]
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=2107424273
+GEN 0 BEST 4.221603374e-01 VAL 4.221603374e-01 NODES 6 MEDIAN 26
+GEN 1 BEST 4.954135988e-33 VAL 4.954135988e-33 NODES 12 MEDIAN 14
+Perfect solution found at generation 1! Stopping.
+STOP_REASON converged
+LAST_GEN 1
+FINAL_ERR 4.9541359878682216e-33
+FINAL_NODES 12
+FINAL_TREE exp((((1.0 - x) * x) - ((1.0 - 1.0) / 1.0)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp((((1.0 - x) * x) - ((1.0 - 1.0) / 1.0)))
+Node count: 12
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

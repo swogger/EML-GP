@@ -1,0 +1,150 @@
+Loaded Test 3.2: Phase 3: f(x) = arctan(x)
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1638104225
+GEN 0 BEST 9.766841952e-01 VAL 9.766841952e-01 NODES 18 MEDIAN 25
+GEN 1 BEST 9.766841952e-01 VAL 1.116970172e+00 NODES 17 MEDIAN 12
+GEN 2 BEST 9.766841952e-01 VAL 9.766841952e-01 NODES 18 MEDIAN 13
+GEN 3 BEST 8.516430007e-01 VAL 8.516430007e-01 NODES 11 MEDIAN 17
+GEN 4 BEST 6.052605768e-01 VAL 6.052605768e-01 NODES 26 MEDIAN 17
+GEN 5 BEST 3.764268818e-01 VAL 3.764268818e-01 NODES 13 MEDIAN 19
+GEN 6 BEST 3.764268818e-01 VAL 3.764268818e-01 NODES 13 MEDIAN 20
+GEN 7 BEST 3.764268818e-01 VAL 1.115869838e+00 NODES 20 MEDIAN 19
+GEN 8 BEST 3.764268818e-01 VAL 1.115869838e+00 NODES 20 MEDIAN 21
+GEN 9 BEST 2.260414945e-01 VAL 2.260414945e-01 NODES 29 MEDIAN 22
+GEN 10 BEST 2.125587847e-01 VAL 2.125587847e-01 NODES 19 MEDIAN 25
+GEN 11 BEST 2.125587847e-01 VAL 2.125587847e-01 NODES 19 MEDIAN 26
+GEN 12 BEST 2.125587847e-01 VAL 2.125587847e-01 NODES 19 MEDIAN 24
+GEN 13 BEST 2.125587847e-01 VAL 4.795067941e-01 NODES 22 MEDIAN 30
+GEN 14 BEST 1.908650538e-01 VAL 1.908650538e-01 NODES 36 MEDIAN 40
+GEN 15 BEST 1.908650538e-01 VAL 2.211666897e-01 NODES 130 MEDIAN 61
+GEN 16 BEST 1.908650538e-01 VAL 2.211666897e-01 NODES 44 MEDIAN 85
+GEN 17 BEST 1.908650538e-01 VAL 1.908650538e-01 NODES 36 MEDIAN 121
+GEN 18 BEST 1.908650538e-01 VAL 1.908650538e-01 NODES 36 MEDIAN 116
+GEN 19 BEST 1.908650538e-01 VAL 1.908650538e-01 NODES 36 MEDIAN 125
+GEN 20 BEST 1.908650538e-01 VAL 1.908650538e-01 NODES 36 MEDIAN 141
+GEN 21 BEST 1.908650538e-01 VAL 2.009612141e-01 NODES 109 MEDIAN 102
+GEN 22 BEST 1.908650538e-01 VAL 2.149107125e-01 NODES 146 MEDIAN 101
+GEN 23 BEST 1.908650538e-01 VAL 1.959969613e-01 NODES 144 MEDIAN 114
+GEN 24 BEST 1.908650538e-01 VAL 1.955245003e-01 NODES 121 MEDIAN 114
+GEN 25 BEST 1.908650538e-01 VAL 1.943734540e-01 NODES 121 MEDIAN 123
+GEN 26 BEST 1.908650538e-01 VAL 1.908650538e-01 NODES 36 MEDIAN 139
+GEN 27 BEST 1.908650538e-01 VAL 1.908650538e-01 NODES 36 MEDIAN 139
+GEN 28 BEST 1.908650538e-01 VAL 1.908650538e-01 NODES 36 MEDIAN 72
+GEN 29 BEST 1.695643462e-01 VAL 1.695643462e-01 NODES 28 MEDIAN 47
+GEN 30 BEST 1.455172589e-01 VAL 1.455172589e-01 NODES 25 MEDIAN 37
+GEN 31 BEST 1.455172589e-01 VAL 1.455172589e-01 NODES 25 MEDIAN 46
+GEN 32 BEST 1.455172589e-01 VAL 1.455172589e-01 NODES 25 MEDIAN 48
+GEN 33 BEST 1.455172589e-01 VAL 1.690004501e-01 NODES 26 MEDIAN 61
+GEN 34 BEST 1.388816652e-01 VAL 1.388816652e-01 NODES 71 MEDIAN 45
+GEN 35 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 70
+GEN 36 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 76
+GEN 37 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 70
+GEN 38 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 81
+GEN 39 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 74
+GEN 40 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 67
+GEN 41 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 89
+GEN 42 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 115
+GEN 43 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 170
+GEN 44 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 199
+GEN 45 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 188
+GEN 46 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 229
+GEN 47 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 252
+GEN 48 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 260
+GEN 49 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 268
+GEN 50 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 268
+GEN 51 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 266
+GEN 52 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 329
+GEN 53 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 364
+GEN 54 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 359
+GEN 55 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 400
+GEN 56 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 406
+GEN 57 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 401
+GEN 58 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 436
+GEN 59 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 437
+GEN 60 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 435
+GEN 61 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 509
+GEN 62 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 517
+GEN 63 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 548
+GEN 64 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 487
+GEN 65 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 466
+GEN 66 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 468
+GEN 67 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 435
+GEN 68 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 415
+GEN 69 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 507
+GEN 70 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 673
+GEN 71 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 682
+GEN 72 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 559
+GEN 73 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 489
+GEN 74 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 545
+GEN 75 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 584
+GEN 76 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 679
+GEN 77 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 547
+GEN 78 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 543
+GEN 79 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 555
+GEN 80 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 781
+GEN 81 BEST 1.294134175e-01 VAL 1.294134175e-01 NODES 52 MEDIAN 985
+GEN 82 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 1030
+GEN 83 BEST 1.206255677e-01 VAL 1.294134175e-01 NODES 1310 MEDIAN 839
+GEN 84 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 1086
+GEN 85 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 860
+GEN 86 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 802
+GEN 87 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 800
+GEN 88 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 800
+GEN 89 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 796
+GEN 90 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 800
+GEN 91 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 805
+GEN 92 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 811
+GEN 93 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 785
+GEN 94 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 817
+GEN 95 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 817
+GEN 96 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 815
+GEN 97 BEST 1.206255677e-01 VAL 1.294134175e-01 NODES 748 MEDIAN 822
+GEN 98 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 800
+GEN 99 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 816
+GEN 100 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 848
+GEN 101 BEST 1.206255677e-01 VAL 1.294134175e-01 NODES 451 MEDIAN 913
+GEN 102 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 800
+GEN 103 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 824
+GEN 104 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 747
+GEN 105 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 691
+GEN 106 BEST 1.206255677e-01 VAL 1.294134175e-01 NODES 1171 MEDIAN 749
+GEN 107 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 775
+GEN 108 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 736
+GEN 109 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 670
+GEN 110 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 760
+GEN 111 BEST 1.206255677e-01 VAL 1.294134175e-01 NODES 1760 MEDIAN 670
+GEN 112 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 804
+GEN 113 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 694
+GEN 114 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 681
+GEN 115 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 737
+GEN 116 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 814
+GEN 117 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 849
+GEN 118 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 804
+GEN 119 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 804
+GEN 120 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 804
+GEN 121 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 803
+GEN 122 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 804
+GEN 123 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 766
+GEN 124 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 800
+GEN 125 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 806
+GEN 126 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 814
+GEN 127 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 805
+GEN 128 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 793
+GEN 129 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 800
+GEN 130 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 803
+GEN 131 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 843
+GEN 132 BEST 1.206255677e-01 VAL 1.206255677e-01 NODES 800 MEDIAN 892
+Plateau detected (50 gens without improvement). Stopping at gen 132.
+STOP_REASON plateau
+LAST_GEN 132
+FINAL_ERR 0.12062556770419261
+FINAL_NODES 800
+FINAL_TREE exp(((log(((x / log((1.0 - (log(((x + x) - (1.0 - x))) - x)))) - (((log(((log(log(((log((log((((1.0 / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (x + (x + 1.0))) - (x / 1.0)))) / log((log((((log(((log((log((((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / x) - log(1.0)) - (((log((log((((log((log((exp(log((x / log(log((((log((log(((((((log((exp(((log((exp((x / log((1.0 - (log(((((exp(1.0) - (log(((x + x) - (1.0 - x))) - x)) / (1.0 + (1.0 - x))) - log(((x + x) - (1.0 - x)))) - x)) - x))))) - ((((1.0 - (x - x)) / log(1.0)) - (1.0 - x)) / 1.0))) / log(x)) / log(1.0))) - (x / x))) / x) / x) - (1.0 - x)) / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (x + 1.0)) / log(1.0)) - (1.0 - x))))))) - (x / 1.0))) / log(log((exp(1.0) - 1.0))))) / x) / x) - (1.0 - x))) - x)) / (x - 1.0)) / log(1.0)) - x))) - x))))) - (x / (log((((log(((x / log((1.0 - (log(((x + x) - (1.0 - x))) - x)))) - ((log(1.0) / log(1.0)) - x))) / log(x)) / log(1.0)) - (1.0 - x))) - x)))) / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (x + (x + 1.0))) - (1.0 - x))) / log(((log((log((((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / (1.0 + (1.0 - x))) - log(1.0)) - ((log(((x + 1.0) - (1.0 - x))) - 1.0) - x))) - x))))) - (x / 1.0))) / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (x + (x + 1.0))) - (x / 1.0)))) / log(1.0)) - (1.0 - x))) - x))) / log(1.0))) / (x - x)) + ((log(1.0) / log((log((1.0 - (1.0 - (log(((x / log(1.0)) - (((log(((log((log((((log((exp(log((x / log((1.0 - (log(1.0) - x)))))) - (x / 1.0))) / log((log(((((log((exp(log((x / log(log(((x + x) - (1.0 - x))))))) - ((log((((log(((log((log((((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / x) - log(1.0)) - (((log((log((((log((exp(((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / (1.0 + (1.0 - x))) - log(1.0)) - (1.0 - x))) - x))))) - ((((1.0 - (x - x)) / log(1.0)) - (1.0 - x)) / 1.0))) / log(x)) / log(1.0))) - (x / x))) / x) / x) - (1.0 - x))) - x)) / (1.0 - x)) / log((x - x))) - x))) - x))))) - (x / 1.0))) / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (log(((log((((log(1.0) / x) / log(1.0)) - ((x - (1.0 - x)) - x))) - x) - (x / x))) / log(exp(((1.0 - 1.0) - 1.0))))) - (x / 1.0))) / log(x)) / x) - (1.0 - x))) - 1.0) / 1.0))) / log((log((((log(((1.0 / (1.0 - (log(((((exp(1.0) - (x / x)) / (1.0 + (1.0 - x))) - log(1.0)) - (log(1.0) - x))) - x))) - (x / 1.0))) / log((x / x))) / log(1.0)) - (1.0 - x))) - log((exp((x / log(x))) - (log((log((((log((exp(((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / (1.0 + (1.0 - x))) - log(1.0)) - (1.0 - x))) - x))))) - x)) / log(log(1.0))) / log(1.0))) - (x / x))) / x) / x) - (1.0 - x))) - x)) / (x - 1.0))))))) / log(1.0)) - (1.0 - x)) - (1.0 - x))) - x))) / log(1.0)) - (1.0 - x))) - log(((x + x) - (1.0 - x))))) / log((1.0 - (log(((x + x) - (1.0 - x))) - x)))) - (((x / (x - 1.0)) / log(1.0)) - (((log((log((x - (1.0 - x))) / x)) / (x - 1.0)) / log(1.0)) - x)))) / log(x)) - x) - (x / x)))) - x)))) - (log((exp(log(1.0)) - (x / x))) / x)))) / log(1.0))) - x))) - 1.0) - 1.0))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp(((log(((x / log((1.0 - (log(((x + x) - (1.0 - x))) - x)))) - (((log(((log(log(((log((log((((1.0 / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (x + (x + 1.0))) - (x / 1.0)))) / log((log((((log(((log((log((((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / x) - log(1.0)) - (((log((log((((log((log((exp(log((x / log(log((((log((log(((((((log((exp(((log((exp((x / log((1.0 - (log(((((exp(1.0) - (log(((x + x) - (1.0 - x))) - x)) / (1.0 + (1.0 - x))) - log(((x + x) - (1.0 - x)))) - x)) - x))))) - ((((1.0 - (x - x)) / log(1.0)) - (1.0 - x)) / 1.0))) / log(x)) / log(1.0))) - (x / x))) / x) / x) - (1.0 - x)) / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (x + 1.0)) / log(1.0)) - (1.0 - x))))))) - (x / 1.0))) / log(log((exp(1.0) - 1.0))))) / x) / x) - (1.0 - x))) - x)) / (x - 1.0)) / log(1.0)) - x))) - x))))) - (x / (log((((log(((x / log((1.0 - (log(((x + x) - (1.0 - x))) - x)))) - ((log(1.0) / log(1.0)) - x))) / log(x)) / log(1.0)) - (1.0 - x))) - x)))) / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (x + (x + 1.0))) - (1.0 - x))) / log(((log((log((((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / (1.0 + (1.0 - x))) - log(1.0)) - ((log(((x + 1.0) - (1.0 - x))) - 1.0) - x))) - x))))) - (x / 1.0))) / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (x + (x + 1.0))) - (x / 1.0)))) / log(1.0)) - (1.0 - x))) - x))) / log(1.0))) / (x - x)) + ((log(1.0) / log((log((1.0 - (1.0 - (log(((x / log(1.0)) - (((log(((log((log((((log((exp(log((x / log((1.0 - (log(1.0) - x)))))) - (x / 1.0))) / log((log(((((log((exp(log((x / log(log(((x + x) - (1.0 - x))))))) - ((log((((log(((log((log((((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / x) - log(1.0)) - (((log((log((((log((exp(((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / (1.0 + (1.0 - x))) - log(1.0)) - (1.0 - x))) - x))))) - ((((1.0 - (x - x)) / log(1.0)) - (1.0 - x)) / 1.0))) / log(x)) / log(1.0))) - (x / x))) / x) / x) - (1.0 - x))) - x)) / (1.0 - x)) / log((x - x))) - x))) - x))))) - (x / 1.0))) / log(x)) / log(1.0)) - (1.0 - x))) - x)) / (log(((log((((log(1.0) / x) / log(1.0)) - ((x - (1.0 - x)) - x))) - x) - (x / x))) / log(exp(((1.0 - 1.0) - 1.0))))) - (x / 1.0))) / log(x)) / x) - (1.0 - x))) - 1.0) / 1.0))) / log((log((((log(((1.0 / (1.0 - (log(((((exp(1.0) - (x / x)) / (1.0 + (1.0 - x))) - log(1.0)) - (log(1.0) - x))) - x))) - (x / 1.0))) / log((x / x))) / log(1.0)) - (1.0 - x))) - log((exp((x / log(x))) - (log((log((((log((exp(((log((exp((x / log((1.0 - (log(((((exp(1.0) - (x / x)) / (1.0 + (1.0 - x))) - log(1.0)) - (1.0 - x))) - x))))) - x)) / log(log(1.0))) / log(1.0))) - (x / x))) / x) / x) - (1.0 - x))) - x)) / (x - 1.0))))))) / log(1.0)) - (1.0 - x)) - (1.0 - x))) - x))) / log(1.0)) - (1.0 - x))) - log(((x + x) - (1.0 - x))))) / log((1.0 - (log(((x + x) - (1.0 - x))) - x)))) - (((x / (x - 1.0)) / log(1.0)) - (((log((log((x - (1.0 - x))) / x)) / (x - 1.0)) / log(1.0)) - x)))) / log(x)) - x) - (x / x)))) - x)))) - (log((exp(log(1.0)) - (x / x))) / x)))) / log(1.0))) - x))) - 1.0) - 1.0))
+Node count: 800
+Final MSE:  0.12062557
+Status: BUDGET EXHAUSTED

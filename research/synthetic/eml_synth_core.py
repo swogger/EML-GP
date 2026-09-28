@@ -287,10 +287,16 @@ def run_gp(
     generations=GENERATIONS,
     pop_size=POP_SIZE,
     timeout_seconds=TIMEOUT_SECONDS,
+    size_penalty=True,      # legacy: add 1e-4*nodes below nMSE 1e-5
+    point_mutation=False,   # legacy: no point mutation for the EML alphabet
+    cpu_clock=False,        # legacy: timeout measured in wall-clock seconds
+    plateau_gens=None,      # legacy: module constant PLATEAU_GENS (600)
 ):
     """One EML-GP run.  regime 'A' = crossover+mutation, 'B' = mutation only."""
     mutation_only = regime == "B"
     t0 = time.time()
+    c0 = time.process_time()
+    _plateau = PLATEAU_GENS if plateau_gens is None else plateau_gens
 
     # --- RNG streams: identical derivation to deduce_formula.main() ---------
     _m = random.Random(seed)
@@ -322,12 +328,12 @@ def run_gp(
 
     def training_fitness(tree, xs, target):
         f = nmse(tree, xs, target)
-        if f < 1e-5:
+        if size_penalty and f < 1e-5:
             return f + count_nodes(tree) * 0.0001
         return f
 
     mut_depth = max(2, round(math.sqrt(MAX_DEPTH)))
-    use_point_mutate = False   # single-operator alphabet: eml->eml is a no-op
+    use_point_mutate = point_mutation   # legacy False; point_mutate also swaps leaves
 
     best_tree = None
     best_val = _INF
@@ -339,7 +345,7 @@ def run_gp(
 
     for gen in range(generations):
         gens_run = gen
-        if time.time() - t0 > timeout_seconds:
+        if ((time.process_time() - c0) if cpu_clock else (time.time() - t0)) > timeout_seconds:
             terminal_state = "timeout"
             break
 
@@ -368,7 +374,7 @@ def run_gp(
             terminal_state = "converged"
             break
 
-        if gens_no_improve >= PLATEAU_GENS:
+        if gens_no_improve >= _plateau:
             terminal_state = "early_stopped"
             break
 
@@ -432,6 +438,7 @@ def run_gp(
         "final_tree_size": count_nodes(best_tree),
         "terminal_state": terminal_state,
         "wall_seconds": time.time() - t0,
+        "cpu_seconds": time.process_time() - c0,
         "gens_run": gens_run,
         "best_expr": expr_str(best_tree) if count_nodes(best_tree) <= 200 else "",
     }

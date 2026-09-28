@@ -1,0 +1,20 @@
+Loaded Test 3.2: Phase 3: f(x) = arctan(x)
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos', 'tan', 'atan']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=626207371
+GEN 0 BEST 1.324242728e-01 VAL 1.324242728e-01 NODES 3 MEDIAN 13
+GEN 1 BEST 4.730613591e-02 VAL 4.730613591e-02 NODES 7 MEDIAN 9
+GEN 2 BEST 4.730613591e-02 VAL 4.730613591e-02 NODES 7 MEDIAN 10
+GEN 3 BEST 8.974833541e-34 VAL 8.974833541e-34 NODES 4 MEDIAN 12
+Perfect solution found at generation 3! Stopping.
+STOP_REASON converged
+LAST_GEN 3
+FINAL_ERR 8.97483354084452e-34
+FINAL_NODES 4
+FINAL_TREE atan(tan(atan(x)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = atan(tan(atan(x)))
+Node count: 4
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

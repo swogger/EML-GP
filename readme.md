@@ -21,7 +21,8 @@ The primary Genetic Programming script. It runs a single GP evolution trial on a
   * `--generations`: Maximum number of generations (default: `100`).
   * `--seed`: Master RNG seed. Derives isolated streams for validation, population, and evolution to ensure fair comparisons.
   * `--mutation_only`: Disable crossover, using 100% mutation (95% subtree, 5% point).
-  * `--plateau_mult`: Multiplies early stopping patience (recommended: `--plateau_mult 3` for EML-GP to allow for slower structural convergence).
+  * `--std_ops`: Comma-separated operator set overriding the per-target set from `test_suite.py` (e.g. `--std_ops '+,-,*,/,exp,log,sin,cos'`). Used by the fixed-primitive-set control; omitted, behaviour is unchanged.
+  * `--plateau_mult`: Multiplies early-stopping patience. The study uses the per-test multipliers in `test_suite.py`, each the mean EML K-complexity of that test's Std-GP operator set, which compensates EML-GP for the deeper trees it must assemble.
   * `--print_interval`: Frequency of printing generation metrics (default: `10`).
 * **Expected Output**:
   * Real-time generation progress printed to console (best error, validation error, size, formula).
@@ -99,6 +100,7 @@ Generates a violin plot to visualize the tree size distribution for target tests
   * Generates two files:
     * `Figure_Bimodal_Failure.png`: High-resolution PNG.
     * `Figure_Bimodal_Failure.pdf`: Vector PDF format.
+* **Note**: the manuscript's Fig. 13 is produced by `make_all_figures.py`, which adds the per-group sample sizes; this script remains the standalone version.
 
 ---
 
@@ -211,7 +213,7 @@ Pipeline order: `make_targets.py` → (`make_targets_lowk.py`) → `run_syntheti
 Core library for the experiment: target parsing/evaluation, the vectorised evaluator, grid and held-out sampling, and a line-for-line transcription of `deduce_formula.py`'s reproduction loop at the reference cell. Documents the two deviations from the main study and provides `check_evaluator_agreement()`. Imported by the other scripts; not run directly.
 
 #### `make_targets.py`
-Generates, filters, and structurally measures the pre-registered dense-K targets (13 K levels, 7…31 × 30 targets, plus `reviewer_ce`). Acceptance filters run in protocol order (viability → novelty → irreducibility, with an exhaustive minimality audit for K ≤ 11).
+Generates, filters, and structurally measures the pre-registered dense-K targets (13 K levels, 7…31 × 30 targets, plus the force-included rigid, gradient-free reference case, carried in the data under the row key `reviewer_ce`). Acceptance filters run in protocol order (viability → novelty → irreducibility, with an exhaustive minimality audit for K ≤ 11).
 * **Usage**: `python3 make_targets.py`
 * **Writes** (to `results/synthetic_dense_k/`): `synthetic_targets.csv` (File 2), `synthetic_targets_extra.csv` (diagnostics), `targets.json` (input for the run), `target_generation_log.json` (rejection accounting).
 
@@ -238,8 +240,65 @@ Validates the vectorised evaluator against the reference `cmath` evaluator on tr
 
 ---
 
-### 8. Reviewer Response Data (`results/*/`)
+### 8. Termination and Regime B Analyses (`results/*/`)
 
-Supporting data files for `review_response_generation_invariance.md` (the reviewer point on identical convergence rates across generation budgets in Tables 4 & 5):
-* `results/standard_gp/termination_generation_analysis.csv`, `results/mutation_only/termination_generation_analysis.csv` — per test × algorithm distribution of first-convergence and failure-termination generations across the 100/200/500 budgets.
-* `results/mutation_only/regimeB_convergence_rates_std.csv`, `results/mutation_only/regimeB_convergence_rates_eml.csv` — Regime B (mutation-only) convergence rates across the full 3×3 grid, documenting where the budget invariance is exact vs. approximate.
+Derived tables behind Supplementary Material S1, covering how runs end and how Regime B behaves
+across the budget grid:
+* `results/standard_gp/termination_generation_analysis.csv`, `results/mutation_only/termination_generation_analysis.csv` — per test × algorithm distribution of first-convergence and failure-termination generations across the 100/200/500 budgets (Supplementary Tables S2 and S3). These establish that convergence rates are invariant to the generation budget because every convergence event occurs by generation 91, and they separate runs that exhausted their budget from runs terminated by the CPU ceiling.
+* `results/mutation_only/regimeB_convergence_rates_std.csv`, `results/mutation_only/regimeB_convergence_rates_eml.csv` — Regime B (mutation-only) convergence rates across the full 3×3 grid (Supplementary Tables S4 and S5), documenting where the budget invariance is exact and where it is only approximate.
+
+---
+
+### 9. Fixed-Primitive-Set Control (`research/run_control_fixedset.py`)
+
+Re-runs the Std-GP arm under a single operator set applied uniformly to all twelve targets, to
+measure how much of the heterogeneous baseline's advantage comes from per-target operator
+selection rather than from search (Section 5.5, Tables 15 and 16).
+* **Usage**:
+  ```bash
+  python3 run_control_fixedset.py [--arms FIX,ABL] [--n_seeds 30] [--workers 6]
+  ```
+* **Arms**:
+  * `FIX` — `{+,-,*,/,exp,log,sin,cos}` on all twelve targets, both regimes. sin and cos are kept so that a zero rate measures search difficulty rather than inexpressibility.
+  * `ABL` — `{+,-,*,/,exp,log}` on the two mixed targets (sinh, x^x), removing the matching primitive while adding none, so ablation is separated from dilution.
+* **Expected Output**: `results/fixed_set_control/control_runs.csv`, one row per run with arm, operator set, regime, test, seed, final error, node count, status, and CPU and wall time.
+* **Notes**:
+  * Seed-matched to the main grid at the reference cell (G=200, P=100), so every control run pairs with its main-study counterpart.
+  * Resumable — completed `(arm, regime, test, seed)` rows are skipped on restart.
+  * Each run is spawned through `_cpu_limit_run.py` under a 600 s **CPU-time** limit.
+
+#### `_cpu_limit_run.py`
+Wrapper that runs a command under a hard `RLIMIT_CPU` limit rather than a wall-clock timeout, so
+censoring is unaffected by machine load, and reports the CPU actually consumed.
+* **Usage**:
+  ```bash
+  python3 _cpu_limit_run.py <cpu_seconds> <command> [args...]
+  ```
+* **Expected Output**: the child's stdout, plus `__CPU_SECONDS__=<float>` and `__TERMSIG__=<int>` on stderr.
+
+---
+
+### 10. Manuscript Figures (`research/make_all_figures.py`)
+
+Regenerates every figure in the paper as 400 dpi PNG and vector PDF into `figures/` at the
+repository root.
+* **Usage**:
+  ```bash
+  python3 make_all_figures.py
+  ```
+* **Expected Output**: `figures/Fig01…Fig13`, each as `.png` and `.pdf`. Trajectory panels reuse the aggregation and styling of `plot_convergence.py` so they match the published versions; Figure 12 is delegated to `synthetic/plot_fig12.py`.
+* **Notes**: requires the convergence data under `results/standard_gp/convergence_data/` and `results/mutation_only/convergence_data/`, the SSC and benchmark outputs, and the dense-K results.
+
+#### `synthetic/plot_fig12.py`
+Renders Figure 12, convergence against target K-complexity for both regimes, with Wilson
+intervals and logistic fits. Curves are fitted to the thirteen pre-specified levels only
+(K = 7…31); the post-hoc levels K = 3 and 5 are drawn as hollow markers and excluded from the
+fit, so the plotted curve and the quoted midpoint are the same estimate.
+* **Usage**: `python3 plot_fig12.py`
+
+#### `synthetic/run_budget_sweep.sh`
+Repeats the dense-K experiment over the transition band at four and sixteen times the main
+generation budget, to bound how far the assembly-reach midpoint K₅₀ moves with search budget
+(Supplementary Tables S12 and S13). Runs sequentially and is resumable.
+* **Usage**: `bash run_budget_sweep.sh`
+* **Expected Output**: `results/synthetic_dense_k/budget_pilot_g800.csv`, `g800_lowk.csv`, `g3200_main.csv`, `g3200_lowk.csv`.

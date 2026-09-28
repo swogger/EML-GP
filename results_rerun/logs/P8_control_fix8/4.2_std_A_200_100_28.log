@@ -1,0 +1,146 @@
+Loaded Test 4.2: Phase 4: f(x1, x2) = sin(x1*exp(x2)) - cos(ln(x1^2+x2^2+0.1))
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=957201023
+GEN 0 BEST 7.601720034e-01 VAL 7.601720034e-01 NODES 7 MEDIAN 17
+GEN 1 BEST 4.448914328e-01 VAL 4.448914328e-01 NODES 12 MEDIAN 7
+GEN 2 BEST 4.448914328e-01 VAL 4.448914328e-01 NODES 12 MEDIAN 8
+GEN 3 BEST 4.448914328e-01 VAL 6.052301497e-01 NODES 20 MEDIAN 11
+GEN 4 BEST 4.101248880e-01 VAL 4.101248880e-01 NODES 16 MEDIAN 14
+GEN 5 BEST 4.101248880e-01 VAL 4.101248880e-01 NODES 16 MEDIAN 19
+GEN 6 BEST 4.101248880e-01 VAL 5.139442782e-01 NODES 7 MEDIAN 17
+GEN 7 BEST 4.101248880e-01 VAL 4.448914328e-01 NODES 12 MEDIAN 19
+GEN 8 BEST 4.101248880e-01 VAL 4.162181848e-01 NODES 24 MEDIAN 19
+GEN 9 BEST 4.101248880e-01 VAL 4.181243487e-01 NODES 32 MEDIAN 35
+GEN 10 BEST 4.101248880e-01 VAL 4.712302216e-01 NODES 120 MEDIAN 39
+GEN 11 BEST 4.101248880e-01 VAL 4.248780088e-01 NODES 127 MEDIAN 72
+GEN 12 BEST 4.101248880e-01 VAL 4.248780088e-01 NODES 126 MEDIAN 87
+GEN 13 BEST 4.046323671e-01 VAL 4.046323671e-01 NODES 96 MEDIAN 96
+GEN 14 BEST 3.714127512e-01 VAL 3.714127512e-01 NODES 91 MEDIAN 97
+GEN 15 BEST 3.714127512e-01 VAL 5.394937627e+00 NODES 141 MEDIAN 88
+GEN 16 BEST 3.402050529e-01 VAL 3.402050529e-01 NODES 144 MEDIAN 119
+GEN 17 BEST 3.402050529e-01 VAL 3.402050529e-01 NODES 144 MEDIAN 80
+GEN 18 BEST 3.354460710e-01 VAL 3.354460710e-01 NODES 54 MEDIAN 100
+GEN 19 BEST 3.354460710e-01 VAL 3.495098011e-01 NODES 189 MEDIAN 95
+GEN 20 BEST 3.354460710e-01 VAL 3.495098011e-01 NODES 189 MEDIAN 138
+GEN 21 BEST 3.267445873e-01 VAL 3.267445873e-01 NODES 148 MEDIAN 149
+GEN 22 BEST 3.267445873e-01 VAL 3.530605045e-01 NODES 212 MEDIAN 159
+GEN 23 BEST 3.267445873e-01 VAL 4.139667422e-01 NODES 232 MEDIAN 189
+GEN 24 BEST 3.267445873e-01 VAL 3.305340822e-01 NODES 132 MEDIAN 175
+GEN 25 BEST 3.267445873e-01 VAL 3.392434939e-01 NODES 162 MEDIAN 148
+GEN 26 BEST 3.267445873e-01 VAL 3.305340822e-01 NODES 133 MEDIAN 180
+GEN 27 BEST 3.178188924e-01 VAL 3.178188924e-01 NODES 148 MEDIAN 170
+GEN 28 BEST 3.178188924e-01 VAL 3.312661702e-01 NODES 154 MEDIAN 184
+GEN 29 BEST 3.170540399e-01 VAL 3.170540399e-01 NODES 116 MEDIAN 221
+GEN 30 BEST 3.170540399e-01 VAL 3.170540399e-01 NODES 116 MEDIAN 169
+GEN 31 BEST 3.170540399e-01 VAL 3.178188924e-01 NODES 142 MEDIAN 153
+GEN 32 BEST 3.098166366e-01 VAL 3.098166366e-01 NODES 319 MEDIAN 154
+GEN 33 BEST 3.098166366e-01 VAL 3.237986541e-01 NODES 178 MEDIAN 194
+GEN 34 BEST 3.098166366e-01 VAL 3.194197443e-01 NODES 177 MEDIAN 193
+GEN 35 BEST 3.098166366e-01 VAL 3.128599154e-01 NODES 433 MEDIAN 221
+GEN 36 BEST 3.098166366e-01 VAL 3.253002374e-01 NODES 68 MEDIAN 253
+GEN 37 BEST 3.098166366e-01 VAL 3.253002374e-01 NODES 68 MEDIAN 301
+GEN 38 BEST 3.098166366e-01 VAL 3.472914981e-01 NODES 58 MEDIAN 241
+GEN 39 BEST 3.098166366e-01 VAL 3.253002374e-01 NODES 482 MEDIAN 315
+GEN 40 BEST 3.098166366e-01 VAL 3.545096993e-01 NODES 577 MEDIAN 351
+GEN 41 BEST 3.098166366e-01 VAL 3.184192469e-01 NODES 278 MEDIAN 460
+GEN 42 BEST 3.098166366e-01 VAL 3.257122039e-01 NODES 90 MEDIAN 363
+GEN 43 BEST 3.098166366e-01 VAL 3.493196805e-01 NODES 319 MEDIAN 354
+GEN 44 BEST 3.098166366e-01 VAL 3.113367868e-01 NODES 170 MEDIAN 400
+GEN 45 BEST 3.088641046e-01 VAL 3.088641046e-01 NODES 594 MEDIAN 320
+GEN 46 BEST 3.088641046e-01 VAL 3.088641046e-01 NODES 594 MEDIAN 655
+GEN 47 BEST 3.088641046e-01 VAL 3.131837040e-01 NODES 1828 MEDIAN 599
+GEN 48 BEST 3.088228805e-01 VAL 3.088228805e-01 NODES 525 MEDIAN 663
+GEN 49 BEST 3.088228805e-01 VAL 3.294529618e-01 NODES 308 MEDIAN 594
+GEN 50 BEST 3.088228805e-01 VAL 3.094219408e-01 NODES 609 MEDIAN 594
+GEN 51 BEST 3.088228805e-01 VAL 3.165918314e-01 NODES 230 MEDIAN 536
+GEN 52 BEST 3.088228805e-01 VAL 3.111589857e-01 NODES 514 MEDIAN 511
+GEN 53 BEST 3.088228805e-01 VAL 5.318485423e+00 NODES 184 MEDIAN 423
+GEN 54 BEST 3.088228805e-01 VAL 3.139073396e-01 NODES 304 MEDIAN 408
+GEN 55 BEST 3.075725639e-01 VAL 3.075725639e-01 NODES 481 MEDIAN 427
+GEN 56 BEST 3.075725639e-01 VAL 3.196212322e-01 NODES 139 MEDIAN 459
+GEN 57 BEST 3.075725639e-01 VAL 3.324177629e-01 NODES 283 MEDIAN 566
+GEN 58 BEST 3.037386175e-01 VAL 3.037386175e-01 NODES 731 MEDIAN 678
+GEN 59 BEST 3.037386175e-01 VAL 3.091827821e-01 NODES 123 MEDIAN 588
+GEN 60 BEST 3.037386175e-01 VAL 3.181690470e-01 NODES 190 MEDIAN 658
+GEN 61 BEST 3.037386175e-01 VAL 3.083363300e-01 NODES 612 MEDIAN 629
+GEN 62 BEST 3.037386175e-01 VAL 3.083363300e-01 NODES 618 MEDIAN 774
+GEN 63 BEST 3.037386175e-01 VAL 3.053038383e-01 NODES 839 MEDIAN 627
+GEN 64 BEST 3.037386175e-01 VAL 3.214820894e-01 NODES 130 MEDIAN 709
+GEN 65 BEST 3.037386175e-01 VAL 3.109872064e-01 NODES 108 MEDIAN 590
+GEN 66 BEST 3.037386175e-01 VAL 3.214820894e-01 NODES 136 MEDIAN 744
+GEN 67 BEST 3.037386175e-01 VAL 3.178111845e-01 NODES 1688 MEDIAN 995
+GEN 68 BEST 3.037386175e-01 VAL 3.117126251e-01 NODES 716 MEDIAN 982
+GEN 69 BEST 3.037386175e-01 VAL 3.057777941e-01 NODES 173 MEDIAN 869
+GEN 70 BEST 3.037386175e-01 VAL 3.195953029e-01 NODES 603 MEDIAN 726
+GEN 71 BEST 3.037386175e-01 VAL 3.239701854e-01 NODES 876 MEDIAN 705
+GEN 72 BEST 3.037386175e-01 VAL 3.037386175e-01 NODES 731 MEDIAN 924
+GEN 73 BEST 3.037386175e-01 VAL 3.167301950e-01 NODES 1504 MEDIAN 1333
+GEN 74 BEST 3.037386175e-01 VAL 3.167805099e-01 NODES 724 MEDIAN 1361
+GEN 75 BEST 3.037386175e-01 VAL 3.181741184e-01 NODES 1623 MEDIAN 758
+GEN 76 BEST 3.037386175e-01 VAL 3.116281520e-01 NODES 557 MEDIAN 1483
+GEN 77 BEST 3.037386175e-01 VAL 3.405708065e-01 NODES 415 MEDIAN 794
+GEN 78 BEST 2.951908665e-01 VAL 2.951908665e-01 NODES 800 MEDIAN 812
+GEN 79 BEST 2.951908665e-01 VAL 2.954136614e-01 NODES 795 MEDIAN 982
+GEN 80 BEST 2.951908665e-01 VAL 3.194543852e-01 NODES 303 MEDIAN 811
+GEN 81 BEST 2.951908665e-01 VAL 3.189783462e-01 NODES 349 MEDIAN 797
+GEN 82 BEST 2.951908665e-01 VAL 3.196091318e-01 NODES 619 MEDIAN 781
+GEN 83 BEST 2.951908665e-01 VAL 3.196335204e-01 NODES 615 MEDIAN 604
+GEN 84 BEST 2.951908665e-01 VAL 3.189783462e-01 NODES 282 MEDIAN 594
+GEN 85 BEST 2.951908665e-01 VAL 3.147541542e-01 NODES 329 MEDIAN 345
+GEN 86 BEST 2.951908665e-01 VAL 3.089597816e-01 NODES 278 MEDIAN 338
+GEN 87 BEST 2.951908665e-01 VAL 3.191049019e-01 NODES 454 MEDIAN 336
+GEN 88 BEST 2.951908665e-01 VAL 3.197606845e-01 NODES 271 MEDIAN 353
+GEN 89 BEST 2.951908665e-01 VAL 3.102116296e-01 NODES 189 MEDIAN 346
+GEN 90 BEST 2.951908665e-01 VAL 3.187842607e-01 NODES 508 MEDIAN 427
+GEN 91 BEST 2.951908665e-01 VAL 3.197958699e-01 NODES 591 MEDIAN 428
+GEN 92 BEST 2.951908665e-01 VAL 3.112993048e-01 NODES 389 MEDIAN 497
+GEN 93 BEST 2.951908665e-01 VAL 3.596741795e-01 NODES 57 MEDIAN 522
+GEN 94 BEST 2.951908665e-01 VAL 3.197524850e-01 NODES 576 MEDIAN 575
+GEN 95 BEST 2.951908665e-01 VAL 3.197977863e-01 NODES 1325 MEDIAN 775
+GEN 96 BEST 2.951908665e-01 VAL 3.199270230e-01 NODES 793 MEDIAN 698
+GEN 97 BEST 2.951908665e-01 VAL 3.229812325e-01 NODES 996 MEDIAN 652
+GEN 98 BEST 2.951908665e-01 VAL 3.131859049e-01 NODES 603 MEDIAN 767
+GEN 99 BEST 2.951908665e-01 VAL 1.029911943e+01 NODES 775 MEDIAN 704
+GEN 100 BEST 2.951908665e-01 VAL 3.074895192e+07 NODES 640 MEDIAN 776
+GEN 101 BEST 2.951908665e-01 VAL 2.998468949e-01 NODES 563 MEDIAN 929
+GEN 102 BEST 2.951908665e-01 VAL 3.217409733e-01 NODES 795 MEDIAN 875
+GEN 103 BEST 2.951908665e-01 VAL 3.216150570e-01 NODES 794 MEDIAN 1207
+GEN 104 BEST 2.951908665e-01 VAL 3.189616683e-01 NODES 1544 MEDIAN 1214
+GEN 105 BEST 2.951908665e-01 VAL 2.951908665e-01 NODES 800 MEDIAN 1199
+GEN 106 BEST 2.951908665e-01 VAL 3.199858604e-01 NODES 1151 MEDIAN 928
+GEN 107 BEST 2.951908665e-01 VAL 3.214479328e-01 NODES 800 MEDIAN 915
+GEN 108 BEST 2.951908665e-01 VAL 3.208397805e-01 NODES 939 MEDIAN 924
+GEN 109 BEST 2.951908665e-01 VAL 3.188222732e-01 NODES 586 MEDIAN 846
+GEN 110 BEST 2.951908665e-01 VAL 3.674361729e-01 NODES 589 MEDIAN 835
+GEN 111 BEST 2.951908665e-01 VAL 3.217909784e-01 NODES 587 MEDIAN 941
+GEN 112 BEST 2.951908665e-01 VAL 2.951908665e-01 NODES 800 MEDIAN 898
+GEN 113 BEST 2.951908665e-01 VAL 3.352961047e-01 NODES 591 MEDIAN 712
+GEN 114 BEST 2.951908665e-01 VAL 3.166877426e-01 NODES 772 MEDIAN 757
+GEN 115 BEST 2.951908665e-01 VAL 3.180489522e-01 NODES 1524 MEDIAN 816
+GEN 116 BEST 2.951908665e-01 VAL 3.155837942e-01 NODES 658 MEDIAN 1288
+GEN 117 BEST 2.951908665e-01 VAL 3.187346167e-01 NODES 1884 MEDIAN 1647
+GEN 118 BEST 2.951908665e-01 VAL 3.043346829e-01 NODES 1635 MEDIAN 1533
+GEN 119 BEST 2.951908665e-01 VAL 3.183962327e-01 NODES 713 MEDIAN 1376
+GEN 120 BEST 2.951908665e-01 VAL 3.043346829e-01 NODES 1628 MEDIAN 1312
+GEN 121 BEST 2.951908665e-01 VAL 3.043346829e-01 NODES 1654 MEDIAN 1340
+GEN 122 BEST 2.951908665e-01 VAL 3.183424408e-01 NODES 1279 MEDIAN 1515
+GEN 123 BEST 2.951908665e-01 VAL 3.128790861e-01 NODES 1578 MEDIAN 1462
+GEN 124 BEST 2.951908665e-01 VAL 2.951908665e-01 NODES 800 MEDIAN 1562
+GEN 125 BEST 2.951908665e-01 VAL 3.151738750e-01 NODES 251 MEDIAN 1532
+GEN 126 BEST 2.951908665e-01 VAL 2.995883077e-01 NODES 293 MEDIAN 1551
+GEN 127 BEST 2.951908665e-01 VAL 3.187120330e-01 NODES 290 MEDIAN 1526
+GEN 128 BEST 2.951908665e-01 VAL 3.215748642e-01 NODES 1628 MEDIAN 1552
+Plateau detected (50 gens without improvement). Stopping at gen 128.
+STOP_REASON plateau
+LAST_GEN 128
+FINAL_ERR 0.2951908664957901
+FINAL_NODES 800
+FINAL_TREE cos(exp(sin(exp(((((sin(sin(sin(exp(((((sin(sin(cos((sin(cos(x1)) * (cos(exp(sin(exp(((((sin(sin(sin(exp(((((x1 - x2) * sin(x1)) * (x2 + cos(exp(sin(exp(((((sin(((sin(sin(sin(exp(((((sin(x1) / 1.0) - 1.0) * (x2 + cos(exp(sin(exp((((1.0 + x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp((x1 - x2))))))) / 1.0))))))) / 1.0))))) + cos(exp(exp(sin(cos(exp(sin(1.0)))))))) - sin(exp((((((x1 - x2) * sin(x1)) / exp(sin(exp(exp(((((sin(exp(exp(1.0))) + (sin(exp(((sin(exp(1.0)) * sin(exp((1.0 / 1.0)))) / sin(exp((log(1.0) / exp(log(1.0)))))))) / 1.0)) - ((1.0 + x1) * log(1.0))) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((((1.0 + x1) * log(1.0)) - sin(exp((((((x1 - x2) * cos(exp(((sin(exp(1.0)) * sin(x1)) / 1.0)))) / exp(x1)) * cos(x1)) / 1.0))))))))))) / 1.0)))))) * cos(x2)) / 1.0))))) + (sin(((1.0 + x1) * log(1.0))) / 1.0)) - x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((x1 - sin(exp((((((x1 - x2) * sin(x1)) / exp(sin(x1))) * cos(x2)) / 1.0))))))))))) / 1.0))))))) / 1.0))))) + cos(exp(exp(sin(1.0))))) - x1) * (1.0 - sin(exp(1.0)))) / 1.0))))) * 1.0))))) / 1.0) - x1) * (x2 + cos(exp(sin(exp(((((sin(exp((sin(exp(1.0)) * sin(x1)))) + exp(((((sin(((sin(sin(sin(exp(((((sin(x1) / 1.0) - 1.0) * (x2 + cos(exp(sin(sin(exp((((1.0 + x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp((x1 - x2))))))) / 1.0)))))))) / 1.0))))) + cos(exp(exp(sin(cos(exp(sin(1.0)))))))) - x1)) + (sin(((1.0 + x1) * log(1.0))) / 1.0)) - x1) * (1.0 - sin(exp(((((1.0 + x1) + x1) * log(1.0)) * exp(exp((x1 - sin(exp(((((exp(sin(exp(exp(((((sin(exp(exp((x1 * 1.0)))) + (sin(exp(((sin(exp(1.0)) * sin(exp((1.0 / 1.0)))) / sin(exp((log(1.0) / exp(log(1.0)))))))) / 1.0)) - exp(((((sin(exp(((sin(exp(exp((x1 / 1.0)))) - 1.0) * 1.0))) / (sin(((1.0 + x1) * 1.0)) / 1.0)) - x1) * (1.0 - sin(exp(x1)))) / 1.0))) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((x1 - sin(exp((((((x1 - x2) * cos(exp(((sin(exp(1.0)) * sin(x1)) / 1.0)))) / exp(x1)) * cos(x1)) / 1.0))))))))))) / 1.0))))) * sin(x1)) / exp(sin(x1))) * cos(x2)) / 1.0))))))))))) * 1.0))) - x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((x1 - sin(exp(((((((((sin(sin(cos((sin(cos(x1)) * (x1 * 1.0))))) / exp(exp((x1 - sin(exp((((((x1 - x2) * sin(x1)) / exp(sin(exp(exp(((((sin(exp(exp((x1 * 1.0)))) + (sin(exp(((sin(exp(1.0)) * sin(exp((1.0 / 1.0)))) / sin(exp((log(1.0) / exp(log(1.0)))))))) / 1.0)) - exp(((((((sin(x1) / 1.0) - 1.0) * (x2 + cos(exp(sin(exp((((1.0 + x1) * (1.0 - sin((((sin(exp(((x1 - 1.0) * 1.0))) + (sin(((1.0 + x1) * log(1.0))) / 1.0)) - x1) * (1.0 - 1.0))))) / 1.0))))))) - x1) * x1) / 1.0))) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((((1.0 + x1) * log(1.0)) - sin(exp((((((x1 - x2) * cos(exp(((sin(exp(1.0)) * sin(x1)) / 1.0)))) / exp(x1)) * cos(x1)) / 1.0))))))))))) / 1.0)))))) * cos(x2)) / 1.0))))))) - x1) * (x2 + cos(exp(sin(exp(((((sin(exp(((x1 - 1.0) * 1.0))) + (sin(cos(1.0)) * (x1 * 1.0))) - x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((x1 - sin(exp((((((x1 - x2) * sin(x1)) / exp(sin(exp(exp(((((sin(exp(((1.0 + x1) * log(1.0)))) + (sin(exp(((sin(exp(1.0)) * sin(exp((1.0 / 1.0)))) / sin(exp(((1.0 + x1) / exp(1.0))))))) / 1.0)) - 1.0) * 1.0) / 1.0)))))) * cos(x2)) / 1.0))))))))))) / 1.0))))))) / 1.0) * sin(x1)) / exp(((1.0 + x1) * log(1.0)))) * cos(x2)) / 1.0))))))))))) / 1.0))))))) / 1.0))))) + cos(exp(exp(exp(1.0))))) - x1) * (1.0 - sin(exp(1.0)))) / 1.0)))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = cos(exp(sin(exp(((((sin(sin(sin(exp(((((sin(sin(cos((sin(cos(x1)) * (cos(exp(sin(exp(((((sin(sin(sin(exp(((((x1 - x2) * sin(x1)) * (x2 + cos(exp(sin(exp(((((sin(((sin(sin(sin(exp(((((sin(x1) / 1.0) - 1.0) * (x2 + cos(exp(sin(exp((((1.0 + x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp((x1 - x2))))))) / 1.0))))))) / 1.0))))) + cos(exp(exp(sin(cos(exp(sin(1.0)))))))) - sin(exp((((((x1 - x2) * sin(x1)) / exp(sin(exp(exp(((((sin(exp(exp(1.0))) + (sin(exp(((sin(exp(1.0)) * sin(exp((1.0 / 1.0)))) / sin(exp((log(1.0) / exp(log(1.0)))))))) / 1.0)) - ((1.0 + x1) * log(1.0))) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((((1.0 + x1) * log(1.0)) - sin(exp((((((x1 - x2) * cos(exp(((sin(exp(1.0)) * sin(x1)) / 1.0)))) / exp(x1)) * cos(x1)) / 1.0))))))))))) / 1.0)))))) * cos(x2)) / 1.0))))) + (sin(((1.0 + x1) * log(1.0))) / 1.0)) - x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((x1 - sin(exp((((((x1 - x2) * sin(x1)) / exp(sin(x1))) * cos(x2)) / 1.0))))))))))) / 1.0))))))) / 1.0))))) + cos(exp(exp(sin(1.0))))) - x1) * (1.0 - sin(exp(1.0)))) / 1.0))))) * 1.0))))) / 1.0) - x1) * (x2 + cos(exp(sin(exp(((((sin(exp((sin(exp(1.0)) * sin(x1)))) + exp(((((sin(((sin(sin(sin(exp(((((sin(x1) / 1.0) - 1.0) * (x2 + cos(exp(sin(sin(exp((((1.0 + x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp((x1 - x2))))))) / 1.0)))))))) / 1.0))))) + cos(exp(exp(sin(cos(exp(sin(1.0)))))))) - x1)) + (sin(((1.0 + x1) * log(1.0))) / 1.0)) - x1) * (1.0 - sin(exp(((((1.0 + x1) + x1) * log(1.0)) * exp(exp((x1 - sin(exp(((((exp(sin(exp(exp(((((sin(exp(exp((x1 * 1.0)))) + (sin(exp(((sin(exp(1.0)) * sin(exp((1.0 / 1.0)))) / sin(exp((log(1.0) / exp(log(1.0)))))))) / 1.0)) - exp(((((sin(exp(((sin(exp(exp((x1 / 1.0)))) - 1.0) * 1.0))) / (sin(((1.0 + x1) * 1.0)) / 1.0)) - x1) * (1.0 - sin(exp(x1)))) / 1.0))) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((x1 - sin(exp((((((x1 - x2) * cos(exp(((sin(exp(1.0)) * sin(x1)) / 1.0)))) / exp(x1)) * cos(x1)) / 1.0))))))))))) / 1.0))))) * sin(x1)) / exp(sin(x1))) * cos(x2)) / 1.0))))))))))) * 1.0))) - x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((x1 - sin(exp(((((((((sin(sin(cos((sin(cos(x1)) * (x1 * 1.0))))) / exp(exp((x1 - sin(exp((((((x1 - x2) * sin(x1)) / exp(sin(exp(exp(((((sin(exp(exp((x1 * 1.0)))) + (sin(exp(((sin(exp(1.0)) * sin(exp((1.0 / 1.0)))) / sin(exp((log(1.0) / exp(log(1.0)))))))) / 1.0)) - exp(((((((sin(x1) / 1.0) - 1.0) * (x2 + cos(exp(sin(exp((((1.0 + x1) * (1.0 - sin((((sin(exp(((x1 - 1.0) * 1.0))) + (sin(((1.0 + x1) * log(1.0))) / 1.0)) - x1) * (1.0 - 1.0))))) / 1.0))))))) - x1) * x1) / 1.0))) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((((1.0 + x1) * log(1.0)) - sin(exp((((((x1 - x2) * cos(exp(((sin(exp(1.0)) * sin(x1)) / 1.0)))) / exp(x1)) * cos(x1)) / 1.0))))))))))) / 1.0)))))) * cos(x2)) / 1.0))))))) - x1) * (x2 + cos(exp(sin(exp(((((sin(exp(((x1 - 1.0) * 1.0))) + (sin(cos(1.0)) * (x1 * 1.0))) - x1) * (1.0 - sin(exp((((1.0 + x1) * log(1.0)) * exp(exp((x1 - sin(exp((((((x1 - x2) * sin(x1)) / exp(sin(exp(exp(((((sin(exp(((1.0 + x1) * log(1.0)))) + (sin(exp(((sin(exp(1.0)) * sin(exp((1.0 / 1.0)))) / sin(exp(((1.0 + x1) / exp(1.0))))))) / 1.0)) - 1.0) * 1.0) / 1.0)))))) * cos(x2)) / 1.0))))))))))) / 1.0))))))) / 1.0) * sin(x1)) / exp(((1.0 + x1) * log(1.0)))) * cos(x2)) / 1.0))))))))))) / 1.0))))))) / 1.0))))) + cos(exp(exp(exp(1.0))))) - x1) * (1.0 - sin(exp(1.0)))) / 1.0)))))
+Node count: 800
+Final MSE:  0.29519087
+Status: BUDGET EXHAUSTED

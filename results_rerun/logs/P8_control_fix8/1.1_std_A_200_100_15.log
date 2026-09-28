@@ -1,0 +1,19 @@
+Loaded Test 1.1: Phase 1: f(x) = exp(x)
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=184974024
+GEN 0 BEST 2.150908440e+01 VAL 2.150908440e+01 NODES 3 MEDIAN 21
+GEN 1 BEST 0.000000000e+00 VAL 0.000000000e+00 NODES 2 MEDIAN 7
+Perfect solution found at generation 1! Stopping.
+STOP_REASON converged
+LAST_GEN 1
+FINAL_ERR 0.0
+FINAL_NODES 2
+FINAL_TREE exp(x)
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp(x)
+Node count: 2
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

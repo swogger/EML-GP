@@ -1,0 +1,33 @@
+2|10.1126/science.1165893|Distilling free-form natural laws|81-85|2009
+3|10.1109/TEVC.2008.926486|Order of nonlinearity as a complexity measure|333-349|2009
+4|10.48550/arXiv.2107.14351|Contemporary symbolic regression methods||2021
+5|10.1007/s10710-008-9075-9|Dynamic limits for bloat control|141-179|2009
+6|10.1007/BFb0055926|Fitness causes bloat: Mutation|13-22|1998
+7|10.1093/oso/9780195099713.001.0001|Evolutionary Algorithms in Theory and Practice||1996
+8|10.48550/arXiv.2305.01582|Interpretable Machine Learning for Science with PySR||2023
+9|10.48550/arXiv.2603.21852|All elementary functions from a single operator||2026
+12|10.1016/B978-1-55860-356-1.50008-X|The troubling aspects of a building block hypothesis|73-88|1995
+13|10.1109/4235.873237|Two fast tree-creation algorithms|274-283|2000
+14|10.1007/978-3-540-24855-2_7|Fitness clouds and problem hardness|690-701|2004
+15|10.1007/978-3-642-17310-3|Cartesian Genetic Programming||2011
+16|10.48550/arXiv.2404.19756|KAN: Kolmogorov-Arnold Networks||2024
+17|10.1007/s10710-013-9210-0|A survey of semantic methods in genetic programming|195-214|2014
+18|10.1007/978-3-642-32937-1_3|Geometric semantic genetic programming|21-31|2012
+19|10.1162/evco_a_00278|Improving model-based genetic programming for symbolic regression of small expressions|211-237|2021
+20|10.1007/978-3-642-33206-7_9|Parsimony pressure made easy|181-204|2014
+21|10.1007/s10710-021-09416-6|Semantically-oriented mutation operator in Cartesian genetic programming|539-572|2021
+22|10.1162/evco.2006.14.3.309|A comparison of bloat control methods|309-344|2006
+23|10.1162/evco.1998.6.4.293|Effects of code growth and parsimony pressure|293-309|1998
+24|10.1007/s10710-011-9150-5|Operator equalisation for bloat free genetic programming|197-238|2012
+25|10.1007/978-3-662-04726-2|Foundations of Genetic Programming||2002
+27|10.1109/ICEC.1994.350006|Context preserving crossover in genetic programming|256-261|1994
+28|10.1007/s10710-010-9121-2|Semantically-based crossover in genetic programming|91-119|2011
+29|10.1109/CEC.2008.4630784|Semantically driven crossover in genetic programming|111-116|2008
+30|10.1007/s10710-012-9172-7|Locally geometric semantic crossover|31-63|2013
+31|10.1007/s10710-011-9136-3|Defining locality as a problem difficulty measure|365-401|2011
+32|10.1023/A:1011504414730|What makes a problem GP-hard|165-191|2001
+33|10.7551/mitpress/1109.003.0010|Explicitly defined introns and destructive crossover|111-134|1996
+34|10.1109/ICEC.1998.700151|Removal bias|781-786|1998
+35|10.1162/106365603321829005|General schema theory for genetic programming with subtree-swapping crossover: Part I|53-66|2003
+37|10.1007/978-3-642-38871-2|Topological Galois Theory||2014
+Z|10.5281/zenodo.21510518|EML-GP||

@@ -1,0 +1,23 @@
+S7 rigidity rules (rerun, both regimes): conv~n_crit AUC and alpha in conv~K+alpha
+ median:
+  n_crit                             dev=  6034.65  AIC=  6038.65  AUC=0.8010   n_crit=-0.4950   p(n_crit)=1.5e-26
+  K + alpha                          dev=  4095.41  AIC=  4101.41  AUC=0.9256   K=-0.3886  alpha=-0.8815   p(K)=3.1e-46 p(alpha)=0.0013
+ min:
+  n_crit                             dev=  7147.67  AIC=  7151.67  AUC=0.6377   n_crit=-0.2908   p(n_crit)=1.3e-09
+  K + alpha                          dev=  4125.05  AIC=  4131.05  AUC=0.9243   K=-0.3921  alpha=-0.6797   p(K)=3.6e-47 p(alpha)=0.027
+ swap:
+  n_crit                             dev=  5757.81  AIC=  5761.81  AUC=0.8317   n_crit=-0.6539   p(n_crit)=4e-23
+  K + alpha                          dev=  4100.91  AIC=  4106.91  AUC=0.9252   K=-0.3896  alpha=-1.1629   p(K)=1.4e-47 p(alpha)=0.0021
+Table14 K=7-11: A lower in 445 pairs, B lower in 183, ties 282
+Table14 K=13-17: A lower in 471 pairs, B lower in 381, ties 48
+Table14 K=19-31: A lower in 1084 pairs, B lower in 980, ties 36
+
+P2 reference cell (rerun, corrected fitness) vs original
+ 1.1 std: A: conv 1.00 (was 1.00) med_err 0 med_nodes 2.0 cens 0 | B: conv 1.00 (was 1.00) med_err 0 med_nodes 3.0 cens 0
+ 1.1 eml: A: conv 1.00 (was 1.00) med_err 0 med_nodes 3.0 cens 0 | B: conv 1.00 (was 1.00) med_err 0 med_nodes 3.0 cens 0
+ 1.2 std: A: conv 1.00 (was 1.00) med_err 0 med_nodes 2.0 cens 0 | B: conv 1.00 (was 1.00) med_err 0 med_nodes 4.0 cens 0
+ 1.2 eml: A: conv 1.00 (was 0.77) med_err 1.78e-30 med_nodes 7.0 cens 0 | B: conv 0.93 (was 0.20) med_err 6.02e-30 med_nodes 15.0 cens 0
+ 1.3 std: A: conv 1.00 (was 1.00) med_err 0 med_nodes 6.0 cens 0 | B: conv 1.00 (was 1.00) med_err 0 med_nodes 11.0 cens 0
+ 1.3 eml: A: conv 0.00 (was 0.00) med_err 8.3 med_nodes 1.0 cens 0 | B: conv 0.00 (was 0.00) med_err 7.05 med_nodes 47.0 cens 0
+ 3.1 std: A: conv 1.00 (was 1.00) med_err 0 med_nodes 2.0 cens 0 | B: conv 1.00 (was 0.97) med_err 0 med_nodes 2.0 cens 0
+ 3.1 eml: A: conv 0.00 (was 0.00) med_err 5.7 med_nodes 1.0 cens 4 | B: conv 0.00 (was 0.00) med_err 2.92 med_nodes 68.0 cens 0

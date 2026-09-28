@@ -1,0 +1,21 @@
+Loaded Test 2.1: Phase 2: f(x) = sin(x) + cos(x)
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'sin', 'cos', 'tan']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=2107424273
+GEN 0 BEST 5.011421652e-01 VAL 5.011421652e-01 NODES 4 MEDIAN 19
+GEN 1 BEST 4.988578348e-01 VAL 4.988578348e-01 NODES 2 MEDIAN 18
+GEN 2 BEST 1.170528309e-01 VAL 1.170528309e-01 NODES 4 MEDIAN 8
+GEN 3 BEST 1.170528309e-01 VAL 1.170528309e-01 NODES 4 MEDIAN 5
+GEN 4 BEST 0.000000000e+00 VAL 0.000000000e+00 NODES 7 MEDIAN 5
+Perfect solution found at generation 4! Stopping.
+STOP_REASON converged
+LAST_GEN 4
+FINAL_ERR 0.0
+FINAL_NODES 7
+FINAL_TREE (sin((x / 1.0)) + cos(x))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (sin((x / 1.0)) + cos(x))
+Node count: 7
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

@@ -1,0 +1,24 @@
+Loaded Test 1.2: Phase 1: f(x) = ln(x)
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=215858185
+GEN 0 BEST 4.296032792e-01 VAL 4.296032792e-01 NODES 27 MEDIAN 18
+GEN 1 BEST 1.965471118e-01 VAL 1.965471118e-01 NODES 5 MEDIAN 19
+GEN 2 BEST 1.965471118e-01 VAL 1.965471118e-01 NODES 5 MEDIAN 20
+GEN 3 BEST 1.868442867e-01 VAL 1.868442867e-01 NODES 27 MEDIAN 24
+GEN 4 BEST 4.101935070e-02 VAL 4.101935070e-02 NODES 30 MEDIAN 31
+GEN 5 BEST 4.101935070e-02 VAL 4.101935070e-02 NODES 30 MEDIAN 30
+GEN 6 BEST 0.000000000e+00 VAL 0.000000000e+00 NODES 36 MEDIAN 30
+Perfect solution found at generation 6! Stopping.
+STOP_REASON converged
+LAST_GEN 6
+FINAL_ERR 0.0
+FINAL_NODES 36
+FINAL_TREE ((cos((((1.0 / log((cos(1.0) * (x / x)))) * sin(1.0)) + ((1.0 - 1.0) * sin((exp(x) + (x * 1.0)))))) / (exp(exp(1.0)) - log(log(1.0)))) + log(x))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = ((cos((((1.0 / log((cos(1.0) * (x / x)))) * sin(1.0)) + ((1.0 - 1.0) * sin((exp(x) + (x * 1.0)))))) / (exp(exp(1.0)) - log(log(1.0)))) + log(x))
+Node count: 36
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

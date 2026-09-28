@@ -1,0 +1,32 @@
+
+Table 6 (G200/P100) Fisher recomputation:
+  1.1: raw 1.0 Holm 1.0  paper (1.0, 1.0)  OK
+  1.2: raw 0.011 Holm 0.063  paper (0.011, 0.063)  OK
+  1.3: raw < Holm <  paper ('<', '<')  OK
+  1.4: raw < Holm <  paper ('<', '<')  OK
+  2.1: raw 0.024 Holm 0.119  paper (0.024, 0.119)  OK
+  3.1: raw < Holm <  paper ('<', '<')  OK
+  3.2: raw < Holm <  paper ('<', '<')  OK
+  3.3: raw < Holm 0.006  paper ('<', 0.006)  OK
+  3.4: raw 0.052 Holm 0.209  paper (0.052, 0.209)  OK
+  3.5: raw < Holm <  paper ('<', '<')  OK
+  4.1: raw 1.0 Holm 1.0  paper (1.0, 1.0)  OK
+  4.2: raw 1.0 Holm 1.0  paper (1.0, 1.0)  OK
+
+Table 7 (G200/P100) Mann-Whitney recomputation over non-censored runs (r > 0: EML larger):
+  1.1: med 2.0/3.0 p 0.004 Holm 0.022 r +0.400 (n 30/30)  paper (2, 3, 0.004, 0.022, 0.4)  OK
+  1.2: med 2.0/7.0 p < Holm < r +0.844 (n 30/29)  paper (2, 7, '<', '<', 0.844)  OK
+  1.3: med 5.0/1.0 p < Holm < r -0.933 (n 30/30)  paper (5, 1, '<', '<', -0.933)  OK
+  1.4: med 13.5/273.0 p 0.008 Holm 0.04 r +0.583 (n 18/12)  paper (13.5, 273, 0.008, 0.04, 0.583)  OK
+  2.1: med 15.0/295.0 p 0.041 Holm 0.165 r +0.624 (n 17/5)  paper (15, 295, 0.041, 0.165, 0.624)  OK
+  3.1: med 2.0/1.0 p < Holm < r -0.923 (n 30/26)  paper (2, 1, '<', '<', -0.923)  OK
+  3.2: med 2.0/461.0 p < Holm < r +1.000 (n 30/8)  paper (2, 461, '<', '<', 1.0)  OK
+  3.3: med 13.0/399.0 p < Holm < r +0.904 (n 19/11)  paper (13, 399, '<', '<', 0.904)  OK
+  3.4: med 136.0/648.0 p 0.115 Holm 0.345 r +0.528 (n 18/4)  paper (136, 648, 0.115, 0.345, 0.528)  OK
+  3.5: med 43.0/485.0 p < Holm < r +0.953 (n 30/10)  paper (43, 485, '<', '<', 0.953)  OK
+  4.1: med 321.0/443.0 p 0.377 Holm 0.377 r +0.259 (n 9/9)  paper (321, 443, 0.377, 0.377, 0.259)  OK
+  4.2: med 228.5/419.0 p 0.184 Holm 0.369 r +0.313 (n 22/9)  paper (228.5, 419, 0.184, 0.369, 0.313)  OK
+RATE MISMATCH eml-B test 1.1: (cell, paper, data) [((100, 100), 0.97, 1.0)]
+RATE MISMATCH eml-B test 1.2: (cell, paper, data) [((100, 100), 0.17, 0.2)]
+
+TOTAL mismatching items: 2

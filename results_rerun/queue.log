@@ -1,0 +1,73 @@
+P1_synth_main          total  7820  remaining  7820
+P1b_synth_lowk         total   260  remaining   260
+P2_bench_ref           total  1440  remaining  1440
+P3_control_abl6        total   720  remaining   720
+P4_ssc_uy              total   360  remaining   360
+P5_synth_pointmut      total   726  remaining   726
+P6_native_grid         total  1920  remaining  1920
+P7_synth_budget800     total   804  remaining   804
+P8_control_fix8        total   720  remaining   720
+running 14770 tasks on 6 workers -> /Users/hkbh/Projects/EML GP/results_rerun
+queue finished
+P2_bench_ref           total   480  remaining   480
+P1_synth_main          total  7820  remaining  7160
+P1b_synth_lowk         total   260  remaining   260
+P3_control_abl6        total   360  remaining   360
+P4_ssc_uy              total   360  remaining   360
+P6_native_grid         total   960  remaining   960
+P5_synth_pointmut      total   726  remaining   726
+running 10306 tasks on 7 workers -> /Users/hkbh/Projects/EML GP/results_rerun
+queue finished
+P2_bench_ref           total   480  remaining     0
+P1_synth_main          total  7820  remaining     0
+P1b_synth_lowk         total   260  remaining     0
+P3_control_abl6        total   360  remaining     0
+P4_ssc_uy              total   360  remaining   115
+P6_native_grid         total   960  remaining     0
+P5_synth_pointmut      total   726  remaining   441
+P2_bench_ref+          total   960  remaining   960
+P3_control_abl6+A      total   360  remaining   360
+P8_control_fix8        total   720  remaining   720
+P10_sr_bench           total   480  remaining   480
+P9_synth_rigid         total   860  remaining   860
+P7_synth_budget800     total   804  remaining   804
+P7b_synth_budget3200   total   804  remaining   804
+running 5544 tasks on 6 workers -> /Users/hkbh/Projects/EML GP/results_rerun
+queue finished
+P2_bench_ref           total   480  remaining     0
+P1_synth_main          total  7820  remaining     0
+P1b_synth_lowk         total   260  remaining     0
+P3_control_abl6        total   360  remaining     0
+P4_ssc_uy              total   360  remaining    13
+P6_native_grid         total   960  remaining     0
+P5_synth_pointmut      total   726  remaining   441
+P2_bench_ref+          total   960  remaining   960
+P3_control_abl6+A      total   360  remaining   360
+P8_control_fix8        total   360  remaining   360
+P9_synth_rigid         total   860  remaining   860
+P7_synth_budget800     total   804  remaining   804
+P10_sr_bench           total   480  remaining   480
+P7b_synth_budget3200   total   804  remaining   804
+running 5082 tasks on 6 workers -> /Users/hkbh/Projects/EML GP/results_rerun
+queue finished
+P2_bench_ref           total   480  remaining     0
+P1_synth_main          total  7820  remaining     0
+P1b_synth_lowk         total   260  remaining     0
+P3_control_abl6        total   360  remaining     0
+P4_ssc_uy              total   360  remaining     0
+P6_native_grid         total   960  remaining     0
+P5_synth_pointmut      total   726  remaining     0
+P2_bench_ref+          total   960  remaining     0
+P3_control_abl6+A      total   360  remaining     0
+P8_control_fix8        total   360  remaining     0
+P9_synth_rigid         total   860  remaining     0
+P7_synth_budget800     total   804  remaining     0
+P8_control_fix8+A      total   360  remaining   360
+P10_sr_bench           total   480  remaining   255
+P7b_synth_budget3200   total   804  remaining   804
+running 1419 tasks on 6 workers -> /Users/hkbh/Projects/EML GP/results_rerun
+queue finished
+P8_control_fix8+A      total   360  remaining   256
+P10_sr_bench           total   480  remaining   255
+running 511 tasks on 6 workers -> /Users/hkbh/Projects/EML GP/results_rerun
+queue finished

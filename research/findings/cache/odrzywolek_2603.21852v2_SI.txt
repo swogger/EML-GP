@@ -1,0 +1,1186 @@
+                               Supplementary Information
+                                         Andrzej Odrzywolek
+             Institute of Theoretical Physics, Jagiellonian University, 30-348 Krakow, Poland
+                                   E-mail: andrzej.odrzywolek@uj.edu.pl
+
+                                             April 4, 2026
+
+
+
+This document provides complete technical details supporting the main text. It is organized into
+three logically distinct parts, each building on the previous one. This separation matters: the
+methods and standards of evidence differ across the three stages, and conflating them would obscure
+what has actually been established.
+
+    1. Part I: Discovery (Sect. 1). How the EML operator and its associated reconstruction chain
+       were found. The methods here are designed for speed and exhaustiveness, not for proof-level
+       rigor. They use floating-point numerical evaluation and heuristic filtering. False positives
+       are acceptable at this stage, because every promising candidate is independently verified in
+       Part II.
+
+    2. Part II: Verification (Sect. 2). Independent confirmation that the candidates discovered in
+       Part I are mathematically correct. This includes symbolic simplification in Wolfram Mathe-
+       matica, numerical testing across four independent IEEE 754 backends (C, NumPy, PyTorch,
+       mpmath), and a sketch of a classical completeness proof with explicit witness identities.
+
+    3. Part III: Application (Sect. 3). Once the EML Sheffer is discovered and verified, we use
+       it. This part describes gradient-based training of parameterized EML trees, the “master
+       formula” approach outlined in the main text, including the multi-stage optimization pipeline,
+       systematic experiments across tree depths 2–6, and analysis of convergence behavior.
+
+Each part is prerequisite for the next. One cannot verify a formula whose form is unknown, and
+training EML trees is pointless if the underlying identities have not been confirmed to evaluate
+correctly in floating-point arithmetic.
+
+
+1     Part I: Discovery — Search procedure and EML identification
+1.1    Scope: which functions count as “elementary”
+The term “elementary function” lacks a single universal definition. In the Liouvillian tradition [1,
+2], elementary functions are those built from rational functions by finitely many compositions,
+exponentiations, and logarithms; trigonometric and hyperbolic functions enter through Euler’s
+formula eix = cos x+i sin x. Computer algebra systems define their own lists, and calculus textbooks
+often restrict “elementary” to a smaller or larger core, depending on tradition. For example,
+Anglo-Saxon calculus courses routinely treat sec, csc, cot and their inverses as standard material,
+while Eastern European curricula often omit them. Wolfram Mathematica explicitly defines its
+
+                                                    1
+own catalog of “Elementary Transcendental Functions” (tutorial/MathematicalFunctions in the
+Wolfram Language documentation), which includes the standard trigonometric and hyperbolic
+functions but also less familiar entries such as Sinc(z) = sin z/z, Haversine(z) = sin2 (z/2), and
+the Gudermannian gd(z) = 2 arctan(tanh(z/2)). These are all compositions of simpler elementary
+functions, but Mathematica treats them as built-in primitives.
+    Chow [3] offers a complementary algebraic perspective: he defines “closed-form numbers” as
+values expressible using exp and ln starting from the rationals, and argues that this is the natural
+generalization of “solvability by radicals” — closely matching the Liouvillian tradition. This is
+close to the definition used in this research.
+    In the absence of a canonical list, a constructive enumeration is unavoidable. Our working
+definition is concrete and operational: the 36 primitives listed in Table 1 of the main text. A
+simple mental model for it is a calculator with those 36 buttons. This list is guided by several
+considerations.
+
+ISO 80000-2 coverage. The international standard [4] defines notation for six trigonometric
+                                                                                                      √
+functions, six hyperbolic functions, and their twelve inverses, together with exp, ln, loga , and n ·.
+Our list covers the “core six” circular functions (sin, cos, tan) and their hyperbolic counterparts
+(sinh, cosh, tanh), together with the six corresponding inverse functions. The reciprocal functions
+sec, csc, cot and their hyperbolic counterparts are omitted as trivially expressible via 1/ cos, etc. We
+follow ISO 80000-2 notation throughout, writing arsinh, arcosh, artanh for the inverse hyperbolics
+(“area” functions), in contrast to arcsin, arccos, arctan for the inverse circulars (“arc” functions).
+
+Practical utility and search                                                       2
+                             p efficiency. Beyond the ISO core, we include x , x/2, avg(x, y) =
+(x + y)/2, hypot(x, y) =       x + y , and the logistic sigmoid σ(x) = 1/(1 + e−x ). These are
+                                 2   2
+
+compositions of simpler operations, but including them is not merely cosmetic. They serve as
+intermediate stepping stones that dramatically shorten the bootstrapping chain. For instance,
+cosh(x) = avg(exp(x), exp(−x)) has witness complexity K = 6 using avg; without it, the search
+would need to reconstruct half and + compositionally at each occurrence, pushing total expression
+depth beyond the feasible search horizon of K ≤ 9. More generally, every frequently used mathe-
+matical function is, from the EML perspective, a short “macro” that compresses a long pure-EML
+string. Such a modular subexpression can be reused [5]. We might view standard elementary
+functions as equivalent to highly-preserved DNA/amino acid sequences (HOX, Histone H4) in liv-
+ing organisms. Including all 36 ensures that no standard function falls through the cracks due to
+excessive expression depth. The number 36 itself has a historical origin in the search procedure:
+standard display and string-conversion functions (Mathematica’s BaseForm, C’s ISO C99 strtol)
+support at most base 36, using digits 0–9 and letters A–Z. The early exhaustive search enumerated
+natural numbers, converted each to a base-36 string, and interpreted the resulting digits as RPN
+instructions for a virtual 36-key calculator. This scheme is embarrassingly parallel, cache-friendly
+(no memory allocation beyond a single integer counter), and immune to hash collisions. Therefore
+36 was the maximum number of buttons that fit naturally into this framework, and the Calc 4 list
+was designed to fill exactly this many slots. Note that tiny variations might exist between Wolfram,
+Rust and C versions, due to technical issues, e.g., whether zero and/or imaginary unit is included
+among constants.
+
+Redundancy is deliberate. It may seem wasteful to include e.g. both sin and cos, since e.g.
+cos x = sin(x + π/2). But we do not know a priori which function will be reconstructed first: sine
+
+
+
+                                                   2
+or cosine? Excluding one risks that the only path to the other requires expression depth K > 9,
+producing a false negative in the completeness test. Redundancy is the cost of thoroughness.
+
+Ability to compute using standard math libraries. A secondary but non-negotiable con-
+straint is that every function in our list must be available as a fast, hardware-quality implementation
+in the standard C library (<math.h> / <complex.h>; see ISO C99, Annex F). This rules out sec, csc,
+cot, and their inverses: while mathematically well-defined, they have no dedicated <math.h> entry
+and must be computed as reciprocals, which introduces an unnecessary division and a branch-point
+asymmetry. On the positive side, the <math.h> catalog provides exp, log, sqrt, pow, hypot, all six
+inverse trigonometric/hyperbolic functions, and the four basic arithmetic operations — all of which
+appear in our list. We include only those functions that are (i) analytic in the complex-variable
+sense (ruling out, e.g., |x|, Re, floor) and (ii) have a working <complex.h> implementation (since
+verification relies on complex arithmetic).
+
+1.2    The bootstrapping method
+The central computational problem is: given a candidate operator, e.g. eml(x, y) and a terminal
+symbol (e.g. the constant 1), determine whether every primitive from the 36-element list can be
+expressed as a finite composition of these two ingredients.
+    Direct symbolic verification is intractable. A typical witness expression has Kolmogorov com-
+plexity K ≲ 7 (in our RPN code-length measure), and we searched up to K = 9. The number of
+syntactically distinct expression trees grows exponentially with K, and symbolic simplification of
+deeply nested exp/ln compositions is slow and fragile.
+    In fact, Richardson’s theorem [6] shows that zero-equivalence of expressions involving exp, ln,
+and sin is undecidable in general1 . Our expressions use only exp and ln, for which Macintyre and
+Wilkie [7] proved that identity testing is decidable assuming Schanuel’s conjecture but the known
+algorithms are impractical at the expression sizes encountered here.
+    Regardless of theoretical decidability, there are severe practical obstacles to symbolic simpli-
+fication at the expression sizes encountered here. The original Mathematica search code devotes
+much of its logic to TimeConstrained/MemoryConstrained wrappers, because even short exp-log
+compositions routinely trigger expression blow-up, multi-hour FullSimplify runtimes, memory
+exhaustion in arbitrary-precision subroutines, or outright kernel crashes2 . As a result, direct sym-
+bolic verification is not a viable discovery strategy; it is used only later, in Part II, on a handful of
+already-identified candidates.
+    Instead, I employ a numerical sieve based on the following observation: any generally valid
+identity f (x) ≡ g(x) must also hold at every particular point. We substitute algebraically indepen-
+dent transcendental constants (Table S1) for the variables x and y, evaluate both sides in IEEE 754
+double-precision arithmetic, and compare. This method was influenced by usage examples from
+the RIES inverse symbolic calculator [8], especially the “Forgotten Identities” section; RIES is a
+related tool for the constant-recognition problem.
+   1
+     The undecidability hinges on the presence of sin: over the reals, sin(nπ) = 0 defines the integers, re-enabling
+Gödel-type incompleteness. Tarski (1951) had proved decidability for real-closed fields (R, +, ×, <) with no transcen-
+dental functions. Macintyre and Wilkie’s result restores decidability for the real exponential field (R, +, ×, exp) by
+excluding sin. Our witness expressions are compositions of (real) exp and ln, falling squarely into the Macintyre–
+Wilkie setting. Complex arithmetic enters only through the values we construct (i, π, trigonometric functions), not
+through the structure of the expressions being tested.
+   2
+     Several of these errors were reproducible and were reported to Wolfram as confirmed bugs.
+
+
+
+
+                                                          3
+    For the present heuristic sieve, the relevant conjectural justification is Schanuel’s conjecture [9]:
+algebraically independent transcendental probes make coincidental numerical matches between non-
+equivalent exp-log expressions vanishingly unlikely.
+
+                      Table S1: Probe constants used in the numerical sieve.
+                         Constant                 Value    Mathematica symbol
+                         Euler–Mascheroni γ    ≈ 0.5772    EulerGamma
+                         Catalan’s C           ≈ 0.9160    Catalan
+                         Glaisher–Kinkelin A   ≈ 1.2824    Glaisher
+                         Khinchin’s K0         ≈ 2.6854    Khinchin
+
+    Choice of transcendental constants (Table S1) is pragmatic, not deep. All four are available
+at arbitrary precision in Wolfram Mathematica. The key requirement is that the probes must lie
+outside the exp-log number class (note that e and π themselves are members of this class, as the
+EML reconstructions e = eml(1, 1) and the chain witness for π in Table S2 demonstrate). All four
+constants in Table S1 are widely believed to be transcendental and algebraically independent of e
+and π, though this has not been proved for any of them [10].
+    Conveniently, the absolute values of these probes lie inside the horizontal strip | Im(z)| < π,
+the fundamental period strip of exp. Within this strip, Log(exp(z)) = z; outside it, Log returns a
+value shifted by 2πik.
+    The bootstrapping procedure is generic: it applies to any candidate {constant, function, oper-
+ator, ternary} set, not only to {1, eml}.
+    The algorithm works iteratively as described in the main text (Subsect. 2.2): starting from
+the candidate pair (e.g., S0 = {1, eml}), enumerate expression trees of increasing complexity K,
+evaluate at the probe constants, and move any matching target into the available set for subse-
+quent rounds. EML is the successful instance; the exhaustive search in Sect. 1.4 applies the same
+machinery to thousands of other candidates. Here we elaborate on details not covered in the main
+text.
+
+Discovery witnesses versus symbolic identities. The witnesses printed by the search pro-
+grams are discovery witnesses at probe points, not yet final symbolic formulas. For example, a line
+such as (from Rust code)
+
+      Found binary operation:         Subtract      witness[k=5]:       EML[Log[EulerGamma], Exp[Glaisher]]
+
+or (from Mathematica code)
+
+       Subtract { EulerGamma,Log,Glaisher,Exp,EML,Identity}
+
+means that the search has located a depth-5 pattern (RPN code) numerically consistent with
+subtraction under the chosen probes. It does not yet mean that the general symbolic identity for
+x − y has been found, or proved.
+
+False positives and impostors. A numerical match is a candidate, subject to further verifica-
+tion. The early Mathematica implementation produced false positives, some surviving all 16 digits
+of agreement in double precision.
+    A representative example is the expression
+
+                     eml(eml(eml(1, eml(0, eml(A, γ))), eml(γ, A)), eml(1, 1)),
+
+                                                   4
+which evaluates to ≈ −0.9999999999999998 — within one unit in the last place (ULP) of −1 in
+IEEE 754 double precision, but clearly distinguishable from −1 at 64-digit precision (≈ −0.99999999999999980 . . .).
+Such impostors pass all 16 decimal digits of the double-precision sieve yet are not symbolically cor-
+rect identities.
+     These experiences motivated several safeguards in the Rust reimplementation: (i) re-checking
+all candidates in mpmath [11] at 128-digit precision; (ii) testing at all four probe constants also with
+changed sign, not just one; and (iii) the “flaky witness” detector described below. The Wolfram
+Mathematica original VerifyBaseSet does not include safeguards (ii) and (iii).
+
+Flaky witnesses and branch-cut disagreements. An additional safeguard, implemented only
+in the Rust version (enabled by the --explain switch), is the “flaky witness” detector: when a
+candidate identity passes at one probe point but fails at another, it is rejected and the search
+continues. Since all generated expressions are compositions of analytic functions, the disagreement
+is not caused by a measure-zero coincidence but by a branch-cut mismatch: the candidate is a
+valid identity on a different Riemann sheet, not on the principal branch we require. The log in
+Sect. 1.3 shows several such rejections (e.g., arcsin at K = 4, which passed at x = γ but failed at
+x = −γ). In every observed case, the search eventually finds an alternative witness that is valid on
+the standard principal branch.
+
+1.3   Discovery chain: complete reconstruction from {1, eml}
+Table S2 presents the full bootstrapping chain as produced by the Rust verification tool (rust verify
+--explain). Starting from {1, eml}, all 32 remaining primitives from the 36-element list are recon-
+structed in 33.68 s on an AMD Ryzen 9 5900X. The discovery order is determined by the search
+algorithm, not by mathematical necessity; different probe constants or search-depth schedules may
+yield a different ordering. Note that the first successful chain discovered using prototype Mathe-
+matica version (see main text) is a bit different.
+    Several features of the chain deserve comment.
+
+The critical bottleneck at K = 6. The natural logarithm ln(x) = eml(1, exp(eml(1, x))) is
+the first non-trivial reconstruction and the hardest single step. Its witness complexity K = 6
+is the highest in the initial (pre-arithmetic) phase of the chain. This partially explains why the
+EML operator was undiscovered for such a long time. Once ln is available, subtraction follows
+at K = 5 via the identity x − y = eml(ln x, exp y), which is the key algebraic insight: the EML
+operator applied to a log-input and an exp-input “cancels” the transcendental parts and leaves
+pure subtraction.
+
+Recovery of Calc 2. After step 4, the available set is {1, eml, e, exp, ln, −}. This contains the
+Calc 2 configuration from Table 2 of the main text: {exp, ln, −}. Completeness of Calc 2 for el-
+ementary functions is a direct consequence of Lemmas 1–3 and Corollary 4 in the proof sketch
+(Sect. 2.5): once exp, ln, and subtraction are available, all arithmetic and all remaining elementary
+functions follow by the standard exponential/logarithmic identities tabulated there. The remaining
+steps 5–32 of the bootstrapping chain are therefore individually routine; their purpose is to provide
+explicit, machine-checkable witnesses for all 36 primitives in automated manner.
+
+Flaky witnesses. The search rejects several candidates that pass at one probe point but fail at
+                               ?
+others. For example, arcsin(x) = arccos(sin(arccos(x))) passes at x = γ but fails (wrong sign) at
+
+
+                                                 5
+Table S2: Complete EML bootstrapping chain. Each row shows the step number, the discovered
+primitive, the witness complexity K (RPN code length), and the witness expression using only previ-
+ously discovered primitives. The starting set is {1, eml}; the probe constants γ (Euler–Mascheroni)
+and A (Glaisher–Kinkelin) are available as test inputs but are not part of the construction. Entries
+marked “rejected flaky” were candidate witnesses that failed multi-point consistency checks and
+were discarded. Four missing from 36 entries listed in Table 1 of main text are: two variables x, y,
+constant 1, and imaginary unit.
+                      Steps 1–16                                           Steps 17–32
+
+      Step Primitive K      Witness expression          Step   Primitive   K     Witness expression
+
+        1 e           3 eml(1, 1)                         17 logx y        5 ln
+                                                                             py/ ln x
+        2 exp(x)      3 eml(x, 1)                         18 π             5 p−(ln(−1))2
+        3 ln(x)       6 eml(1, exp(eml(1, x)))            19 hypot(x, y)   6    x2 + y 2
+        4 x−y         5 eml(ln x, exp y)                  20 σ(x)          6 1/ eml(−x, exp(−1))
+        5 −1          4 ln(1) − 1                         21 cosh(x)       6 avg(exp x, exp(−x))
+        6 2           3 1 − (−1)                          22 sinh(x)       5 eml(x, exp(cosh x))
+        7 −x          4 ln(1) − x                         23 tanh(x)       5 sinh x/
+                                                                                   √ cosh x
+        8 x+y         4 x − (−y)                          24 cos(x)        5 cosh( −x2 )
+        9 1/x         4 exp(− ln x)                       25 sin(x)        5 cos(x − π/2)
+       10 x × y       6 exp(ln x + ln y)                  26 tan(x)        5 sin x/ cos x
+       11 x2          3 x×x                               27 arsinh(x)     6 ln(x + hypot(−1,√x))
+       12 x/y         4 x × inv(y)                        28 arcosh(x)     5 arsinh(hypot(x, −1))
+       13 x/2         3 x/2                               29 arccos(x)     4 arcosh(cos(arcosh(x)))
+       14 avg(x, y)   4 half(x + y)                       30 artanh(x)     5 arsinh(1/ tan(arccos(x)))
+          √
+       15   x         4 exp(half(ln x))                   31 arcsin(x)     5 π/2 − arccos(x)
+       16 xy          5 exp(y × ln x)                     32 arctan(x)     4 arcsin(tanh(arsinh(x)))
+
+
+
+x = −γ due to branch-cut disagreement. The accepted witness arcsin(x) = π/2 − arccos(x) is the
+standard complementarity identity, valid on the full domain |x| ≤ 1.
+
+Dependency structure. Figure S1 shows the adjacency matrix of the discovery chain. Row
+i, column j is filled if function i uses function j as an ingredient in its witness expression. The
+near-triangular structure reflects the sequential discovery order. Some elements are dead-ends, i.e.,
+used nowhere later in the chain, but it is not easy to predict this in advance. Curiously, among
+them are xy , logx y which are primitives for Calc 1, see Table 2 in main text.
+
+1.4   The EML is not unique: exhaustive search for other Sheffer operators
+After discovering the EML, a natural question is whether other elementary Sheffer operators exist.
+Answering this kind of question using the original code was nearly impossible, given that a single
+test took nearly an hour. It became enabled by the rise of a new class of AI coding agents, allowing
+for automated translation of existing software. The new version became thousands of times faster.
+I conducted search over candidate operators of increasing syntactic complexity, implemented in
+Rust (rust autogen search and rust autogen parallel search in the public SymbolicRegres-
+sionPackage repository (https://github.com/VA00/SymbolicRegressionPackage; archival snap-
+shot: https://doi.org/10.5281/zenodo.19183008)).
+    Note that the results below are preliminary and have not been independently verified. They are
+included to illustrate the search methodology and to record promising candidates for future work.
+    The search generates candidate operators of increasing syntactic complexity and tests them
+for completeness using a truncated bootstrapping method. Four search profiles are implemented,
+mirroring the Calc templates from Table 2 of the main text:
+
+
+                                                 6
+                                                                      H
+                                                               H [ S
+                                                                    O Q
+                                                                                                     ( 0 /
+                                                                                                     F R Q V W D Q W
+                                                                      [                               D U L W K P H W L F
+                                                                                                     W U L J R Q R P H W U L F
+                                                                  [                                 K \ S H U E R O L F
+                                                                      î                               X Q X V H G
+                                                                 x2
+                                                                      ·
+
+
+
+            & R Q V W U X F W H G  I X Q F W L R Q
+                                                                [  
+                                                             p D Y J
+                                                                    x
+                                                                 xy
+                                                       log x y
+                                                                    π
+                                                         K \ S R W
+                                                                    σ
+                                                            F R V K
+                                                             V L Q K
+                                                             W D Q K
+                                                                F R V
+                                                                 V L Q
+                                                                 W D Q
+                                                        D U V L Q K
+                                                       D U F R V K
+                                                       D U F F R V
+                                                        D U W D Q K
+                                                         D U F V L Q
+                                                        D U F W D Q      ( 0 /
+                                                                              H [ S  
+                                                                                     H
+                                                                                   O Q
+                                                                                 [
+                                                                                p
+                                                                                x2
+                                                                               [  
+                                                                              D Y J  
+                                                                                     
+                                                                                     [
+                                                                                     
+                                                                                     î
+                                                                                     ·
+                                                                      log x y   xy
+                                                                        K \ S R W
+                                                                           F R V K
+                                                                            V L Q K
+                                                                            W D Q Kx
+                                                                                   π
+                                                                                   σ
+                                                                               F R V
+                                                                                V L Q
+                                                                                W D Q
+                                                                       D U V L Q K
+                                                                      D U F R V K
+                                                                      D U F F R V
+                                                                       D U W D Q K
+                                                                        D U F V L Q
+                                                                             , Q J U H G L H Q W V
+                                                                       D U F W D Q
+
+Figure S1: Adjacency matrix for the EML bootstrapping chain. Row i, column j is filled when
+the witness for primitive i uses primitive j as a building block. Square colors encode ingredient
+type: black = EML, purple = constant 1, red = discovered constant, green = unary function, blue
+= binary operation. Grey columns mark primitives that are never reused as ingredients by any
+later construction (terminal nodes of the chain).
+
+
+  0) {no constant, one unary function, one binary operation},
+
+  A) {one constant, one binary operation},
+
+  B) {no constant, no unary, one binary only},
+
+  C) {one ternary operator}.
+
+Instead of reconstructing all 36 primitives, the search checks whether the candidate can recover one
+of the already-established minimal configurations (Calc 1 or Calc 2 from Table 2 of the main text).
+    Two transcendental probe constants (γ and A, as in the table in Sect. 1.2) are substituted
+for variables. The current Rust implementation uses double-precision arithmetic only. Arbitrary-
+precision re-checking is impractical at the exhaustive-search scale; future work may instead target
+single-precision GPU implementations to widen the combinatorial reach. All results below are
+unverified candidates from the numerical sieve; no extensive numeric, symbolic or formal verification
+has been attempted.
+
+
+
+                                                                            7
+Results (profile 0): one constant, one binary operator. At operator complexity K = 4,
+nothing was found (gen-k=4, verify-k=15, AMD Ryzen 9 5900X, 5187 s). At K = 5, four Sheffer-
+like candidates were discovered:
+
+  1. {e, ex / ln y}: the EDL (Exp-Divide-Log), Eq. (3b) of the main text;
+  2. {1, 1/(ln x)y }: a new class;
+  3. {1, ln y/ex }: the LDE (Log-Divide-Exp), a close cousin of the EDL;
+  4. {0, ln y/ex }: another LDE variant.
+
+Results (profile A): no constant, one unary, one binary operator. Four complete systems
+of the form {unary, binary} (analogous to Calc 0 from Table 2 of the main text, with no distinguished
+constant) were found at operator complexity K = 3: {e1/x , logx y}, {1/ ln x, xy }, {e−x , logx y}, and
+{ex , logx y}.
+
+Results (profile B): no constant, no function, one binary operator. No constant-free
+binary Sheffer was found (gen-k=6, verify-k=17, tested on Intel Core Ultra 285). Whether such an
+operator exists remains an open question.
+
+Results (profile C): ternary operators.                    A targeted search yielded two ternary Sheffers re-
+quiring no distinguished constant:
+                                             ex−y ln x                           ex−y ln z
+                            T1 (x, y, z) =             ,        T2 (x, y, z) =             .
+                                               ln z                                ln x
+Notably, T2 (x, x, x) = 1, generating the required constant from arbitrary input, a property the
+binary EML lacks.
+
+1.5      Open questions from the search
+  1. Are EML, EDL, and −EML unrelated, members of a discrete family, or random samples from
+     a continuous distribution of Sheffer operators?
+  2. Can formula enumeration using EML (or one of its variants) be made non-repetitive, analo-
+     gous to the Stern–Brocot tree for rationals?
+  3. Does a single binary operator exist that generates constants from arbitrary input (no distin-
+     guished terminal symbol)? The search so far has returned nothing. It might require the use
+     of non-elementary functions, like Γ(x) or tetration3 .
+  4. Can we find a full binary EML tree for any elementary function with inputs restricted to the
+     leaf layer only?
+  5. Known identity function have depth four, allowing for transplanting variables down the tree
+     by multiple of 4. Are there other of this kind, with various depths?
+  6. Does a Sheffer operator exist that works purely in the real domain?
+  7. Can the EML Sheffer, or one of its variants, work without use of the extended real axis, −∞
+     in particular?
+  3
+      Both lack standard numerical implementation over complex domain.
+
+
+                                                            8
+2     Part II: Verification — Confirming the EML Sheffer
+Part I produced 32 candidate witness identities (Table S2) by numerical sieving. This part estab-
+lishes, by independent methods, that these identities are mathematically correct. Three levels of
+verification are employed, in increasing order of rigor: multi-platform numerical testing (Sect. 2.2),
+symbolic simplification in Wolfram Mathematica (Sect. 2.3), and a classical proof sketch with ex-
+plicit lemmas (Sect. 2.5).
+    A natural next step would be formalization in Lean 4 [12], but preliminary AI-assisted attempts
+failed; the extended-value conventions (ln 0 = −∞) and branch-cut reasoning required appear to
+exceed current automation capabilities.
+
+2.1   The EML compiler
+To systematically test EML witness identities, a Python compiler (eml compiler v4.py) was de-
+veloped that translates any elementary function expression into a pure-EML composition — a tree
+whose only internal node is eml and whose leaves are 1 and input variables.
+    The compiler works by recursive descent. It maps each elementary operation to a fixed EML
+“macro”:
+
+                                 exp(z) 7→ eml(z, 1),
+                                   ln(z) 7→ eml(1, exp(eml(1, z))),
+                                  x − y 7→ eml(ln(x), exp(y)),
+                                     −z 7→ (ln 1) − z,
+                                  x + y 7→ x − (−y),
+                                    1/z 7→ exp(− ln z),
+                                    x · y 7→ exp(ln x + ln y).
+
+Trigonometric and hyperbolic functions are compiled via their standard exponential forms (e.g.,
+cos x = cosh(x/i)), and inverse functions via their logarithmic definitions. The compiler output is
+a single nested expression in the grammar S → 1 | x1 | · · · | xn | eml(S, S).
+
+Branch-cut convention. The EML-reconstructed logarithm is L(z) = eml(1, exp(eml(1, z))) =
+e − Log(ee /z). For z > 0 this equals log z (the ordinary real logarithm). For z < 0, however,
+ee /z is negative, and the principal Log returns a value with imaginary part +iπ, so that L(z) =
+Log(z) − 2πi, which differs from the standard principal value Log(z) = log |z| + iπ by a full period.
+Crucially, exp(L(z)) = exp(Log(z)) · e−2πi = z for all real z ̸= 0, so the round-trip identity is
+preserved. The compiler resolves the branch discrepancy by adjusting the sign of the imaginary
+unit i (replacing i = exp(Log(−1)/2) with i = − exp(Log(−1)/2)) so that downstream constructions
+(π, trigonometric functions, etc.) produce standard values.
+
+Extended-value conventions. A few very short constant witnesses (notably 0, −1, and 2) pass
+through ln(0) = −∞ and exp(−∞) = 0 as intermediate steps. These are correctly handled by
+Mathematica’s symbolic engine and by IEEE 754 floating-point (inf, signed zeros), but may cause
+errors in languages that trap special float values (pure Python, numerical Mathematica with auto-
+extending precision). The compiler output works correctly in C (<math.h>), NumPy [13], and
+PyTorch [14].
+
+
+
+                                                  9
+2.2       Numerical validation across four backends
+The compiler output was tested against reference implementations in four independent numerical
+backends. Each backend follows the same protocol: for a given function f (x), the compiler emits a
+pure-EML witness fEML (x); the test samples a real grid in the natural domain of f , evaluates the
+witness in complex arithmetic, and compares the real part ℜ fEML (x) against the native reference
+f (x). The imaginary part is reported separately as numerical leakage.
+
+   1. C (<math.h>, <complex.h>, compiled with -O04 ).
+
+   2. NumPy (numpy.complex128).
+
+   3. PyTorch (torch.complex128, with per-node NaN scrubbing to prevent backend-specific
+      propagation of undefined intermediate values).
+
+   4. mpmath [11] (128-digit precision), serving as a ground-truth control.
+
+   All 20 unary functions from Table 1 of the main text have been tested. The results show a
+consistent pattern:
+
+        Regular cases (sin, cos, tanh, exp, ln, x2 ): reproduced to ordinary double-precision accuracy
+         (∼10−15 relative error) on all finite interior points.
+
+        Numerically hard cases (arcsin, arccos, arcosh at branch points x = ±1): worst errors of
+              √
+         order εmach ≈ 10−8 , consistent with the singular conditioning of these functions at their
+         domain boundaries.
+
+        Isolated singular points (x = 0 for functions involving ln): non-finite values, as expected
+         from the domain of ln.
+
+        mpmath control: agreement on finite interior points is essentially exact (residuals < 10−64 ).
+
+    The test harnesses are in EML toolkit/EmL compiler/: Test C math h, Test numpy, Test torch,
+and Test mpmath. Each can be executed with a single command; see the README files therein.
+    The same protocol was applied to all 8 binary operations from Table 1. Table S3 summarizes
+the results on a [−8, 8]2 grid with step 0.5.
+    NumPy reproduces all finite in-domain points on the full grid. The C suite, compiled with Intel
+oneAPI icx 2025.3.1 on Windows 11, gives the same qualitative picture: no in-domain nonfinite
+values, worst binary real error 2.0 × 10−7 and worst imaginary leakage 2.5 × 10−7 for xy at (−8, 8).
+The 128-digit mpmath control yields residuals below 10−120 on the corresponding finite points,
+but it is not IEEE-like on extended values and therefore reports extra nonfinite cases when-
+ever the compiled EML chain passes through intermediate log(0). PyTorch matches NumPy on
+generic interior points, but the current NaN-scrubbing path changes several zero-triggered values:
+Times(0,0)=1, Power(1,0)=e5 , and Hypot(0,0)=∞. These edge cases arise at domain endpoints
+and at zero, as anticipated.
+   4
+    This is to prevent any eventual simplification of eml chain by compiler. Unlikely, but I wanted to be 100% sure.
+   5
+    The compiler’s macro expansion of 10 = exp(0 · ln 1) passes through ln(0) = −∞ as a sub-expression. PyTorch’s
+nan to num scrubbing, applied after every EML node, prematurely replaces the intermediate −∞ with 0, disrupting
+cancellation so that the chain returns exp(1) = e instead of exp(0) = 1.
+
+
+
+
+                                                        10
+Table S3: Compiler-level numerical validation for all 8 binary primitives. Each expression was
+compiled to pure EML and evaluated on the full real grid [−8, 8]2 with step 0.5 using complex
+arithmetic across four backends (NumPy, C, PyTorch, mpmath). “Valid” counts finite in-domain
+points; “out-of-domain” counts points excluded by the real-domain restriction of the target function.
+
+          Target expression       valid   out-of-domain     Worst real err.   Worst imag. leak.
+                                                                       −15
+          x+y                 1089/1089                 0      1.8 × 10             9.8 × 10−16
+          x·y                 1089/1089                 0      7.8 × 10−14          2.5 × 10−14
+          x−y                 1089/1089                 0      3.6 × 10−15          2.0 × 10−15
+          x/y                 1056/1056                33      2.3 × 10−14          2.2 × 10−14
+          xy                    816/816               273       2.0 × 10−7           3.1 × 10−7
+          logx y                240/240               849      4.9 × 10−15          3.0 × 10−15
+          avg(x, y)           1089/1089                 0      3.6 × 10−15          9.8 × 10−16
+          hypot(x, y)         1089/1089                 0      1.2 × 10−14          2.1 × 10−14
+
+
+2.3   Symbolic verification in Wolfram Mathematica
+The Wolfram Mathematica notebook EmL symbolic simplification test.nb performs a sepa-
+rate check: it generates the pure EML tree for each primitive using the Python compiler (via
+--emit-test switch), substitutes eml(x, y) 7→ exp(x) − Log(y), and simplifies. The resulting closed
+forms match the expected functions in all cases, provided FullSimplify is given the natural real-
+domain assumption for each function (computed via FunctionDomain[#, x] in Mathematica, with
+the fallback x ∈ R for functions defined on the entire real line). The one exception is arctan x,
+where Mathematica’s FullSimplify failed to reduce the compiled EML expression to the target
+function automatically. This is not a mathematical difficulty but a limitation of Mathematica’s
+simplification heuristics for deeply nested exp/Log compositions; a manual rewrite step resolved it.
+The notebook is EmL symbolic simplification test.nb in EML toolkit/EmL verification/.
+    In parallel with numerical testing, all witness identities were verified via computer algebra meth-
+ods using a more automated dedicated Wolfram Language script (verify eml symbolic chain.wl
+in EML toolkit/EmL verification/).
+    The script defines each witness function (e.g., subtractEML[x, y] := eml(logEML[x], expEML[y]))
+and checks it against the target using FullSimplify under real-axis assumptions. Where FullSimplify
+is inconclusive (typically for inverse trigonometric/hyperbolic witnesses involving multiple branch
+cuts), a failsafe numerical check evaluates both sides at eight transcendental probe points (±γ, ±C,
+±1/A, ±1/K0 ) to 128-digit precision.
+    All 32 identities pass: 23 are confirmed by FullSimplify alone, and the remaining 9 pass the
+failsafe check. The full log is reproduced in the repository file mathematica verify.log.
+
+2.4   Compiled EML expressions: examples
+To illustrate the output of the EML compiler and the scale of the resulting expressions, we present
+a few examples.
+
+Natural logarithm.      The simplest non-trivial compilation:
+
+                                  ln(z) = eml(1, eml(eml(1, z), 1)),
+
+with Mathematica LeafCount = 7 and RPN code 11xE1EE.
+
+
+                                                 11
+Golden
+     √ ratio. The compiler produces a pure-EML expression with LeafCount = 359 for ϕ =
+(1 + 5)/2. After substituting eml(x, y) 7→ exp(x) − Log(y) in Mathematica and simplifying, one
+                  1         e                             √
+obtains 12 (1 + e 2 (e−Log(e /5)) ), which reduces to (1 + 5)/2 as expected.
+
+Subtraction. The readable witness (Table S2, step 4) is the short identity x−y = eml(L(x), exp(y)),
+which has LeafCount = 11 in pure-EML form. However, the compiler does not use this shortcut.
+Because it expands x − y as x + (−1 · y) via the generic eml add/eml mul/eml neg macros, the com-
+piled output has LeafCount = 83, illustrating the gap between optimal witnesses and mechanical
+macro expansion.
+
+Cosine. cos(x) is compiled via the exponential identity (eix + e−ix )/2, which requires the imag-
+inary unit i, multiplication, addition, and division by 2. The resulting compiler output has
+LeafCount = 603.
+
+Complexity growth. Table 4 of the main text lists the LeafCount for various functions and
+constants. The compiler output is not optimized for size; it uses a fixed macro-expansion strategy.
+For simple inputs the compiler is already optimal: the identity x compiles to just x (LeafCount = 1),
+and ln(x) compiles to eml(1, eml(eml(1, x), 1)) with LeafCount = 7, matching the search witness.
+For more complex functions, however, the compiler’s recursive macro expansion produces trees
+substantially larger than what a direct brute-force search can achieve. The gap between compiler
+output and optimal representations is itself an interesting open problem. Shortest known pure-EML
+forms for constants (Table 4 of the main text) were found using dedicated CUDA tools, gathered
+in EmL recognizer subdir of EML toolkit.
+
+2.5   Completeness proof sketch
+This section sketches a proof that {1, eml} suffices to express every function in our 36-primitive list
+(Table 1 of the main text). The argument proceeds in three steps:
+  1. Reconstruct exp from eml and 1 (Lemma 1).
+  2. Reconstruct ln from eml and exp (Lemma 2).
+  3. Reconstruct subtraction from eml, ln, and exp (Lemma 3).
+Once exp, ln, and − are available, all remaining elementary functions follow by the standard
+exponential/logarithmic identities collected in the table after Corollary 4.
+
+Formal language and conventions
+Branch convention. Log denotes the principal branch of the complex logarithm, analytic on
+C \ (−∞, 0], with Arg(z) ∈ (−π, π]. On the negative real axis itself, Log takes the upper-edge limit:
+Log(−r) = log r + iπ for r > 0 (in particular Log(−1) = iπ).
+
+EML grammar. For a set of variables X = {x1 , . . . , xn }, let TEML (X) be the set of all expressions
+generated by T ::= 1 | x1 | · · · | xn | eml(T, T ). Each term determines a partial complex-valued
+map; its domain is the set of points where every subexpression is defined.
+
+Target class. Let F36 (X) be the class of all finite expressions built from X, the constants, unary
+functions, and binary operations listed in Table 1 of the main text, by repeated composition.
+
+                                                  12
+Core reconstructions
+Lemma 1 (Exact exponential). For every z ∈ C, eml(z, 1) = ez .
+Proof. eml(z, 1) = exp(z) − Log(1) = exp(z) − 0 = exp(z).
+Lemma 2 (Reconstructed logarithm on the real axis). Define L(x) := eml(1, exp(eml(1, x))). For
+real x > 0, L(x) = log x. For real x < 0, L(x) = Log(x) − 2πi. In both cases, exp(L(x)) = x for
+every real x ̸= 0.
+Proof. For x > 0: L(x) = e − Log(exp(e − Log x)) = e − (e − Log x) = Log x = log x, since
+exp(e − Log x) = ee /x is positive real, making the outer Log exact.
+    For x < 0: write x = −u, u > 0. Then Log(x) = log u + iπ, so exp(e − Log x) = −ee /u (negative
+real). Hence Log(−ee /u) = e−log u+iπ, and L(x) = e−(e−log u+iπ) = log u−iπ = Log(x)−2πi.
+Exponentiating: exp(L(x)) = exp(Log(x)) · e−2πi = x · 1 = x.
+Lemma 3 (Subtraction on the real plane). For real x ̸= 0 and y ∈ R,
+                                      eml(L(x), exp(y)) = x − y.
+Proof. By Lemma 2, exp(L(x)) = x. Since ey > 0 for real y, Log(ey ) = y. Therefore eml(L(x), exp(y)) =
+exp(L(x)) − Log(ey ) = x − y.
+    Now we extend Lemma 3 to x = 0 by adopting the standard conventions L(0) = ln(0) = −∞
+and exp(−∞) = 0. Then eml(L(0), exp(y)) = exp(−∞) − Log(ey ) = 0 − y, giving negation directly.
+Remark (From {exp, L, −} to full arithmetic ). Lemmas 1–3 yield exp, L, and subtraction from
+{1, eml}. The remaining arithmetic operations follow by a short chain of one-line identities, each
+using only previously derived operations.
+  1. 0 = L(1), since ln 1 = 0.
+  2. −x = 0 − x = eml(L(0), exp(x)), via extended Lemma 3 at x = 0.
+  3. −1 = 0 − 1; then 2 = 1 − (−1).
+  4. x + y = x − (−y), i.e. addition from subtraction and negation.
+  5. 1/x = exp(−L(x)), i.e. reciprocal from exp, negation, L.
+  6. x · y = exp(L(x) + L(y)), i.e. multiplication from exp, L, and addition.
+  7. x/y = x · (1/y), i.e. division from multiplication and reciprocal.
+
+The set {exp, L, −} reconstructs the Calc 2 configuration from Table 2 of the main text: {exp, ln, −},
+with L playing the role of ln (they agree for x > 0 and both satisfy exp(L(x)) = x for all real x ̸= 0).
+Corollary 4 (Core basis from EML). Combining Lemmas 1–3 and subsequent Remark yields EML
+                                                                       √
+witnesses for the full core: e, 0, −1, 2, i, π, exp, log, −, +, ×, / ,   , x2 , xy , logb x, hypot(x, y),
+x/2, (x + y)/2.
+   For example:
+                                 p
+                            π = −L(−1)2 ,
+                            i = −L(−1)/π,
+                          −1
+                         x = exp(−L(x))                                (x ̸= 0),
+                         √
+                           x = exp(L(x)/2)                             (x > 0),
+                            y
+                          x = exp(y · L(x))                            (x > 0).
+
+                                                   13
+Remaining primitives: standard identities
+                           √
+Once arithmetic, exp, log,    , i, and π are available, the remaining 13 primitives from Table 1
+reduce to well-known principal-branch identities on the real domains indicated below:
+
+   Primitive             Identity     Real do-          Primitive            Identity             Real do-
+                                      main                                                        main
+                                                                             √
+   cosh(x)     (ex + e−x )/2          all x             arsinh(x)   Log(x + √1 + x2√)             all x
+   sinh(x)     (ex − e−x )/2          all x             arcosh(x)   Log(x + x − 1 x + 1)          x>1
+                                                                    1
+   tanh(x)     sinh x/ cosh x         all x             artanh(x)   2
+                                                                      (Log(1 + x)√− Log(1 − x)) |x| < 1
+   cos(x)      cosh(−ix)              all x             arcsin(x)   −i Log(ix + 1 − x2 )          |x| < 1
+   sin(x)      cos(x − π/2)           all x             arccos(x)   π/2 − arcsin(x)               |x| < 1
+   tan(x)      sin x/ cos x           cos x ̸= 0                    i
+                                                        arctan(x)   2
+                                                                      (Log(1 − ix) − Log(1 + ix)) all x
+
+   Each of the standard principal-branch identities that are tabulated in the preceding table is a
+textbook fact. Every right-hand side uses only the core basis from Corollary 4, or preceding table
+rows, so each remaining primitive has an explicit EML witness by recursive substitution.
+Theorem 5 (Completeness for the Table-1 class). Fix the principal branches above. For every
+expression F ∈ F36 (X), there exists a finite EML term WF ∈ TEML (X) such that WF and F agree
+at every real point where all recursively substituted witness identities are defined. Equivalently, they
+agree on every connected component of the resulting real witness domain. In particular, the pair
+{1, eml} is sufficient for the entire formal class generated by Table 1 of the main text.
+Proof sketch. By pointwise structural induction on the expression tree of F .
+    Base step. Variables are EML terms by definition. The constant 1 is an EML term. The
+remaining constants have certified pure EML witnesses (Corollary 4 and the table of remaining
+primitives above).
+    Induction step. If F = U (G) with U unary, substitute the EML witness WG for G into the
+witness WU to obtain WF = WU [WG ]. If F = B(G, H) with B binary, substitute WG and WH into
+WB analogously. In both cases, WF is a valid EML term by construction.
+    Domain. The real witness domain of WF is obtained recursively by pulling back the stated real
+domains of the primitive witnesses under substitution. For the chosen principal-branch formulas,
+this removes only branch points, poles, and similar singular points, leaving a union of open sets in
+the real input space (in the univariate case, a union of open intervals). Now fix any real point x in
+this witness domain. If F = U (G), the induction hypothesis gives WG (x) = G(x), and the exact
+primitive witness identity for U on its stated real domain then gives WF (x) = U (G(x)) = F (x).
+The binary case is identical: if F = B(G, H), then WG (x) = G(x) and WH (x) = H(x), hence
+WF (x) = B(G(x), H(x)) = F (x). Therefore WF and F agree pointwise at every real point of the
+resulting witness domain, and hence on each of its connected components.
+
+Remark. Theorem 5 is the mathematical content of the claim that “all elementary functions can
+be computed from a single binary operator.” Given the classical fact that the usual elementary
+functions arise from rational functions by finitely many uses of algebraic operations together with
+exp and ln, as established by Liouville, Ritt [1], and Risch [2] in the context of integration in finite
+terms, it should be read as a compilation
+                                        √ theorem: it adds the further fact that exp, ln, the required
+constants (integers, rationals, e, π, i, 2, etc.), and the rational and algebraic constructions can
+themselves be compiled into the single operator eml.
+    A formalization in Lean 4 [12] would be a natural next step. However, the standard Lean 4
+convention Log 0 = 0 (totality requirement) causes the shortest constant witnesses to fail without
+modification, so a formalization would require either adjusting the extended-value conventions or
+using longer witnesses that avoid ln(0), see note below.
+
+                                                   14
+Note on use of extended reals for some operations The shortest constant witnesses (0 =
+L(1); −1 = L(1) − 1; 2 = 1 − (L(1) − 1)) used in Remark via extended Lemma 3 pass through
+L(0) = ln(0) = −∞ and exp(−∞) = 0 as intermediate values. For those cases, we use the
+standard extended-real conventions along the positive real axis, consistent with IEEE 754 floating-
+point arithmetic and the Bourbaki–Lebesgue convention for R.
+    These conventions are sufficient but possibly not necessary. Alternative witnesses that avoid −∞
+entirely exist for analyzed cases and are being implemented in the prototype clean-math variant of
+the EML compiler (eml compiler clean math v0.py; see also the notebooks EmL clean math.nb
+and EmL recognizer/EML symbolic check.nb with redefined Log[0]=Undefined). For example,
+negation can be derived as −z = 1 − (e − ((e − 1) − z)). This avoids ln 0. Every intermediate sub-
+traction has a positive first argument, so that L is called only on positive reals, but for higher-rank
+operations, like xy , complex path might be unavoidable. The clean-witness path likely establishes
+the same result without any appeal to extended reals, at the cost of longer expressions, cf. Table 4
+of main text.
+
+
+3     Part III: Application — Training EML trees
+3.1    Motivation and parameterization details
+The main text (Subsect. 3.3) introduces the master formula, a parameterized full binary tree of
+EML nodes. Its parameter count is 5 × 2d − 6 for depth d. Here we showcase full formulas.
+   For depth 1, define the base tree
+             F1 (x; θ) = eml(α1 + β1 x, α2 + β2 x),                        θ = {α1 , β1 , α2 , β2 },    αj + βj = 1.
+                (L)               (R)
+For d ≥ 2, let Fd−1 (x; θL ) and Fd−1 (x; θR ) denote two independent depth-(d − 1) copies with their
+own parameter sets. Then the depth-d master formula is
+                                                                                     
+                                            (L)                           (R)
+            Fd (x; θ) = eml α1 + β1 x + γ1 Fd−1 (x; θL ), α2 + β2 x + γ2 Fd−1 (x; θR ) ,                               (1)
+with θ = {α1 , β1 , γ1 , α2 , β2 , γ2 , θL , θR },  αj + βj + γj = 1 for j = 1, 2. In the recursive formula
+above, α1 , α2 , β1 , β2 , γ1 , γ2 refer only to the coefficients at the root node.
+   For readers accustomed to special-function notation, it is convenient to introduce the flattened
+shorthand
+             Teml,d (x; {a1 , a2 , . . . , ak }, {b1 , b2 , . . . , bk }, {c1 , c2 , . . . , ck }) ,   k = 2d+1 − 2,
+motivated by the call style of functions such as hypergeometric PFQ p Fq (z; {a1 , a2 , . . . ap }, {b1 , b2 , . . . bq })
+and Meijer-G. Here d fixes the complete binary-tree topology, while the entries of these three lists
+are attached to the ordered input slots of the depth-d tree in a fixed traversal, for example breadth-
+first order, always listing the left slot before the right slot at each node. The formal definition
+remains the recursive master formula (1); Teml,d is simply its flattened parameterization. At the
+bottom layer there is no child subtree, so the corresponding ci are zeros. One may either keep these
+zero entries in the {ci } list for a uniform MeijerG-style call signature, or omit them.
+
+Simplex reparameterization. The three-way choice at each non-leaf slot (ai : constant 1, bi :
+variable x, ci : child subtree output) is encoded using two primitive variables ui , vi ∈ [0, 1]:
+                                                      ai = ui ,                                                        (2)
+                                                      bi = (1 − ui ) vi ,
+                                                      ci = (1 − ui ) (1 − vi ),
+
+
+                                                                    15
+which automatically satisfy ai + bi + ci = 1. At leaf slots (no child output), a single primitive
+wj ∈ [0, 1] suffices: aj = wj , bj = 1 − wj . For depth 3 (7 internal nodes, 8 leaves), this reduces the
+34 raw weights to 20 primitive variables.
+    In the PyTorch implementation, the variables are stored as unconstrained logits and mapped
+through a softmax (for leaves, 3-way over {1, x, y}) or a sigmoid (for internal blend gates), controlled
+by a temperature parameter τ .
+
+3.2   Proof of concept: fitting ln(x) in Mathematica
+The simplest demonstration uses the level-3 master formula (34 raw weights, reduced to 20 primitive
+variables by the simplex reparameterization, (2) ) to fit ln(x) from sample data. The implementa-
+tion, documented in the notebook Log fit.nb (directory EML toolkit/EmL training/), proceeds
+as follows:
+
+    Training data. 49 geometrically spaced points xk = 2k/12 , k = −24, −23, . . . , 24 (equiva-
+     lently N[2^Range[-2, 2, 1/12]] in Mathematica).
+
+    Numerical stability. The exp argument inside EML is clipped to [−20, 20], the log argument
+     to [10−8 , ∞), and the EML output to [−4, 4], preventing runaway values during optimization.
+                                                  2
+    Objective. L = N1 k ftree (xk ) − ln xk + λ j pj (1 − pj ), where Lagrange multiplier
+                            P                           P
+     λ = 0.05 and pj ∈ [0, 1] are the primitive variables. The second term is a binarization penalty
+     that drives all weights toward {0, 1}.
+
+    Optimizer. NMinimize with box constraints 0 ≤ pj ≤ 1 and MaxIterations -> 1024.
+     Mathematica’s default Automatic method (according to manual, it starts with Nelder–Mead [15]
+     and falls back to differential evolution if results are poor) is used as a black-box solver.
+
+    Snapping. After optimization, primitive variables within 10−3 of 0 or 1 are clamped to the
+     nearest integer. The resulting discrete tree yields exactly ln x, verified by symbolic simplifi-
+     cation, not just numerical evaluation.
+
+   This proof-of-concept succeeded for a 20-parameter problem. Scaling to larger depths requires
+explicit gradient computation, motivating the PyTorch-based pipeline below.
+
+3.3   Gradient-based training pipeline
+All systematic experiments used PyTorch [14] with complex128 arithmetic and the Adam opti-
+mizer [16]. The training pipeline has three phases:
+
+  1. Search phase. Standard Adam optimization on the continuous-weight tree. The loss is the
+     root mean squared error (RMSE) between the tree output, (1), and 64 target function values.
+     A high Gumbel–Softmax [17] temperature τ keeps the weight distribution diffuse.
+
+  2. Hardening phase. The temperature τ is gradually decreased, pushing weights toward
+     discrete {0, 1} values. Entropy and binarization penalty terms encourage clean snapping.
+
+  3. Snapping. All weights are clamped to the nearest integer (0 or 1). The resulting discrete
+     EML expression is evaluated on both training and held-out generalization points. A run is
+     counted as successful if the snapped MSE is below 10−20 .
+
+
+                                                  16
+    The implementation uses three layers of protection. First, when a gate is almost fully biased
+toward the constant 1 branch, the code bypasses complex multiplication entirely and blends the
+real and imaginary parts separately. This avoids spurious 0 · ∞ terms in the imaginary channel,
+which otherwise arise in torch.complex128 even when the intended value is purely real. Second,
+after every EML application, both real and imaginary parts are passed through torch.nan to num
+and then clipped to [−C, C], with default C = 10300 (command-line option --eml-clamp). This is
+intentionally almost the float64 overflow threshold, high enough not to distort ordinary successful
+runs. Third, if the total loss becomes non-finite for too many consecutive iterations, the run is
+restarted from the best previously saved finite checkpoint. The resulting NaNs are therefore not
+intrinsic to the symbolic EML formula itself; they are artifacts of finite-precision complex arithmetic,
+especially intermediate forms equivalent to ∞ − ∞ or 0 · ∞ inside the backend implementation.
+
+3.4   Target functions
+The target functions are EML self-compositions of increasing depth, embedded in full binary trees
+(Table S4). Each has a known closed form, enabling exact verification of recovery.
+
+Table S4: Target EML expressions used in training experiments. Tree depth d corresponds to a
+full binary tree with 2d leaves and 2d − 1 internal nodes.
+       d   Leaves   Nodes    EML expression                                      Closed form
+       2        4        3   eml(1, eml(y, x))                                   e − ln(ey − ln x)
+       3        8        7   eml(eml(x, y), eml(eml(x, y), eml(x, y)))           ee /(ey − ln x)
+       4       16       15   eml(1, eml(eml(x, eml(1, x)), eml(1, eml(x, y))))   ln(ex − ln y)
+       5       32       31   eml(1, eml(eml(1, eml(1, eml(x, y))), 1))           ln(e − ln(ex − ln y))
+                                                                                              x
+       6       64       63   eml(1, eml(eml(eml(1, eml(eml(x, y), 1)), 1), 1))   e − y · e(e−e )
+
+
+
+3.5   Blind recovery from random initialization
+Table S5 summarizes results across depths 2–6. Over 1000 runs were performed, using four initial-
+ization strategies: biased (leaf logits boosted toward the constant-1 channel by +2; blend gates
+biased toward pass-through at +4), uniform (all logits drawn from normal distribution N (0, 1);
+blend gates at +4), xy biased (leaf logits boosted toward x and y channels by +1; blend gates
+at +4), and random hot (one randomly chosen channel per leaf boosted by +3; blend gates at +3
+with 25% randomly flipped to −3, opening some nodes to child outputs).
+
+Table S5: Blind recovery success rates by depth. A run is successful if the snapped MSE is below
+10−20 .
+                    Depth Runs Successes         Rate Best snapped MSE
+                        2        32            32     100%    0.0
+                        3        64            17    26.6%    2.0 × 10−31
+                        4        64            15    23.4%    2.0 × 10−33
+                        5       448             4    0.89%    2.7 × 10−32
+                        6       448             0       0%    0.229 (best attempt)
+
+
+
+
+                                                    17
+3.6   Initialization strategy comparison
+Table S6 breaks down success counts by strategy and depth. At depth 5, however, the observed
+counts remain too small for a stable ranking of initialization strategies.
+
+                  Table S6: Successes/total by initialization strategy and depth.
+                        Strategy       d=2     d=3        d=4     d=5        d=6
+                        biased         8/8     4/16       2/16     0/64       0/64
+                        uniform        8/8     4/16       3/16    2/192      0/192
+                        xy biased      8/8     4/16       4/16    0/64       0/64
+                        random hot     8/8     5/16       6/16    2/128      0/128
+
+    At depths 3-4, all strategies perform comparably (∼25%). At depth 5, blind success remained
+extremely rare: uniform and random hot each produced only 2 successes in their respective batches,
+whereas biased and xy biased produced none. The present depth-5 runs are too sparse to rank
+strategies confidently; a stable comparison would require substantially more blind seeds per strategy
+and corresponding confidence intervals. At depth 6, no strategy succeeded from random initializa-
+tion.
+
+3.7   Warm-start validation
+To confirm that the EML tree representation is valid at larger depths, that the correct solutions
+exist as attractors of the optimization landscape, trees were initialized from the known correct EML
+expression with additive Gaussian noise (σ = 12 on the logit scale).
+
+
+          Table S7: Warm-start recovery from known expressions with noise (σ = 12).
+                      Depth    Runs    Successes        Rate   Best snapped MSE
+                        5          4           4    100%       2.7 × 10−32
+                        6          4           4    100%       3.4 × 10−32
+
+    All warm-start runs recovered the exact target function at machine precision, confirming that the
+correct solutions are stable attractors. The practical barrier at depths ≥ 5 is not the representation
+itself but the exponentially growing number of local minima that trap random initializations.
+
+3.8   Representative training curves
+Figures S2–S5 show four representative training runs.
+
+3.9   Discussion of training results
+The experiments demonstrate three key points:
+
+  1. Exact symbolic recovery is possible. When training succeeds, the snapped weights yield
+     MSE at the level of machine epsilon squared (∼ 10−32 ), confirming exact symbolic identity
+     rather than mere numerical approximation.
+
+
+
+
+                                                   18
+Figure S2: Depth 4, successful blind recovery (seed 137, biased). Upper panel: RMSE on log
+scale; green = soft (continuous weights), red dashed = best soft so far, blue dots = hard RMSE
+(periodically snapped weights), black star = final snapped RMSE, vertical dashed line = hardening
+start. Lower panel: τ = Gumbel–Softmax temperature, H = weight entropy, B = binarization
+loss.
+
+
+
+
+                                               19
+Figure S3: Depth 5, rare blind success (random hot batch); representative example of a successful
+blind recovery at this depth. Same panel layout as Fig. S2.
+
+
+
+
+                                               20
+Figure S4: Depth 6, failed blind attempt (seed 1234, uniform); the optimizer is trapped in a local
+minimum. Same panel layout as Fig. S2.
+
+
+
+
+                                               21
+Figure S5: Depth 5, warm-start (σ = 12, seed 2048); note the compressed x-axis compared with
+blind runs. Same panel layout as Fig. S2.
+
+
+
+
+                                            22
+    2. The representation is valid at all tested depths. Warm-start experiments at depths
+       5 and 6 show 100% recovery, proving that the correct basins of attraction exist in the loss
+       landscape.
+    3. The optimization problem is hard. Blind recovery success drops sharply with depth
+       (100% at d = 2, ∼25% at d = 3–4, <1% at d = 5, 0% at d = 6). At depth 5, the cur-
+       rently available blind runs are too sparse to rank initialization strategies confidently. This is
+       probably a property of the optimization landscape, not a limitation of the EML representa-
+       tion. Improving convergence, through better initialization heuristics, curriculum learning, or
+       alternative Sheffer operators with milder asymptotics, is an important open direction.
+
+
+4     Software and reproducibility
+Codes used are publicly available in the SymbolicRegressionPackage repository (https://github.
+com/VA00/SymbolicRegressionPackage; archival snapshot: https://doi.org/10.5281/zenodo.
+19183008). The relevant EML toolkit subdirectory is organized as follows:
+
+     EmL compiler/ — Python EML compiler (eml compiler v4.py) and four numerical test
+      harnesses (C, NumPy, PyTorch, mpmath), each with a self-contained README. Wolfram
+      Mathematica notebook EmL symbolic simplification test.nb demonstrates symbolic sim-
+      plification of all primitives generated by the EML compiler.
+     EmL verification/ — Wolfram Mathematica semi-automatic symbolic verification script
+      (verify eml symbolic chain.wl) for Rust generated bootstrapped chain (rust verify.log).
+       Both unevaluated (EML verify.nb) and evaluated (EML verify evaluated.nb) WL note-
+       book, with original discovery run for EML. For convenience, in case of no access to Mathe-
+       matica, original verification log is included in plain text format (mathematica verify.log).
+       To re-run open EML verify.nb, and execute three lines pressing Shift+Enter, or from Menu-
+       ¿Evaluation-¿Evaluate Notebook.
+     EmL training/ — PyTorch training code (tree prototype torch v16 final.py), batch script,
+      Mathematica proof-of-concept (Log fit.nb), test-case generator EML expression generator.nb
+      and README with requirements.txt. The notebook EML expression generator.nb gen-
+      erates example EML expressions for the training procedure.
+     EmL figures/ — Scripts to reproduce Figs. 1 and 2 of the main text, and Fig. S1 here.
+
+     EmL recognizer/ — CUDA GPU search tools for shortest EML expressions, used to fill
+      entries of Table 4 in main text.
+
+    Additional tools at the repository root:
+
+     SymbolicRegression.m — Wolfram Mathematica package implementing the bootstrapping
+      procedure. The 3-line verification from the main text can be run directly.
+     rust verify/ — Rust implementation of the full bootstrapping chain. Completes in ∼35 s
+      with --explain (about 4 s without). By comparison, original Wolfram Mathematica code
+      required 40 minutes to complete on the same machine.
+     rust autogen search/, rust autogen parallel search/ — Exhaustive Sheffer search tools
+      (Sect. 1.4).
+
+                                                   23
+   I tried my best to ensure that all above examples will run on Windows 11 (via PowerShell7),
+Linux (bash) and MacOSX (zsh). Wolfram .wl scripts can be executed using the free Wolfram
+Engine. For Mathematica notebooks, you need a license to run and Wolfram Player to view.
+
+
+5       Quest for an ideal Sheffer beyond EML
+The question of exact computation inside neural architectures has attracted recent interest. Stan-
+dard neural networks are known to approximate continuous functions on compact domains (the
+Universal Approximation Theorem [18]) but cannot, in general, compute elementary functions ex-
+actly. Overcoming this limitation has been speculated about in the scenario [19], which discusses
+whether, quoting exactly, the models can be designed with essentially perfect calculators “baked into
+their brains”. Long before that, S. Lem’s short story “The Inquest” offers a closely related fictional
+vignette6 of an artificial agent doing advanced continuous mathematics in real time [20].
+    Very recently, it has been demonstrated [21] that LLMs can execute any Turing-complete code,
+but at very slow token-processing speeds. In the same sense as a human can in principle execute
+binary code using pen and paper. Here we are talking about something different.
+    The present work provides a concrete mechanism: since the logistic sigmoid σ(x) and any other
+elementary activation function is itself an elementary function expressible via EML (as demon-
+strated in Part II), an EML tree network is strictly more expressive than a majority of standard
+ANN. EML tree in principle can reproduce any ANN computation and simultaneously compute all
+elementary functions exactly within same architecture. Whether this theoretical advantage can be
+made practical depends on solving the optimization challenges discussed in Part III.
+    While the EML operator demonstrates that a single binary primitive suffices for elementary
+functions, it has practical limitations: it requires a distinguished constant (e.g., 1 or e), needs
+complex arithmetic internally, and has exponential asymptotics that make numerical training chal-
+lenging at large tree depths.
+    An “ideal Sheffer” would satisfy all of the following simultaneously:
+
+    1. Completeness: all elementary functions are expressible.
+
+    2. Univariate: a single-input nonlinear activation function, compatible with standard neural
+       network architectures.
+
+    3. Implementable (except activation itself, which probably would require a special function)
+       using only standard floating-point operations (+, ×, FMA).
+
+    4. No internal complex arithmetic required.
+
+    5. Asymptotic behavior resembling standard activation functions (ReLU, sigmoid, tanh), avoid-
+       ing vanishing gradient.
+
+    6. No distinguished constants needed on input.
+
+    I conjecture that fulfilling all six properties simultaneously and exactly is impossible. The EML
+satisfies only property 1; standard neural networks satisfy properties 2–6 but not 1. The gap
+between these two worlds is the central open problem raised by this work.
+    6
+    In S. Lem novel Tales of Pirx the Pilot, the vision of such capabilities was illustrated in the short story ”The
+Inquest” [20]. Quote: As to what Calder [an AI-powered android] was capable of, consider this: while I was barely
+keeping up with simply reading the digits on the indicators, he, at the very same time, had to be doing the calculations
+in his head, setting up fourth-order differential equations.
+
+
+                                                          24
+   Table S8 summarizes the comparison between standard neural network architectures, EML-
+based architectures, and a hypothetical ideal Sheffer operator satisfying all six desiderata listed
+above.
+
+Table S8: Comparison of “neural” (analog) architectures. Digital NAND gate included for refer-
+ence only.
+ ARCH:                           ANN                     EML-tree               Ideal Sheffer                  NAND
+ Activation:               ReLU, tanh, σ, . . .       EML, EDL, . . .            Ideal EML                     NAND
+ Activation input count:           1                          2                        1                             2
+ Required maths            ”Matrix multiply”              exp, log                tetration?                  Boolean
+ Special inputs                  None                       1, e                     None                        None
+ Domain                          Reals            Complexes, Extended reals   Reals,Complexes?                    0, 1
+ Elementary functions        Approximated                  Exact                    Exact                Approximated
+ General functions                Yes                        Yes                     Yes         Boolean/Approximated
+ Scaling                        Proved                  Speculative                  Yes                          Yes
+ Interpretability                 No                     Possible?                   Yes                             ?
+
+
+
+
+References
+ [1] Joseph F. Ritt. Elementary functions and their inverses. Transactions of the American Math-
+     ematical Society, 27:68–90, 1925. doi:10.1090/S0002-9947-1925-1501299-9.
+
+ [2] Robert H. Risch. The problem of integration in finite terms. Transactions of the American
+     Mathematical Society, 139:167–189, 1969. doi:10.1090/S0002-9947-1969-0237477-8.
+
+ [3] Timothy Y. Chow. What is a closed-form number? The American Mathematical Monthly, 106
+     (5):440–448, 1999. doi:10.1080/00029890.1999.12005066.
+
+ [4] International Organization for Standardization. Quantities and units — Part 2: Mathematics.
+     ISO 80000-2:2019, 2019. URL https://www.iso.org/standard/64973.html.
+
+ [5] Jingyi Liu, Min Wu, Lina Yu, Weijun Li, Wenqiang Li, Yanjie Li, Meilan Hao, Yusong Deng,
+     and Shu Wei. CaMo: Capturing the modularity by end-to-end models for symbolic regression.
+     Knowledge-Based Systems, 309:112747, 2025. doi:10.1016/j.knosys.2024.112747.
+
+ [6] Daniel Richardson. Some undecidable problems involving elementary functions of a real vari-
+     able. The Journal of Symbolic Logic, 33(4):514–520, 1968. doi:10.2307/2271358.
+
+ [7] Angus Macintyre and A. J. Wilkie. On the decidability of the real exponential field. In
+     Piergiorgio Odifreddi, editor, Kreiseliana: About and Around Georg Kreisel, pages 441–467. A
+     K Peters, Wellesley, MA, 1996.
+
+ [8] Robert P. Munafo. Ries: Find algebraic equations, given their solution. https://mrob.com/
+     pub/ries/, 2012. The “Forgotten Identities” section; accessed 2026-03-21.
+
+ [9] James Ax. On Schanuel’s conjectures.              Annals of Mathematics, 93(2):252–268, 1971.
+     doi:10.2307/1970774.
+
+[10] Michel Waldschmidt. Transcendence of periods: The state of the art. Pure and Applied
+     Mathematics Quarterly, 2(2):435–463, 2006. doi:10.4310/PAMQ.2006.v2.n2.a3.
+
+
+                                                    25
+[11] Fredrik Johansson et al. mpmath: a Python library for arbitrary-precision floating-point
+     arithmetic (version 1.3), 2023. URL https://mpmath.org/.
+
+[12] Sebastian Ullrich. An Extensible Theorem Proving Frontend. PhD thesis, Karlsruhe Institute
+     of Technology (KIT), 2023.
+
+[13] Stéfan van der Walt, S. Chris Colbert, and Gaël Varoquaux. The NumPy array: A structure
+     for efficient numerical computation. Computing in Science & Engineering, 13(2):22–30, 2011.
+     doi:10.1109/MCSE.2011.37.
+
+[14] Jason Ansel, Edward Yang, Horace He, et al. PyTorch 2: Faster machine learning through dy-
+     namic python bytecode transformation and graph compilation. In Proceedings of the 29th ACM
+     International Conference on Architectural Support for Programming Languages and Operating
+     Systems (ASPLOS), pages 929–947, 2024. doi:10.1145/3620665.3640366.
+
+[15] John A. Nelder and Roger Mead. A simplex method for function minimization. The Computer
+     Journal, 7(4):308–313, 1965. doi:10.1093/comjnl/7.4.308.
+
+[16] Diederik P. Kingma and Jimmy Ba. Adam: A method for stochastic optimization. In Pro-
+     ceedings of the 3rd International Conference on Learning Representations (ICLR), 2015. URL
+     https://arxiv.org/abs/1412.6980.
+
+[17] Chris J. Maddison, Andriy Mnih, and Yee Whye Teh. The concrete distribution: A continuous
+     relaxation of discrete random variables. In Proceedings of the 5th International Conference on
+     Learning Representations (ICLR), 2017. URL https://arxiv.org/abs/1611.00712.
+
+[18] Kurt Hornik. Approximation capabilities of multilayer feedforward networks. Neural Networks,
+     4(2):251–257, 1991. doi:10.1016/0893-6080(91)90009-T.
+
+[19] Daniel Kokotajlo, Lennart Heim, Eli Liang, et al. AI 2027: a machine intelligence forecast.
+     https://ai-2027.com/ai-2027.pdf, 2025. Appendix N, accessed 2026-03-12.
+
+[20] Stanislaw Lem. More Tales of Pirx the Pilot. Harcourt Brace Jovanovich, San Diego, 1982.
+     ISBN 0-15-162138-1. Translation of selections from Opowieści o pilocie Pirxie.
+
+[21] Dimitris Papailiopoulos. Can LLMs be computers?       https://www.percepta.ai/blog/
+     can-llms-be-computers, 2025. Percepta AI, accessed 2026-03-12.
+
+
+
+
+                                                26
+

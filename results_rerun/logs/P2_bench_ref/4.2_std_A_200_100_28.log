@@ -1,0 +1,126 @@
+Loaded Test 4.2: Phase 4: f(x1, x2) = sin(x1*exp(x2)) - cos(ln(x1^2+x2^2+0.1))
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos', 'tan']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=957201023
+GEN 0 BEST 5.629601550e-01 VAL 5.629601550e-01 NODES 4 MEDIAN 14
+GEN 1 BEST 5.629601550e-01 VAL 5.629601550e-01 NODES 4 MEDIAN 8
+GEN 2 BEST 5.299474084e-01 VAL 5.299474084e-01 NODES 8 MEDIAN 10
+GEN 3 BEST 5.299474084e-01 VAL 6.214560219e-01 NODES 6 MEDIAN 10
+GEN 4 BEST 5.155800040e-01 VAL 5.155800040e-01 NODES 8 MEDIAN 11
+GEN 5 BEST 5.155800040e-01 VAL 5.390386198e-01 NODES 15 MEDIAN 11
+GEN 6 BEST 4.304378663e-01 VAL 4.304378663e-01 NODES 10 MEDIAN 10
+GEN 7 BEST 4.304378663e-01 VAL 4.304378663e-01 NODES 10 MEDIAN 12
+GEN 8 BEST 4.304378663e-01 VAL 5.719451326e-01 NODES 25 MEDIAN 13
+GEN 9 BEST 4.304378663e-01 VAL 4.304378663e-01 NODES 10 MEDIAN 19
+GEN 10 BEST 4.304378663e-01 VAL 4.304378663e-01 NODES 10 MEDIAN 19
+GEN 11 BEST 4.304378663e-01 VAL 4.304378663e-01 NODES 10 MEDIAN 23
+GEN 12 BEST 4.269629312e-01 VAL 4.269629312e-01 NODES 23 MEDIAN 22
+GEN 13 BEST 4.269629312e-01 VAL 4.360295051e-01 NODES 27 MEDIAN 22
+GEN 14 BEST 4.269629312e-01 VAL 4.433287384e-01 NODES 27 MEDIAN 23
+GEN 15 BEST 4.269629312e-01 VAL 4.574992161e-01 NODES 29 MEDIAN 26
+GEN 16 BEST 4.049961222e-01 VAL 4.049961222e-01 NODES 27 MEDIAN 28
+GEN 17 BEST 4.049961222e-01 VAL 4.470739959e-01 NODES 84 MEDIAN 29
+GEN 18 BEST 4.049961222e-01 VAL 4.117344181e-01 NODES 65 MEDIAN 34
+GEN 19 BEST 4.049961222e-01 VAL 4.107784170e-01 NODES 66 MEDIAN 50
+GEN 20 BEST 3.864074446e-01 VAL 3.864074446e-01 NODES 63 MEDIAN 65
+GEN 21 BEST 3.864074446e-01 VAL 4.115322983e-01 NODES 53 MEDIAN 63
+GEN 22 BEST 3.864074446e-01 VAL 4.169664910e-01 NODES 74 MEDIAN 74
+GEN 23 BEST 3.864074446e-01 VAL 3.995483752e-01 NODES 89 MEDIAN 75
+GEN 24 BEST 3.864074446e-01 VAL 3.974521808e-01 NODES 130 MEDIAN 76
+GEN 25 BEST 3.864074446e-01 VAL 4.482906803e-01 NODES 58 MEDIAN 91
+GEN 26 BEST 3.864074446e-01 VAL 4.211571918e-01 NODES 88 MEDIAN 90
+GEN 27 BEST 3.864074446e-01 VAL 3.936131388e-01 NODES 97 MEDIAN 90
+GEN 28 BEST 3.770694930e-01 VAL 3.770694930e-01 NODES 77 MEDIAN 95
+GEN 29 BEST 3.770694930e-01 VAL 3.867748651e-01 NODES 152 MEDIAN 92
+GEN 30 BEST 3.770694930e-01 VAL 3.836024454e-01 NODES 68 MEDIAN 81
+GEN 31 BEST 3.770694930e-01 VAL 3.780990945e-01 NODES 162 MEDIAN 97
+GEN 32 BEST 3.710328969e-01 VAL 3.710328969e-01 NODES 66 MEDIAN 80
+GEN 33 BEST 3.710328969e-01 VAL 4.570873877e-01 NODES 72 MEDIAN 83
+GEN 34 BEST 3.710328969e-01 VAL 4.068653070e-01 NODES 118 MEDIAN 139
+GEN 35 BEST 3.689194030e-01 VAL 3.689194030e-01 NODES 146 MEDIAN 127
+GEN 36 BEST 3.688782608e-01 VAL 3.688782608e-01 NODES 125 MEDIAN 131
+GEN 37 BEST 3.688782608e-01 VAL 3.693220680e-01 NODES 138 MEDIAN 141
+GEN 38 BEST 3.688782608e-01 VAL 4.088715547e-01 NODES 169 MEDIAN 157
+GEN 39 BEST 3.640994817e-01 VAL 3.640994817e-01 NODES 303 MEDIAN 167
+GEN 40 BEST 3.640994817e-01 VAL 3.823067268e-01 NODES 111 MEDIAN 214
+GEN 41 BEST 3.640994817e-01 VAL 3.700393740e-01 NODES 272 MEDIAN 185
+GEN 42 BEST 3.640994817e-01 VAL 3.916103569e-01 NODES 316 MEDIAN 290
+GEN 43 BEST 3.640994817e-01 VAL 3.744157564e-01 NODES 325 MEDIAN 297
+GEN 44 BEST 3.640994817e-01 VAL 4.204133136e-01 NODES 85 MEDIAN 298
+GEN 45 BEST 3.640994817e-01 VAL 4.010544546e-01 NODES 84 MEDIAN 286
+GEN 46 BEST 3.640994817e-01 VAL 3.789066267e-01 NODES 153 MEDIAN 331
+GEN 47 BEST 3.640994817e-01 VAL 3.684392392e-01 NODES 280 MEDIAN 324
+GEN 48 BEST 3.640994817e-01 VAL 3.758886510e-01 NODES 321 MEDIAN 360
+GEN 49 BEST 3.640994817e-01 VAL 3.789252895e-01 NODES 279 MEDIAN 392
+GEN 50 BEST 3.640994817e-01 VAL 3.792516259e-01 NODES 723 MEDIAN 363
+GEN 51 BEST 3.640994817e-01 VAL 3.962040698e-01 NODES 722 MEDIAN 545
+GEN 52 BEST 3.640994817e-01 VAL 4.069185451e-01 NODES 719 MEDIAN 545
+GEN 53 BEST 3.640994817e-01 VAL 3.698578074e-01 NODES 417 MEDIAN 698
+GEN 54 BEST 3.622684851e-01 VAL 3.622684851e-01 NODES 645 MEDIAN 611
+GEN 55 BEST 3.622684851e-01 VAL 3.632489575e-01 NODES 1276 MEDIAN 645
+GEN 56 BEST 3.598678366e-01 VAL 3.598678366e-01 NODES 885 MEDIAN 736
+GEN 57 BEST 3.598678366e-01 VAL 3.839917187e-01 NODES 898 MEDIAN 749
+GEN 58 BEST 3.598678366e-01 VAL 3.811936988e-01 NODES 130 MEDIAN 804
+GEN 59 BEST 3.594568929e-01 VAL 3.594568929e-01 NODES 961 MEDIAN 695
+GEN 60 BEST 3.594568929e-01 VAL 3.641586850e-01 NODES 771 MEDIAN 843
+GEN 61 BEST 3.594568929e-01 VAL 3.640561207e-01 NODES 817 MEDIAN 900
+GEN 62 BEST 3.594568929e-01 VAL 3.679375470e-01 NODES 1069 MEDIAN 826
+GEN 63 BEST 3.594568929e-01 VAL 3.802309055e-01 NODES 631 MEDIAN 785
+GEN 64 BEST 3.594568929e-01 VAL 3.772883766e-01 NODES 367 MEDIAN 780
+GEN 65 BEST 3.594568929e-01 VAL 3.664281365e-01 NODES 861 MEDIAN 630
+GEN 66 BEST 3.594568929e-01 VAL 3.831188927e-01 NODES 108 MEDIAN 894
+GEN 67 BEST 3.594568929e-01 VAL 3.991547007e-01 NODES 1022 MEDIAN 1038
+GEN 68 BEST 3.594568929e-01 VAL 3.707955199e-01 NODES 966 MEDIAN 861
+GEN 69 BEST 3.594568929e-01 VAL 3.681753613e-01 NODES 406 MEDIAN 810
+GEN 70 BEST 3.594568929e-01 VAL 3.654009658e-01 NODES 743 MEDIAN 1231
+GEN 71 BEST 3.594568929e-01 VAL 4.058811793e-01 NODES 58 MEDIAN 865
+GEN 72 BEST 3.594568929e-01 VAL 3.725598529e-01 NODES 966 MEDIAN 730
+GEN 73 BEST 3.594568929e-01 VAL 3.794126090e-01 NODES 519 MEDIAN 829
+GEN 74 BEST 3.594568929e-01 VAL 3.856675542e-01 NODES 252 MEDIAN 721
+GEN 75 BEST 3.594568929e-01 VAL 3.666539513e-01 NODES 239 MEDIAN 643
+GEN 76 BEST 3.594568929e-01 VAL 3.687742872e-01 NODES 201 MEDIAN 681
+GEN 77 BEST 3.594568929e-01 VAL 3.636168291e-01 NODES 952 MEDIAN 571
+GEN 78 BEST 3.594568929e-01 VAL 3.707777831e-01 NODES 398 MEDIAN 687
+GEN 79 BEST 3.594568929e-01 VAL 3.669061230e-01 NODES 290 MEDIAN 784
+GEN 80 BEST 3.594568929e-01 VAL 3.666733811e-01 NODES 682 MEDIAN 777
+GEN 81 BEST 3.594568929e-01 VAL 3.760199519e-01 NODES 676 MEDIAN 879
+GEN 82 BEST 3.594568929e-01 VAL 3.733763618e-01 NODES 985 MEDIAN 848
+GEN 83 BEST 3.594568929e-01 VAL 3.756538368e-01 NODES 944 MEDIAN 1154
+GEN 84 BEST 3.594568929e-01 VAL 3.634395622e-01 NODES 792 MEDIAN 961
+GEN 85 BEST 3.594568929e-01 VAL 3.657288178e-01 NODES 856 MEDIAN 973
+GEN 86 BEST 3.594568929e-01 VAL 3.838639939e-01 NODES 128 MEDIAN 951
+GEN 87 BEST 3.594568929e-01 VAL 3.732672607e-01 NODES 1270 MEDIAN 854
+GEN 88 BEST 3.594568929e-01 VAL 3.766024617e-01 NODES 457 MEDIAN 957
+GEN 89 BEST 3.594568929e-01 VAL 3.926476931e-01 NODES 956 MEDIAN 961
+GEN 90 BEST 3.594568929e-01 VAL 4.399190327e-01 NODES 1893 MEDIAN 904
+GEN 91 BEST 3.594568929e-01 VAL 3.666275791e-01 NODES 208 MEDIAN 949
+GEN 92 BEST 3.594568929e-01 VAL 3.662385708e-01 NODES 877 MEDIAN 868
+GEN 93 BEST 3.594568929e-01 VAL 3.922420310e-01 NODES 1444 MEDIAN 871
+GEN 94 BEST 3.594568929e-01 VAL 3.644797145e-01 NODES 1726 MEDIAN 1014
+GEN 95 BEST 3.594568929e-01 VAL 3.676369310e-01 NODES 899 MEDIAN 1111
+GEN 96 BEST 3.594568929e-01 VAL 3.769167011e-01 NODES 1102 MEDIAN 948
+GEN 97 BEST 3.594568929e-01 VAL 3.737814724e-01 NODES 824 MEDIAN 963
+GEN 98 BEST 3.594568929e-01 VAL 3.741864259e-01 NODES 1665 MEDIAN 1026
+GEN 99 BEST 3.594568929e-01 VAL 3.754246373e-01 NODES 1086 MEDIAN 1083
+GEN 100 BEST 3.594568929e-01 VAL 4.092286733e-01 NODES 1512 MEDIAN 1154
+GEN 101 BEST 3.594568929e-01 VAL 4.045701067e-01 NODES 1146 MEDIAN 1134
+GEN 102 BEST 3.594568929e-01 VAL 3.668680843e-01 NODES 961 MEDIAN 1208
+GEN 103 BEST 3.594568929e-01 VAL 3.756903604e-01 NODES 1652 MEDIAN 1187
+GEN 104 BEST 3.594568929e-01 VAL 3.843937321e-01 NODES 1682 MEDIAN 1447
+GEN 105 BEST 3.594568929e-01 VAL 3.733230189e-01 NODES 1588 MEDIAN 1650
+GEN 106 BEST 3.594568929e-01 VAL 3.779832046e-01 NODES 1285 MEDIAN 1637
+GEN 107 BEST 3.594568929e-01 VAL 3.725799346e-01 NODES 1521 MEDIAN 1583
+GEN 108 BEST 3.594568929e-01 VAL 3.978083873e-01 NODES 1275 MEDIAN 1578
+GEN 109 BEST 3.594568929e-01 VAL 3.754885211e-01 NODES 1590 MEDIAN 1587
+Plateau detected (50 gens without improvement). Stopping at gen 109.
+STOP_REASON plateau
+LAST_GEN 109
+FINAL_ERR 0.3594568929331872
+FINAL_NODES 961
+FINAL_TREE cos(exp(tan(cos((tan(cos((sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(sin(sin(x1))))))))))) * sin(sin(cos(exp(tan(cos((tan(cos((sin(cos(sin(sin((sin(sin(sin(cos((sin(sin(cos(tan(sin(1.0))))) - tan(tan(sin(sin(x1))))))))) - tan(sin(sin(sin(sin(x1)))))))))) * sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(sin(x1))))))))))) * sin(sin(sin(exp(tan(cos((sin(tan(cos((tan(cos((sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(tan(cos(exp(tan(cos((sin(x1) * sin(cos((sin(sin(1.0)) - tan(tan((sin(tan(cos((tan(cos((sin(sin(cos(sin(sin(sin(tan(sin(sin(x1))))))))) * sin(sin(cos((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(x1)))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * cos(sin(sin(cos((sin(sin(sin(1.0))) - tan(tan(cos(exp(tan(cos((sin(1.0) * sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos(1.0))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0)))))))))))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))))))))))) * sin(sin(cos((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(x1)))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * cos(sin(sin(cos((sin(sin(sin(1.0))) - tan(tan(cos(exp(tan(cos((sin(1.0) * sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos((cos((sin(tan(cos((tan(cos((sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(tan(cos(exp(tan(cos((sin(x1) * sin(cos((sin(sin(1.0)) - tan(tan((sin(tan(cos((tan(cos((sin(sin(cos(sin(sin(sin(tan(sin(sin(x1))))))))) * sin(sin(cos((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * cos(sin(sin(cos((sin(sin(sin(1.0))) - tan(tan(cos(exp(tan(cos((sin(1.0) * sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos(1.0))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0)))))))))))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))) * sin((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(x1)))))))))))))))))))))))))))))))) * sin(sin(cos((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(x1)))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * cos(sin(sin(cos((sin(sin(sin(1.0))) - tan(tan(cos(exp(tan(cos((sin(1.0) * sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(sin(1.0)))) - tan(sin(sin((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0))))))))))))) - tan(sin(sin(sin(sin(x1))))))))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(sin(sin(x1))))))))))) - tan(tan(sin(1.0)))))))) * sin(sin(x1))))))))))))))))))))))))))) * (sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos(1.0))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0))))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0)))))))))) - tan(sin(sin(sin(sin(x1))))))))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0)))))))))))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * 1.0)))) * sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0)))))))))))))))))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = cos(exp(tan(cos((tan(cos((sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(sin(sin(x1))))))))))) * sin(sin(cos(exp(tan(cos((tan(cos((sin(cos(sin(sin((sin(sin(sin(cos((sin(sin(cos(tan(sin(1.0))))) - tan(tan(sin(sin(x1))))))))) - tan(sin(sin(sin(sin(x1)))))))))) * sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(sin(x1))))))))))) * sin(sin(sin(exp(tan(cos((sin(tan(cos((tan(cos((sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(tan(cos(exp(tan(cos((sin(x1) * sin(cos((sin(sin(1.0)) - tan(tan((sin(tan(cos((tan(cos((sin(sin(cos(sin(sin(sin(tan(sin(sin(x1))))))))) * sin(sin(cos((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(x1)))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * cos(sin(sin(cos((sin(sin(sin(1.0))) - tan(tan(cos(exp(tan(cos((sin(1.0) * sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos(1.0))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0)))))))))))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))))))))))) * sin(sin(cos((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(x1)))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * cos(sin(sin(cos((sin(sin(sin(1.0))) - tan(tan(cos(exp(tan(cos((sin(1.0) * sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos((cos((sin(tan(cos((tan(cos((sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(tan(cos(exp(tan(cos((sin(x1) * sin(cos((sin(sin(1.0)) - tan(tan((sin(tan(cos((tan(cos((sin(sin(cos(sin(sin(sin(tan(sin(sin(x1))))))))) * sin(sin(cos((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * cos(sin(sin(cos((sin(sin(sin(1.0))) - tan(tan(cos(exp(tan(cos((sin(1.0) * sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos(1.0))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0)))))))))))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))) * sin((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(x1)))))))))))))))))))))))))))))))) * sin(sin(cos((sin(tan(sin(sin(x1)))) - tan(tan(sin(cos(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(x1)))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * cos(sin(sin(cos((sin(sin(sin(1.0))) - tan(tan(cos(exp(tan(cos((sin(1.0) * sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos((sin(cos(sin(sin(cos((sin(sin(sin(sin(1.0)))) - tan(sin(sin((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0))))))))))))) - tan(sin(sin(sin(sin(x1))))))))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(sin(cos((sin(sin(sin(x1))) - tan(sin(sin(sin(sin(x1))))))))))) - tan(tan(sin(1.0)))))))) * sin(sin(x1))))))))))))))))))))))))))) * (sin(cos(sin(sin(cos((sin(sin(sin(cos((sin(sin(sin(sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))) - sin(cos((sin(sin(sin(x1))) - tan(sin(sin(1.0))))))))))) - tan(tan(sin(sin(cos(1.0))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0))))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0)))))))))) - tan(sin(sin(sin(sin(x1))))))))))))))))) - tan(tan(sin(tan(cos((tan(cos((tan(sin(1.0)) * cos((sin(sin(sin(x1))) - tan(tan(sin(1.0)))))))) * sin(sin(sin(1.0)))))))))))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))) * sin(sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0))))))))))))))))))))))))) * sin(sin(sin(exp(tan(cos((sin(sin(sin((cos(sin(x1)) * 1.0)))) * sin(sin(cos((sin(sin(sin(sin(x1)))) - tan(tan(sin(1.0)))))))))))))))))))
+Node count: 961
+Final MSE:  0.35945689
+Status: BUDGET EXHAUSTED

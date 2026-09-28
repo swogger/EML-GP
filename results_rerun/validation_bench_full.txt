@@ -1,0 +1,17 @@
+== P2_bench_ref: 1440 rows, 1440 unique keys, duplicates 0, statuses {'converged': 567, 'budget': 467, 'cpu_limit': 264, 'plateau': 141, 'crash': 1}
+   status vs final_err inconsistencies: 0 []
+   functional equivalence: 551/567 converged runs equivalent (1e-9 relative, dense grid)
+   by algo/regime: {'eml-A': '60/60', 'eml-B': '51/58', 'std-A': '216/218', 'std-B': '224/231'}
+   non-equivalent converged runs (key, worst rel err): [('1.2|eml|B|200|100|04', '2.43e-03'), ('1.2|eml|B|200|100|02', '1.95e-03'), ('1.2|eml|B|200|100|07', '1.21e-04'), ('1.2|eml|B|200|100|06', '1.90e-03'), ('1.2|eml|B|200|100|12', '2.43e-03'), ('1.2|eml|B|200|100|14', '2.30e-03'), ('1.2|eml|B|200|100|22', '1.03e-03'), ('1.4|std|B|200|100|10', '5.89e-04'), ('2.1|std|B|200|100|11', '6.49e-05'), ('2.1|std|B|200|100|20', '8.00e-07'), ('2.1|std|B|200|100|23', '9.00e-04'), ('2.1|std|B|200|100|27', '1.63e-04')]
+   bit-identity vs original (non-converged, complete in both): identical 599, different 2
+     differs: ('1.2', 'eml', 'B') identical 0 different 2
+== P3_control_abl6: 720 rows, 720 unique keys, duplicates 0, statuses {'converged': 265, 'plateau': 240, 'budget': 111, 'cpu_limit': 104}
+   status vs final_err inconsistencies: 0 []
+   functional equivalence: 262/265 converged runs equivalent (1e-9 relative, dense grid)
+   by algo/regime: {'std-A': '128/129', 'std-B': '134/136'}
+   non-equivalent converged runs (key, worst rel err): [('1.4|std|B|200|100|10', '5.89e-04'), ('3.3|std|B|200|100|03', '2.62e-07'), ('3.4|std|A|200|100|13', '2.29e-03')]
+== P8_control_fix8: 360 rows, 360 unique keys, duplicates 0, statuses {'converged': 114, 'plateau': 159, 'budget': 87}
+   status vs final_err inconsistencies: 0 []
+   functional equivalence: 113/114 converged runs equivalent (1e-9 relative, dense grid)
+   by algo/regime: {'std-B': '113/114'}
+   non-equivalent converged runs (key, worst rel err): [('1.3|std|B|200|100|26', '3.94e-04')]

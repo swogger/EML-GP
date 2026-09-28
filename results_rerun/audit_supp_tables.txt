@@ -1,0 +1,37 @@
+S9 control median final error (over runs that returned a value):
+  1.4A: data 0.000925 paper 0.00093 OK (n=10)
+  1.4B: data 0.0103 paper 0.01 OK (n=30)
+  2.1A: data 9.18e-06 paper 9.2e-06 OK (n=19)
+  2.1B: data 0.044 paper 0.044 OK (n=30)
+  3.1A: data 0.162 paper 0.16 OK (n=10)
+  3.1B: data 0.0642 paper 0.064 OK (n=30)
+  3.2A: data 0.0948 paper 0.095 OK (n=13)
+  3.2B: data 0.0959 paper 0.096 OK (n=30)
+  3.3A: data 0.0108 paper 0.011 OK (n=16)
+  3.3B: data 0.0482 paper 0.048 OK (n=30)
+  3.4A: data 0.0039 paper 0.0039 OK (n=9)
+  3.4B: data 0.0078 paper 0.0078 OK (n=30)
+  3.5A: data 358 paper 358 OK (n=19)
+  3.5B: data 306 paper 306 OK (n=30)
+  4.1A: data 0.0392 paper 0.039 OK (n=7)
+  4.1B: data 0.0234 paper 0.023 OK (n=30)
+  4.2A: data 0.352 paper 0.35 OK (n=17)
+  4.2B: data 0.289 paper 0.29 OK (n=30)
+S11 3.1A: conv 0.00 (paper 0.0) median err 0.664 (paper 0.66)
+S11 3.1B: conv 0.00 (paper 0.0) median err 0.227 (paper 0.23)
+S11 3.3A: conv 0.43 (paper 0.43) median err 0 (paper 0.0)
+S11 3.3B: conv 0.50 (paper 0.5) median err 5.08e-06 (paper 5.1e-06)
+
+S6 target_generation_log keys: ['design', 'k_levels', 'targets_per_k', 'generation_rng_seed', 'rigid_oversample_min', 'per_k']
+S8 original loose counts match: True 
+C.2 1.4: dump K 53 paper 53 OK  depth(edges) 19
+C.2 2.1: dump K 637 paper 637 OK  depth(edges) 58
+C.2 3.1: dump K 81 paper 81 OK  depth(edges) 18
+C.2 3.2: dump K 355 paper 355 OK  depth(edges) 46
+C.2 3.3: dump K 25 paper 25 OK  depth(edges) 9
+C.2 3.4: dump K 53 paper 53 OK  depth(edges) 17
+C.2 3.5: dump K 135 paper 135 OK  depth(edges) 26
+C.2 4.1: dump K 411 paper 411 OK  depth(edges) 57
+C.2 4.2: dump K 1085 paper 1085 OK  depth(edges) 86
+C.2 nguyen1: dump K 85 paper 85
+C.2 nguyen7: dump K 83 paper 83

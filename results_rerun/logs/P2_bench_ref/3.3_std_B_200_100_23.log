@@ -1,0 +1,27 @@
+Loaded Test 3.3: Phase 3: f(x) = x^x
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sqrt']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1970329140
+GEN 0 BEST 4.422029540e+00 VAL 4.422029540e+00 NODES 9 MEDIAN 20
+GEN 1 BEST 4.422029540e+00 VAL 4.422029540e+00 NODES 9 MEDIAN 13
+GEN 2 BEST 4.422029540e+00 VAL 4.422029540e+00 NODES 9 MEDIAN 17
+GEN 3 BEST 3.051834368e+00 VAL 3.051834368e+00 NODES 31 MEDIAN 19
+GEN 4 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 16 MEDIAN 22
+GEN 5 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 16 MEDIAN 21
+GEN 6 BEST 3.386968873e-01 VAL 3.386968873e-01 NODES 23 MEDIAN 27
+GEN 7 BEST 3.386968873e-01 VAL 3.386968873e-01 NODES 23 MEDIAN 30
+GEN 8 BEST 3.386968873e-01 VAL 3.386968873e-01 NODES 23 MEDIAN 31
+GEN 9 BEST 1.194156444e-02 VAL 1.194156444e-02 NODES 32 MEDIAN 31
+GEN 10 BEST 3.189278358e-30 VAL 3.189278358e-30 NODES 32 MEDIAN 36
+Perfect solution found at generation 10! Stopping.
+STOP_REASON converged
+LAST_GEN 10
+FINAL_ERR 3.189278358147042e-30
+FINAL_NODES 32
+FINAL_TREE (exp((((x - 1.0) + (x / x)) * log((1.0 * x)))) - ((log((sqrt((x / x)) / exp(sqrt((1.0 / 1.0))))) + 1.0) / (1.0 - exp(1.0))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (exp((((x - 1.0) + (x / x)) * log((1.0 * x)))) - ((log((sqrt((x / x)) / exp(sqrt((1.0 / 1.0))))) + 1.0) / (1.0 - exp(1.0))))
+Node count: 32
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

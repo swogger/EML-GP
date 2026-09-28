@@ -1,0 +1,38 @@
+Fig 7 medians (Std/EML): {'1.1': (np.float64(2.0), np.float64(3.0)), '1.2': (np.float64(2.0), np.float64(7.0)), '1.3': (np.float64(6.0), np.float64(1.0)), '1.4': (np.float64(14.0), np.float64(221.0)), '2.1': (np.float64(9.5), np.float64(257.0)), '3.1': (np.float64(2.0), np.float64(1.0)), '3.2': (np.float64(2.0), np.float64(473.0)), '3.3': (np.float64(13.0), np.float64(477.0)), '3.4': (np.float64(116.5), np.float64(404.0)), '3.5': (np.float64(44.0), np.float64(477.0)), '4.1': (np.float64(321.0), np.float64(331.0)), '4.2': (np.float64(107.5), np.float64(299.0))}
+Fig 10 Std-GP (standard xover): median reaches the plot floor (<=1e-10) at generation 0; final median 1e-10
+Fig 10 EML-GP (standard xover): median reaches the plot floor (<=1e-10) at generation 6; final median 1e-10
+Fig 10 EML-GP (mutation only): median reaches the plot floor (<=1e-10) at generation 66; final median 1e-10
+Fig 10 Std-GP + SSC: median reaches the plot floor (<=1e-10) at generation 0; final median 1e-10
+Fig 10 EML-GP + SSC: median reaches the plot floor (<=1e-10) at generation 5; final median 1e-10
+Fig 13 1.3 std: n=30 median=6 min=3 max=29 single-node=0
+Fig 13 1.3 eml: n=30 median=1 min=1 max=371 single-node=29
+Fig 13 3.2 std: n=30 median=2 min=2 max=8 single-node=0
+Fig 13 3.2 eml: n=9 median=473 min=9 max=1375 single-node=0
+1_1 A std: n=30 median at {0: 0.0, 5: 0.0}; median first <= 1e-6 at gen 0; IQR at end [0, 0]
+1_1 A eml: n=30 median at {0: 0.24494076745, 5: 0.0}; median first <= 1e-6 at gen 1; IQR at end [0, 0]
+1_1 B std: n=30 median at {0: 0.0, 5: 0.0}; median first <= 1e-6 at gen 0; IQR at end [0, 0]
+1_1 B eml: n=30 median at {0: 0.24494076745, 5: 0.0}; median first <= 1e-6 at gen 1; IQR at end [0, 0]
+1_2 A std: n=30 median at {5: 0.0, 7: 0.0, 10: 0.0, 25: 0.0, 199: 0.0}; median first <= 1e-6 at gen 0; IQR at end [0, 0]
+1_2 A eml: n=30 median at {5: 0.0005881171118499999, 7: 4.473915415e-30, 10: 3.8393633870000005e-30, 25: 1.7841905300000002e-30, 199: 1.7841905300000002e-30}; median first <= 1e-6 at gen 6; IQR at end [9.41e-33, 4.87e-30]
+1_2 B std: n=30 median at {5: 0.0, 7: 0.0, 10: 0.0, 25: 0.0, 199: 0.0}; median first <= 1e-6 at gen 0; IQR at end [0, 0]
+1_2 B eml: n=30 median at {5: 0.026717264067, 7: 0.001449789067, 10: 0.00047943028804999996, 25: 9.447541059e-07, 199: 6.0206866355000004e-30}; median first <= 1e-6 at gen 25; IQR at end [8.54e-31, 1.33e-07]
+1_3 A std: n=30 median at {0: 1.0, 199: 0.0}; median first <= 1e-6 at gen 1; IQR at end [0, 0]
+1_3 A eml: n=30 median at {0: 8.5313086785, 199: 8.303664837}; median first <= 1e-6 at gen None; IQR at end [7.92, 8.39]
+1_3 B std: n=30 median at {0: 1.0, 199: 0.0}; median first <= 1e-6 at gen 1; IQR at end [0, 1.16e-32]
+1_3 B eml: n=30 median at {0: 8.5313086785, 199: 7.0473781355}; median first <= 1e-6 at gen None; IQR at end [5.72, 8.01]
+3_1 A std: n=30 median at {0: 0.3495117632, 199: 0.0}; median first <= 1e-6 at gen 1; IQR at end [0, 0]
+3_1 A eml: n=30 median at {0: 5.934887979, 199: 5.695110336}; median first <= 1e-6 at gen None; IQR at end [5.08, 6.37]
+3_1 B std: n=30 median at {0: 0.3495117632, 199: 0.0}; median first <= 1e-6 at gen 1; IQR at end [0, 0]
+3_1 B eml: n=30 median at {0: 5.934887979, 199: 2.921833784}; median first <= 1e-6 at gen None; IQR at end [0.706, 3.91]
+1_4 A std: n=30 median at {0: 0.37977993740000004, 25: 0.0027039041524999996, 199: 0.0005738764590000001}; median first <= 1e-6 at gen None; IQR at end [5.76e-33, 0.0101]
+1_4 A eml: n=30 median at {0: 1.2779410575, 25: 0.3601350367, 199: 0.091478076425}; median first <= 1e-6 at gen None; IQR at end [0.0325, 0.129]
+1_4 B std: n=30 median at {0: 0.37977993740000004, 25: 9.628541935999999e-33, 199: 6.444162534e-33}; median first <= 1e-6 at gen 20; IQR at end [5.47e-33, 0.00117]
+1_4 B eml: n=30 median at {0: 1.2779410575, 25: 0.1444656744, 199: 0.05216881482}; median first <= 1e-6 at gen None; IQR at end [0.0177, 0.0913]
+2_1 A std: n=30 median at {0: 0.39980554150000003, 25: 0.0056730451455, 199: 0.0043816962755000004}; median first <= 1e-6 at gen None; IQR at end [9.63e-06, 0.0369]
+2_1 A eml: n=30 median at {0: 2.1787237179999996, 25: 0.45831799360000003, 199: 0.222058181}; median first <= 1e-6 at gen None; IQR at end [0.177, 0.365]
+2_1 B std: n=30 median at {0: 0.39980554150000003, 25: 0.024797887355, 199: 0.0014929333345}; median first <= 1e-6 at gen None; IQR at end [0, 0.00687]
+2_1 B eml: n=30 median at {0: 2.1787237179999996, 25: 0.5058289172, 199: 0.28774467315}; median first <= 1e-6 at gen None; IQR at end [0.168, 0.358]
+3_2 A std: n=30 median at {0: 0.0, 25: 0.0, 199: 0.0}; median first <= 1e-6 at gen 0; IQR at end [0, 0]
+3_2 A eml: n=30 median at {0: 5.507866185, 25: 0.796476569, 199: 0.40587273095}; median first <= 1e-6 at gen None; IQR at end [0.136, 0.734]
+3_2 B std: n=30 median at {0: 0.0, 25: 0.0, 199: 0.0}; median first <= 1e-6 at gen 0; IQR at end [0, 0]
+3_2 B eml: n=30 median at {0: 5.507866185, 25: 0.83758924105, 199: 0.68828218575}; median first <= 1e-6 at gen None; IQR at end [0.144, 0.818]

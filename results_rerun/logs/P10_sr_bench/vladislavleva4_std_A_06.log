@@ -1,0 +1,7 @@
+GEN 0 BEST inf
+Traceback (most recent call last):
+  File "/Users/hkbh/Projects/EML GP/research/rerun/sr_task.py", line 15, in <module>
+    rec, conv = B.run_gp(a.bench, a.algo == "eml", a.regime == "B", a.seed, generations=a.generations,
+  File "/Users/hkbh/Projects/EML GP/research/rerun/../run_sr_benchmarks.py", line 321, in run_gp
+    new_pop = [best_tree.copy()]
+AttributeError: 'NoneType' object has no attribute 'copy'

@@ -1,0 +1,33 @@
+Loaded Test 1.2: Phase 1: f(x) = ln(x)
+Mode: EML-only  |  operator set: ['eml']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=600  master_seed=893706906
+GEN 0 BEST 1.205279824e+00 VAL 1.205279824e+00 NODES 27 MEDIAN 91
+GEN 1 BEST 2.652450452e-03 VAL 2.652450452e-03 NODES 9 MEDIAN 55
+GEN 2 BEST 2.652450452e-03 VAL 2.652450452e-03 NODES 9 MEDIAN 39
+GEN 3 BEST 2.652450452e-03 VAL 2.652450452e-03 NODES 9 MEDIAN 39
+GEN 4 BEST 2.652450452e-03 VAL 2.652450452e-03 NODES 9 MEDIAN 41
+GEN 5 BEST 2.652450452e-03 VAL 2.652450452e-03 NODES 9 MEDIAN 37
+GEN 6 BEST 5.093357021e-04 VAL 5.093357021e-04 NODES 29 MEDIAN 35
+GEN 7 BEST 5.093103768e-04 VAL 5.093103768e-04 NODES 31 MEDIAN 35
+GEN 8 BEST 5.093103768e-04 VAL 5.093103768e-04 NODES 31 MEDIAN 35
+GEN 9 BEST 3.210119645e-04 VAL 3.210119645e-04 NODES 27 MEDIAN 35
+GEN 10 BEST 3.210119645e-04 VAL 3.210119645e-04 NODES 27 MEDIAN 31
+GEN 11 BEST 2.385291652e-04 VAL 2.385291652e-04 NODES 39 MEDIAN 31
+GEN 12 BEST 2.385291652e-04 VAL 2.385291652e-04 NODES 39 MEDIAN 33
+GEN 13 BEST 1.797074996e-04 VAL 1.797074996e-04 NODES 11 MEDIAN 35
+GEN 14 BEST 1.797074996e-04 VAL 1.797074996e-04 NODES 11 MEDIAN 39
+GEN 15 BEST 9.324051338e-07 VAL 9.324051338e-07 NODES 39 MEDIAN 39
+Perfect solution found at generation 15! Stopping.
+STOP_REASON converged
+LAST_GEN 15
+FINAL_ERR 9.324051337749688e-07
+FINAL_NODES 39
+FINAL_TREE (x eml ((x eml x) eml (1.0 eml (((1.0 eml x) eml (((1.0 eml x) eml (1.0 eml 1.0)) eml (((1.0 eml 1.0) eml (1.0 eml 1.0)) eml x))) eml (1.0 eml ((1.0 eml 1.0) eml (x eml x)))))))
+
+===============================
+EML GP Evolution complete.
+Best Formula: Result = (x eml ((x eml x) eml (1.0 eml (((1.0 eml x) eml (((1.0 eml x) eml (1.0 eml 1.0)) eml (((1.0 eml 1.0) eml (1.0 eml 1.0)) eml x))) eml (1.0 eml ((1.0 eml 1.0) eml (x eml x)))))))
+EML Raw Tree: (x eml ((x eml x) eml (1.0 eml (((1.0 eml x) eml (((1.0 eml x) eml (1.0 eml 1.0)) eml (((1.0 eml 1.0) eml (1.0 eml 1.0)) eml x))) eml (1.0 eml ((1.0 eml 1.0) eml (x eml x)))))))
+Node count: 39
+Final MSE:  0.00000093
+Status: CONVERGED (perfect solution)

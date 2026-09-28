@@ -1,0 +1,19 @@
+Loaded Test 1.2: Phase 1: f(x) = ln(x)
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1307448051
+GEN 0 BEST 9.017990263e-02 VAL 9.017990263e-02 NODES 11 MEDIAN 24
+GEN 1 BEST 9.017990263e-02 VAL 9.017990263e-02 NODES 11 MEDIAN 15
+GEN 2 BEST 0.000000000e+00 VAL 0.000000000e+00 NODES 18 MEDIAN 20
+Perfect solution found at generation 2! Stopping.
+STOP_REASON converged
+LAST_GEN 2
+FINAL_ERR 0.0
+FINAL_NODES 18
+FINAL_TREE log((x * (1.0 + ((1.0 * (x * 1.0)) * ((x - x) * (x - x))))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = log((x * (1.0 + ((1.0 * (x * 1.0)) * ((x - x) * (x - x))))))
+Node count: 18
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

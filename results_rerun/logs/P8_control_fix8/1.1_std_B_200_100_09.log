@@ -1,0 +1,19 @@
+Loaded Test 1.1: Phase 1: f(x) = exp(x)
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=449904892
+GEN 0 BEST 1.490737448e+01 VAL 1.490737448e+01 NODES 4 MEDIAN 16
+GEN 1 BEST 7.228785453e-32 VAL 7.228785453e-32 NODES 8 MEDIAN 11
+Perfect solution found at generation 1! Stopping.
+STOP_REASON converged
+LAST_GEN 1
+FINAL_ERR 7.228785453263051e-32
+FINAL_NODES 8
+FINAL_TREE exp(((1.0 / 1.0) / (1.0 / x)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp(((1.0 / 1.0) / (1.0 / x)))
+Node count: 8
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

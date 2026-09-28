@@ -52,6 +52,17 @@ def main():
                         help="How often to print generation metrics")
     parser.add_argument("--mutation_only", action="store_true",
                         help="Disable crossover, use 100% mutation (95% subtree, 5% point).")
+    parser.add_argument("--std_ops", type=str, default=None,
+                        help="Comma-separated override for the standard-GP operator set, e.g. "
+                             "'+,-,*,/,exp,log'. Fixed-primitive-set control (R1.3). "
+                             "Default: the per-target set from TEST_MATRIX (unchanged behaviour).")
+    # Rerun flags (2026-09 revision). Defaults reproduce the original runs exactly.
+    parser.add_argument("--no_size_penalty", action="store_true",
+                        help="Plain MSE fitness: drop the 1e-4*nodes term applied below MSE 1e-5.")
+    parser.add_argument("--trace", action="store_true",
+                        help="Compact per-generation log (full precision, no formulas) plus FINAL_* summary lines.")
+    parser.add_argument("--no_simplify", action="store_true",
+                        help="Skip the post-run sympy simplification of EML trees.")
     args = parser.parse_args()
 
     # ------------------------------------------------------------------
@@ -100,6 +111,10 @@ def main():
         target_func = test["func"]
         std_ops     = test["std_ops"]
         print(f"Loaded Test {args.test_id}: {test['name']}")
+
+    if args.std_ops:
+        std_ops = [op.strip() for op in args.std_ops.split(",") if op.strip()]
+        print(f"Operator-set override active: {std_ops}")
 
     terminals = [1.0]
 
@@ -166,7 +181,7 @@ def main():
 
     def training_fitness(tree, batch):
         mse = _mse(tree, batch)
-        if mse < 1e-5:
+        if not args.no_size_penalty and mse < 1e-5:
             return mse + count_nodes(tree) * 0.0001
         return mse
 
@@ -189,6 +204,7 @@ def main():
     # (eml→eml is always the only choice). Skip it to avoid wasting
     # 5% of reproductive budget on a structural no-op.
     use_point_mutate = len(operators) > 1 or not all(op == 'eml' for op in operators)
+    stop_reason = "budget"
 
     for gen in range(args.generations):
         batch = [
@@ -212,7 +228,11 @@ def main():
         else:
             gens_no_improve += 1
 
-        if gen % args.print_interval == 0 or gen == args.generations - 1:
+        if args.trace:
+            _sizes = sorted(count_nodes(ind) for ind in population)
+            print(f"GEN {gen} BEST {best_val_error:.9e} VAL {gen_val_err:.9e} "
+                  f"NODES {n} MEDIAN {_sizes[len(_sizes)//2]}", flush=True)
+        elif gen % args.print_interval == 0 or gen == args.generations - 1:
             tree_sizes = sorted([count_nodes(ind) for ind in population])
             median_nodes = tree_sizes[len(tree_sizes)//2]
             print(
@@ -227,10 +247,12 @@ def main():
         if best_val_error <= 1e-6:
             print(f"Perfect solution found at generation {gen}! Stopping.")
             converged = True
+            stop_reason = "converged"
             break
 
         if gens_no_improve >= plateau_gens:
             print(f"Plateau detected ({plateau_gens} gens without improvement). Stopping at gen {gen}.")
+            stop_reason = "plateau"
             break
 
         # ------------------------------------------------------------------
@@ -288,7 +310,13 @@ def main():
 
     n           = count_nodes(best_tree)
     raw_formula = best_tree.to_formula()
-    readable    = simplify_eml_tree(best_tree) if args.use_eml else raw_formula
+    readable    = simplify_eml_tree(best_tree) if (args.use_eml and not args.no_simplify) else raw_formula
+    if args.trace:
+        print(f"STOP_REASON {stop_reason}")
+        print(f"LAST_GEN {gen}")
+        print(f"FINAL_ERR {best_val_error!r}")
+        print(f"FINAL_NODES {n}")
+        print(f"FINAL_TREE {raw_formula}", flush=True)
     mode_label  = "EML" if args.use_eml else "Standard"
 
     print("\n===============================")

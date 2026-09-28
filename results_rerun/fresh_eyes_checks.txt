@@ -1,0 +1,99 @@
+1. Synthetic minimality: K_proven == K_construction for every target with K <= 11
+   violations: 0 []; K>11 with K_proven set: 0
+
+2. §5.3.1 'Std-GP completes every run on exp, ln, addition, sinh at every grid cell'
+   Regime A: Std-GP timeouts on those four targets across the grid = 0
+   Regime B: Std-GP timeouts on those four targets across the grid = 0
+
+3. Fig 13 (reference cell, Regime A): addition EML sizes; arctan EML survivors
+   addition EML node counts: [('1', 29), ('371', 1)]
+   arctan EML survivors n=8 range 9–1365 median 461.0 (paper: n=8, 9–1,365, median 461)
+   Std-GP addition median 5.0 (paper 5)
+
+4. §5.3.3 x^x, Std-GP Regime A vs B (trajectory harness)
+   G100P100: median A 0.1071  B 0.004661  ratio A/B 23.0
+   G100P200: median A 0.006213  B 0.003853  ratio A/B 1.6
+   G100P500: median A 7.55e-05  B 0  ratio A/B inf
+   G200P100: median A 0.06711  B 0.003688  ratio A/B 18.2  seeds favour A 11, favour B 14, tied 5  (paper 11/14/5)
+   G200P200: median A 0.006189  B 0  ratio A/B inf
+   G200P500: median A 7.55e-05  B 0  ratio A/B inf
+   G500P100: median A 0.06711  B 0.003688  ratio A/B 18.2
+   G500P200: median A 0.006188  B 0  ratio A/B inf
+   G500P500: median A 6.25e-05  B 0  ratio A/B inf
+   per-cell direction of median final error (A vs B), Std-GP, targets claimed consistent:
+   3.3: BBBBBBBBB (paper: 3.3 and 1.4 favour B in all nine; 3.4 favours A)
+   1.4: B==B==B== (paper: 3.3 and 1.4 favour B in all nine; 3.4 favours A)
+   3.4: AAAAAAAAA (paper: 3.3 and 1.4 favour B in all nine; 3.4 favours A)
+
+5. Table 9 (Phase 5 benchmarks) from results/sr_benchmarks
+   {'benchmark': 'nguyen1', 'name': 'Nguyen-1: f(x) = x³+x²+x', 'std_a_convergence': '0.407', 'eml_a_convergence': '0.000', 'std_b_convergence': '0.400', 'eml_b_convergence': '0.000', 'std_a_median_mse': '0.0004920487967858', 'eml_a_median_mse': '0.0147375811497322', 'std_b_median_mse': '0.000328641301448', 'eml_b_median_mse': '0.0146555034625785', 'eml_regime_direction': 'Equivalent (0.01474)'}
+   {'benchmark': 'nguyen7', 'name': 'Nguyen-7: f(x) = ln(x+1)+ln(x²+1)', 'std_a_convergence': '0.000', 'eml_a_convergence': '0.000', 'std_b_convergence': '0.000', 'eml_b_convergence': '0.000', 'std_a_median_mse': '0.00089655186865865', 'eml_a_median_mse': '0.1937218308540512', 'std_b_median_mse': '0.0013757344875985', 'eml_b_median_mse': '0.06000674744216805', 'eml_regime_direction': 'B better  (0.06001 vs 0.1937)'}
+   {'benchmark': 'keijzer6', 'name': 'Keijzer-6: f(x) = Σ(1/i, i=1..x)', 'std_a_convergence': '0.000', 'eml_a_convergence': '0.000', 'std_b_convergence': '0.000', 'eml_b_convergence': '0.000', 'std_a_median_mse': '0.0010831976873794998', 'eml_a_median_mse': '0.07791577418346521', 'std_b_median_mse': '0.00104431612388175', 'eml_b_median_mse': '0.1402178258073677', 'eml_regime_direction': 'A better  (0.07792 vs 0.1402)'}
+   {'benchmark': 'vladislavleva4', 'name': 'Vladislavleva-4: f(x1..x5) = 10/(5+Σ(xi-3)²)', 'std_a_convergence': '0.000', 'eml_a_convergence': '0.000', 'std_b_convergence': '0.000', 'eml_b_convergence': '0.000', 'std_a_median_mse': '0.039301642024783146', 'eml_a_median_mse': '0.0688753753001187', 'std_b_median_mse': '0.0336719444120077', 'eml_b_median_mse': '0.1534077441489666', 'eml_regime_direction': 'A better  (0.06888 vs 0.1534)'}
+   nguyen1 std_a: files 27  converged 16  median 0
+   nguyen1 eml_a: files 3  converged 3  median 0
+   nguyen1 std_b: files 30  converged 18  median 0
+   nguyen1 eml_b: files 30  converged 30  median 0
+   nguyen7 std_a: files 22  converged 22  median 0
+   nguyen7 eml_a: files 27  converged 27  median 0
+   nguyen7 std_b: files 30  converged 30  median 0
+   nguyen7 eml_b: files 30  converged 30  median 0
+   keijzer6 std_a: files 24  converged 24  median 0
+   keijzer6 eml_a: files 18  converged 18  median 0
+   keijzer6 std_b: files 30  converged 30  median 0
+   keijzer6 eml_b: files 30  converged 30  median 0
+   vladislavleva4 std_a: files 14  converged 14  median 0
+   vladislavleva4 eml_a: files 27  converged 27  median 0
+   vladislavleva4 std_b: files 29  converged 29  median 0
+   vladislavleva4 eml_b: files 30  converged 30  median 0
+
+6. §5.4 calibration against the main study (calibration_same_function.csv)
+   {'target': 'exp(x)', 'regime': 'A', 'real_conv_rate': '1.0', 'synth_conv_rate_nmse_rule': '1.0', 'fisher_p_vs_real_nmse_rule': '1.0', 'synth_conv_rate_abs_mse_rule': '1.0', 'fisher_p_vs_real_abs_rule': '1.0', 'var_target': '12.935998848502534'}
+   {'target': 'exp(x)', 'regime': 'B', 'real_conv_rate': '1.0', 'synth_conv_rate_nmse_rule': '0.9', 'fisher_p_vs_real_nmse_rule': '0.25', 'synth_conv_rate_abs_mse_rule': '0.9', 'fisher_p_vs_real_abs_rule': '0.25', 'var_target': '12.935998848502534'}
+   {'target': 'ln(x)', 'regime': 'A', 'real_conv_rate': '0.7666666666666667', 'synth_conv_rate_nmse_rule': '0.4', 'fisher_p_vs_real_nmse_rule': '0.05195796140692775', 'synth_conv_rate_abs_mse_rule': '1.0', 'fisher_p_vs_real_abs_rule': '0.16115162554791038', 'var_target': '0.013314094935341471'}
+   {'target': 'ln(x)', 'regime': 'B', 'real_conv_rate': '0.2', 'synth_conv_rate_nmse_rule': '0.4', 'fisher_p_vs_real_nmse_rule': '0.2322998376066887', 'synth_conv_rate_abs_mse_rule': '1.0', 'fisher_p_vs_real_abs_rule': '9.447178127893198e-06', 'var_target': '0.013314094935341471'}
+
+7. Reference case position among K = 7 targets (original runs, Regime A)
+   ref 0.70; band median 0.80; below-ref share 45% (paper: 0.70, median 0.80, 45th percentile)
+
+8. S12 original fits, K = 3–17 transition band (budget data)
+   G=200: A cens-as-fail 8.74  A complete-case 8.74  B cens-as-fail 6.15
+   G=800: A cens-as-fail 9.02  A complete-case 10.18  B cens-as-fail 6.84
+   G=3200: A cens-as-fail 8.97  A complete-case 10.63  B cens-as-fail 7.10
+   (paper: 200: 8.74/8.74/6.15; 800: 9.02/9.93/6.84; 3200: 8.97/10.69/7.10)
+
+9. S10 control vs main (Regime A), Wilcoxon on final error over pairs where both returned a value
+Traceback (most recent call last):
+  File "/Users/hkbh/Projects/EML GP/research/rerun/fresh_eyes_checks.py", line 134, in <module>
+    from seeds import SEEDS  # noqa: E402
+ModuleNotFoundError: No module named 'seeds'
+9. S10 control vs main (Regime A), Wilcoxon on final error over pairs where both returned a value
+   2.1: n 11  main median 9e-06  control median 0  Holm 1
+   3.1: n 10  main median 0  control median 0.162  Holm 0.00781
+   3.2: n 13  main median 0  control median 0.0948  Holm 0.00122
+   3.3: n 9  main median 0  control median 0.0239  Holm 1
+   3.5: n 19  main median 0  control median 358  Holm 9.16e-05
+   4.2: n 13  main median 0.342  control median 0.343  Holm 1
+   (paper: 2.1 n11 9e-6/0 1.00; 3.1 n10 0/0.162 0.0078; 3.2 n13 0/0.0948 0.0015; 3.3 n9 0/0.0239 1.00; 3.5 n19 0/357.7 0.0015; 4.2 n13 0.342/0.343 1.00)
+
+10. Table 8 SSC effect (Wilcoxon, SSC vs standard crossover, paired by run; Holm across 6 per grammar)
+   eml 1.1: std-xover 0  SSC 0  SSC worse in 2 / better in 0  Holm 0.5
+   eml 1.2: std-xover 0  SSC 8.49e-06  SSC worse in 26 / better in 4  Holm 0.00154
+   eml 1.3: std-xover 8.3  SSC 8.3  SSC worse in 21 / better in 9  Holm 0.176
+   eml 2.1: std-xover 0.222  SSC 0.334  SSC worse in 20 / better in 10  Holm 0.109
+   eml 3.2: std-xover 0.406  SSC 0.799  SSC worse in 24 / better in 6  Holm 0.00156
+   eml 3.3: std-xover 1.74  SSC 2.48  SSC worse in 21 / better in 9  Holm 0.00453
+   std 1.1: std-xover 0  SSC 0  SSC worse in 1 / better in 0  Holm 1
+   std 1.2: std-xover 0  SSC 0  SSC worse in 5 / better in 0  Holm 0.188
+   std 1.3: std-xover 0  SSC 0  SSC worse in 8 / better in 0  Holm 0.0469
+   std 2.1: std-xover 0.00437  SSC 0.0237  SSC worse in 21 / better in 8  Holm 0.122
+   std 3.2: std-xover 0  SSC 0  SSC worse in 6 / better in 0  Holm 0.125
+   std 3.3: std-xover 0.0671  SSC 0.177  SSC worse in 17 / better in 13  Holm 0.617
+   (paper EML: ln 0.002 worse, arctan 0.002 worse, x^x 0.005 worse, sin+cos 0.109; Std: sin+cos 0.126, x^x 0.617)
+
+11. Table B.1 software versions on this machine
+   numpy 2.0.2
+   pandas 2.3.3
+   scipy 1.13.1
+   sympy 1.14.0
+   python 3.9.6  (paper: Python 3.9.6, NumPy 2.0.2, Pandas 2.3.3, SciPy 1.13.1)

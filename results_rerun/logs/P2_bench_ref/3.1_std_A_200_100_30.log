@@ -1,0 +1,19 @@
+Loaded Test 3.1: Phase 3: f(x) = sinh(x)
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sinh', 'cosh', 'tanh']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1638104225
+GEN 0 BEST 2.066857847e+00 VAL 2.066857847e+00 NODES 9 MEDIAN 11
+GEN 1 BEST 2.066857847e+00 VAL 2.066857847e+00 NODES 9 MEDIAN 9
+GEN 2 BEST 2.939043137e-31 VAL 2.939043137e-31 NODES 4 MEDIAN 7
+Perfect solution found at generation 2! Stopping.
+STOP_REASON converged
+LAST_GEN 2
+FINAL_ERR 2.939043136515061e-31
+FINAL_NODES 4
+FINAL_TREE exp(log(sinh(x)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp(log(sinh(x)))
+Node count: 4
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

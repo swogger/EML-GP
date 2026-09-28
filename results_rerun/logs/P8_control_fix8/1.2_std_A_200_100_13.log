@@ -1,0 +1,21 @@
+Loaded Test 1.2: Phase 1: f(x) = ln(x)
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=18993484
+GEN 0 BEST 2.424509134e-01 VAL 2.424509134e-01 NODES 4 MEDIAN 21
+GEN 1 BEST 2.424509134e-01 VAL 2.424509134e-01 NODES 4 MEDIAN 9
+GEN 2 BEST 1.450924746e-01 VAL 1.450924746e-01 NODES 17 MEDIAN 11
+GEN 3 BEST 0.000000000e+00 VAL 0.000000000e+00 NODES 9 MEDIAN 17
+Perfect solution found at generation 3! Stopping.
+STOP_REASON converged
+LAST_GEN 3
+FINAL_ERR 0.0
+FINAL_NODES 9
+FINAL_TREE (log(1.0) + log((x / (x / x))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (log(1.0) + log((x / (x / x))))
+Node count: 9
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

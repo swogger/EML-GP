@@ -1,0 +1,104 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1920334965
+GEN 0 BEST 6.505986808e+02 VAL 6.505986808e+02 NODES 468 MEDIAN 27
+GEN 1 BEST 6.505986808e+02 VAL 6.505986808e+02 NODES 468 MEDIAN 61
+GEN 2 BEST 6.505986808e+02 VAL 6.505986808e+02 NODES 468 MEDIAN 391
+GEN 3 BEST 6.505986808e+02 VAL 6.505986808e+02 NODES 468 MEDIAN 468
+GEN 4 BEST 6.505986808e+02 VAL 6.505986808e+02 NODES 468 MEDIAN 468
+GEN 5 BEST 6.505986808e+02 VAL 6.505986808e+02 NODES 468 MEDIAN 468
+GEN 6 BEST 6.505986808e+02 VAL 6.505986808e+02 NODES 468 MEDIAN 468
+GEN 7 BEST 6.505986808e+02 VAL 6.505986808e+02 NODES 468 MEDIAN 468
+GEN 8 BEST 6.156566529e+02 VAL 6.156566529e+02 NODES 468 MEDIAN 468
+GEN 9 BEST 6.156566529e+02 VAL 6.156566529e+02 NODES 468 MEDIAN 468
+GEN 10 BEST 6.156566529e+02 VAL 6.156566529e+02 NODES 468 MEDIAN 468
+GEN 11 BEST 6.156566529e+02 VAL 6.156566529e+02 NODES 468 MEDIAN 468
+GEN 12 BEST 6.156566529e+02 VAL 6.156566529e+02 NODES 468 MEDIAN 468
+GEN 13 BEST 6.156566529e+02 VAL 6.156566529e+02 NODES 468 MEDIAN 468
+GEN 14 BEST 6.156566529e+02 VAL 6.156566529e+02 NODES 468 MEDIAN 468
+GEN 15 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 16 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 17 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 18 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 19 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 20 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 21 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 22 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 23 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 24 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 25 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 26 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 27 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 28 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 29 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 30 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 31 BEST 4.853343112e+02 VAL 4.853343112e+02 NODES 468 MEDIAN 468
+GEN 32 BEST 4.774112409e+02 VAL 4.774112409e+02 NODES 468 MEDIAN 468
+GEN 33 BEST 4.774112409e+02 VAL 4.774112409e+02 NODES 468 MEDIAN 468
+GEN 34 BEST 4.774112409e+02 VAL 4.774112409e+02 NODES 468 MEDIAN 468
+GEN 35 BEST 4.633678570e+02 VAL 4.633678570e+02 NODES 468 MEDIAN 468
+GEN 36 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 37 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 38 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 39 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 40 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 41 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 42 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 43 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 44 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 45 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 46 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 47 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 48 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 49 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 50 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 51 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 52 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 53 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 54 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 55 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 56 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 57 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 58 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 59 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 60 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 61 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 62 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 63 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 64 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 65 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 66 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 67 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 68 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 69 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 70 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 71 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 72 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 73 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 74 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 75 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 76 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 77 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 78 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 79 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 80 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 81 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 82 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 83 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 84 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 85 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+GEN 86 BEST 4.551434666e+02 VAL 4.551434666e+02 NODES 468 MEDIAN 468
+Plateau detected (50 gens without improvement). Stopping at gen 86.
+STOP_REASON plateau
+LAST_GEN 86
+FINAL_ERR 455.14346656854104
+FINAL_NODES 468
+FINAL_TREE (((((log((exp(log(exp(x))) - (log(exp(1.0)) / ((x - 1.0) / (x - 1.0))))) / (((log(log(1.0)) - (log(1.0) / exp(1.0))) + exp(((1.0 * x) * (1.0 * 1.0)))) / ((log((x + 1.0)) * (log(1.0) / log(x))) / (exp((x * x)) / log((1.0 + 1.0)))))) + (exp(((exp((x + 1.0)) * ((x + 1.0) + log(x))) * (log((x + x)) - log((x / 1.0))))) - (((log(exp(1.0)) / ((1.0 - 1.0) - (x + 1.0))) / log(log(log(x)))) / (exp(((1.0 + 1.0) + (x * x))) - (((x + 1.0) / (1.0 / x)) * ((1.0 - x) - (1.0 + x))))))) / exp((log(exp((log(exp(x)) - ((x / 1.0) / (1.0 - 1.0))))) + (((((x / x) + (x / 1.0)) - log((1.0 / x))) + ((exp(1.0) - (x / x)) * log((1.0 / x)))) - log(exp((exp(x) + exp(x)))))))) / log(exp(((log(log(log(exp(x)))) - (exp(((x * 1.0) / (x + x))) + log(((1.0 - 1.0) * (x * 1.0))))) + log(((((1.0 / 1.0) - exp(1.0)) - exp((x - x))) * (((1.0 * 1.0) / (x * 1.0)) * (log(x) + log(1.0))))))))) / (((exp((log((log((1.0 / 1.0)) + (exp(x) / exp(1.0)))) - exp((((1.0 - x) - (1.0 / x)) + ((1.0 - x) * (1.0 - 1.0)))))) / ((log((((x - x) / (1.0 * 1.0)) + ((1.0 - x) - log(x)))) + log((log((1.0 / 1.0)) * ((x * 1.0) / (1.0 / 1.0))))) - (((((x + 1.0) - (x * x)) - log(log(x))) + (((x - x) - exp(x)) / (exp(x) + (x / x)))) - exp((((x - x) / (1.0 * x)) - exp((x * x))))))) + ((log((log(exp((1.0 * x))) / (((x / 1.0) - log(x)) - ((1.0 - 1.0) + (1.0 / x))))) - log(log((log((1.0 / x)) * exp(log(1.0)))))) + log(((log(exp(exp(1.0))) + (log(log(1.0)) / (log(x) + (1.0 * x)))) - exp((exp((1.0 + 1.0)) - (exp(x) - (x - 1.0)))))))) / (exp((log(log((((x + 1.0) * exp(1.0)) - ((1.0 + 1.0) * log(1.0))))) - exp(((exp(exp(1.0)) - ((1.0 * x) * (x - 1.0))) + (((x * 1.0) + exp(x)) + ((1.0 * 1.0) + (1.0 - x))))))) * exp(exp(((exp((exp(x) * log(x))) * (((x * 1.0) * exp(1.0)) + (exp(x) * (x * 1.0)))) / log((log((1.0 + 1.0)) + ((x - 1.0) / (1.0 - x))))))))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (((((log((exp(log(exp(x))) - (log(exp(1.0)) / ((x - 1.0) / (x - 1.0))))) / (((log(log(1.0)) - (log(1.0) / exp(1.0))) + exp(((1.0 * x) * (1.0 * 1.0)))) / ((log((x + 1.0)) * (log(1.0) / log(x))) / (exp((x * x)) / log((1.0 + 1.0)))))) + (exp(((exp((x + 1.0)) * ((x + 1.0) + log(x))) * (log((x + x)) - log((x / 1.0))))) - (((log(exp(1.0)) / ((1.0 - 1.0) - (x + 1.0))) / log(log(log(x)))) / (exp(((1.0 + 1.0) + (x * x))) - (((x + 1.0) / (1.0 / x)) * ((1.0 - x) - (1.0 + x))))))) / exp((log(exp((log(exp(x)) - ((x / 1.0) / (1.0 - 1.0))))) + (((((x / x) + (x / 1.0)) - log((1.0 / x))) + ((exp(1.0) - (x / x)) * log((1.0 / x)))) - log(exp((exp(x) + exp(x)))))))) / log(exp(((log(log(log(exp(x)))) - (exp(((x * 1.0) / (x + x))) + log(((1.0 - 1.0) * (x * 1.0))))) + log(((((1.0 / 1.0) - exp(1.0)) - exp((x - x))) * (((1.0 * 1.0) / (x * 1.0)) * (log(x) + log(1.0))))))))) / (((exp((log((log((1.0 / 1.0)) + (exp(x) / exp(1.0)))) - exp((((1.0 - x) - (1.0 / x)) + ((1.0 - x) * (1.0 - 1.0)))))) / ((log((((x - x) / (1.0 * 1.0)) + ((1.0 - x) - log(x)))) + log((log((1.0 / 1.0)) * ((x * 1.0) / (1.0 / 1.0))))) - (((((x + 1.0) - (x * x)) - log(log(x))) + (((x - x) - exp(x)) / (exp(x) + (x / x)))) - exp((((x - x) / (1.0 * x)) - exp((x * x))))))) + ((log((log(exp((1.0 * x))) / (((x / 1.0) - log(x)) - ((1.0 - 1.0) + (1.0 / x))))) - log(log((log((1.0 / x)) * exp(log(1.0)))))) + log(((log(exp(exp(1.0))) + (log(log(1.0)) / (log(x) + (1.0 * x)))) - exp((exp((1.0 + 1.0)) - (exp(x) - (x - 1.0)))))))) / (exp((log(log((((x + 1.0) * exp(1.0)) - ((1.0 + 1.0) * log(1.0))))) - exp(((exp(exp(1.0)) - ((1.0 * x) * (x - 1.0))) + (((x * 1.0) + exp(x)) + ((1.0 * 1.0) + (1.0 - x))))))) * exp(exp(((exp((exp(x) * log(x))) * (((x * 1.0) * exp(1.0)) + (exp(x) * (x * 1.0)))) / log((log((1.0 + 1.0)) + ((x - 1.0) / (1.0 - x))))))))))
+Node count: 468
+Final MSE:  455.14346657
+Status: BUDGET EXHAUSTED

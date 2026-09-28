@@ -1,0 +1,113 @@
+Loaded Test 4.1: Phase 4: f(x) = exp(sin(x)) + ln(x^2 + 1)
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=626207371
+GEN 0 BEST 1.282127693e+00 VAL 1.282127693e+00 NODES 3 MEDIAN 19
+GEN 1 BEST 1.282127693e+00 VAL 1.282127693e+00 NODES 3 MEDIAN 9
+GEN 2 BEST 1.282127693e+00 VAL 1.303438666e+00 NODES 21 MEDIAN 9
+GEN 3 BEST 1.179895152e+00 VAL 1.179895152e+00 NODES 13 MEDIAN 9
+GEN 4 BEST 1.179895152e+00 VAL 1.179895152e+00 NODES 13 MEDIAN 8
+GEN 5 BEST 1.179895152e+00 VAL 1.179895152e+00 NODES 13 MEDIAN 6
+GEN 6 BEST 1.179895152e+00 VAL 1.179895152e+00 NODES 13 MEDIAN 8
+GEN 7 BEST 6.806553971e-01 VAL 6.806553971e-01 NODES 17 MEDIAN 12
+GEN 8 BEST 6.806553971e-01 VAL 6.806553971e-01 NODES 17 MEDIAN 12
+GEN 9 BEST 6.806553971e-01 VAL 6.806553971e-01 NODES 17 MEDIAN 16
+GEN 10 BEST 6.574918749e-01 VAL 6.574918749e-01 NODES 28 MEDIAN 17
+GEN 11 BEST 6.574918749e-01 VAL 6.733300052e-01 NODES 29 MEDIAN 21
+GEN 12 BEST 6.543058715e-01 VAL 6.543058715e-01 NODES 68 MEDIAN 27
+GEN 13 BEST 6.167091676e-01 VAL 6.167091676e-01 NODES 31 MEDIAN 29
+GEN 14 BEST 6.004581659e-01 VAL 6.004581659e-01 NODES 67 MEDIAN 35
+GEN 15 BEST 6.004581659e-01 VAL 6.004581659e-01 NODES 67 MEDIAN 52
+GEN 16 BEST 6.004581659e-01 VAL 6.004581659e-01 NODES 67 MEDIAN 54
+GEN 17 BEST 6.004581659e-01 VAL 6.004581659e-01 NODES 67 MEDIAN 72
+GEN 18 BEST 5.781096044e-01 VAL 5.781096044e-01 NODES 155 MEDIAN 69
+GEN 19 BEST 5.781096044e-01 VAL 5.781096044e-01 NODES 155 MEDIAN 74
+GEN 20 BEST 5.781096044e-01 VAL 5.781096044e-01 NODES 155 MEDIAN 94
+GEN 21 BEST 5.781096044e-01 VAL 5.819598948e-01 NODES 157 MEDIAN 155
+GEN 22 BEST 5.670721360e-01 VAL 5.670721360e-01 NODES 214 MEDIAN 160
+GEN 23 BEST 5.670721360e-01 VAL 5.670721360e-01 NODES 214 MEDIAN 160
+GEN 24 BEST 5.670721360e-01 VAL 5.670721360e-01 NODES 214 MEDIAN 201
+GEN 25 BEST 5.670721360e-01 VAL 5.670721360e-01 NODES 214 MEDIAN 212
+GEN 26 BEST 5.670721360e-01 VAL 5.690132760e-01 NODES 200 MEDIAN 214
+GEN 27 BEST 5.670721360e-01 VAL 5.682932226e-01 NODES 223 MEDIAN 221
+GEN 28 BEST 5.670721360e-01 VAL 5.682932226e-01 NODES 358 MEDIAN 248
+GEN 29 BEST 5.659005067e-01 VAL 5.659005067e-01 NODES 205 MEDIAN 257
+GEN 30 BEST 5.659005067e-01 VAL 5.678291713e-01 NODES 481 MEDIAN 300
+GEN 31 BEST 5.659005067e-01 VAL 5.678291713e-01 NODES 457 MEDIAN 408
+GEN 32 BEST 5.659005067e-01 VAL 5.659005067e-01 NODES 205 MEDIAN 380
+GEN 33 BEST 5.659005067e-01 VAL 5.674481267e-01 NODES 623 MEDIAN 541
+GEN 34 BEST 5.659005067e-01 VAL 5.675016244e-01 NODES 584 MEDIAN 558
+GEN 35 BEST 5.659005067e-01 VAL 5.672579631e-01 NODES 904 MEDIAN 580
+GEN 36 BEST 5.659005067e-01 VAL 5.674289559e-01 NODES 625 MEDIAN 596
+GEN 37 BEST 5.659005067e-01 VAL 5.674289559e-01 NODES 509 MEDIAN 606
+GEN 38 BEST 5.659005067e-01 VAL 5.672579631e-01 NODES 1397 MEDIAN 602
+GEN 39 BEST 5.659005067e-01 VAL 5.672681733e-01 NODES 626 MEDIAN 625
+GEN 40 BEST 5.659005067e-01 VAL 5.659005067e-01 NODES 205 MEDIAN 586
+GEN 41 BEST 5.659005067e-01 VAL 5.672777789e-01 NODES 493 MEDIAN 626
+GEN 42 BEST 5.659005067e-01 VAL 5.672036292e-01 NODES 1168 MEDIAN 652
+GEN 43 BEST 5.659005067e-01 VAL 5.672036292e-01 NODES 1222 MEDIAN 1362
+GEN 44 BEST 5.659005067e-01 VAL 5.672681733e-01 NODES 489 MEDIAN 1169
+GEN 45 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 693
+GEN 46 BEST 5.651517817e-01 VAL 5.672574337e-01 NODES 557 MEDIAN 746
+GEN 47 BEST 5.651517817e-01 VAL 5.674158169e-01 NODES 663 MEDIAN 663
+GEN 48 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 738
+GEN 49 BEST 5.651517817e-01 VAL 5.672700049e-01 NODES 514 MEDIAN 758
+GEN 50 BEST 5.651517817e-01 VAL 5.675642675e-01 NODES 1629 MEDIAN 745
+GEN 51 BEST 5.651517817e-01 VAL 5.675642675e-01 NODES 971 MEDIAN 714
+GEN 52 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 967
+GEN 53 BEST 5.651517817e-01 VAL 5.672681733e-01 NODES 1162 MEDIAN 1061
+GEN 54 BEST 5.651517817e-01 VAL 5.672681733e-01 NODES 942 MEDIAN 1154
+GEN 55 BEST 5.651517817e-01 VAL 5.689645411e-01 NODES 971 MEDIAN 1225
+GEN 56 BEST 5.651517817e-01 VAL 5.689645411e-01 NODES 970 MEDIAN 1242
+GEN 57 BEST 5.651517817e-01 VAL 5.672681733e-01 NODES 1054 MEDIAN 1170
+GEN 58 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 1227
+GEN 59 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 1281
+GEN 60 BEST 5.651517817e-01 VAL 5.672303136e-01 NODES 1351 MEDIAN 1138
+GEN 61 BEST 5.651517817e-01 VAL 5.673153905e-01 NODES 727 MEDIAN 1294
+GEN 62 BEST 5.651517817e-01 VAL 5.672681733e-01 NODES 1966 MEDIAN 1297
+GEN 63 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 1627
+GEN 64 BEST 5.651517817e-01 VAL 5.672681733e-01 NODES 1671 MEDIAN 1431
+GEN 65 BEST 5.651517817e-01 VAL 5.669917372e-01 NODES 813 MEDIAN 1648
+GEN 66 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 1599
+GEN 67 BEST 5.651517817e-01 VAL 5.672165208e-01 NODES 1080 MEDIAN 1638
+GEN 68 BEST 5.651517817e-01 VAL 5.672681733e-01 NODES 1959 MEDIAN 1546
+GEN 69 BEST 5.651517817e-01 VAL 5.672681733e-01 NODES 1761 MEDIAN 1538
+GEN 70 BEST 5.651517817e-01 VAL 5.679434366e-01 NODES 1191 MEDIAN 1524
+GEN 71 BEST 5.651517817e-01 VAL 5.671399754e-01 NODES 1264 MEDIAN 1376
+GEN 72 BEST 5.651517817e-01 VAL 5.669658901e-01 NODES 1390 MEDIAN 1364
+GEN 73 BEST 5.651517817e-01 VAL 5.669658901e-01 NODES 1394 MEDIAN 1620
+GEN 74 BEST 5.651517817e-01 VAL 5.668764657e-01 NODES 1620 MEDIAN 1571
+GEN 75 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 1617
+GEN 76 BEST 5.651517817e-01 VAL 5.671399754e-01 NODES 1271 MEDIAN 1391
+GEN 77 BEST 5.651517817e-01 VAL 5.668638817e-01 NODES 1421 MEDIAN 1351
+GEN 78 BEST 5.651517817e-01 VAL 5.666294448e-01 NODES 1514 MEDIAN 1338
+GEN 79 BEST 5.651517817e-01 VAL 5.666294448e-01 NODES 1357 MEDIAN 1399
+GEN 80 BEST 5.651517817e-01 VAL 5.665890037e-01 NODES 1329 MEDIAN 1287
+GEN 81 BEST 5.651517817e-01 VAL 5.702945231e-01 NODES 1185 MEDIAN 1327
+GEN 82 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 1309
+GEN 83 BEST 5.651517817e-01 VAL 5.675284443e-01 NODES 1218 MEDIAN 1317
+GEN 84 BEST 5.651517817e-01 VAL 5.671399754e-01 NODES 1226 MEDIAN 1359
+GEN 85 BEST 5.651517817e-01 VAL 5.669746734e-01 NODES 1083 MEDIAN 1610
+GEN 86 BEST 5.651517817e-01 VAL 5.651517817e-01 NODES 654 MEDIAN 1270
+GEN 87 BEST 5.651517817e-01 VAL 5.674477218e-01 NODES 1198 MEDIAN 1216
+GEN 88 BEST 5.651517817e-01 VAL 5.671881676e-01 NODES 1216 MEDIAN 1227
+GEN 89 BEST 5.651517817e-01 VAL 5.676244611e-01 NODES 1213 MEDIAN 1221
+GEN 90 BEST 5.651517817e-01 VAL 5.665823812e-01 NODES 1216 MEDIAN 1220
+GEN 91 BEST 5.651517817e-01 VAL 5.665823812e-01 NODES 1128 MEDIAN 1226
+GEN 92 BEST 5.651517817e-01 VAL 5.665469133e-01 NODES 1226 MEDIAN 1216
+GEN 93 BEST 5.651517817e-01 VAL 5.657721227e-01 NODES 1085 MEDIAN 1210
+GEN 94 BEST 5.651517817e-01 VAL 5.667104374e-01 NODES 1262 MEDIAN 1192
+GEN 95 BEST 5.651517817e-01 VAL 5.675319932e-01 NODES 1717 MEDIAN 1195
+Plateau detected (50 gens without improvement). Stopping at gen 95.
+STOP_REASON plateau
+LAST_GEN 95
+FINAL_ERR 0.5651517816696646
+FINAL_NODES 654
+FINAL_TREE exp(cos(cos((1.0 + cos((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(((exp(exp(cos(cos((x + cos((((exp(cos(cos((cos(1.0) * (1.0 - 1.0))))) + (cos(cos((1.0 + cos((((1.0 + cos(1.0)) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((x + (cos(x) * (1.0 - 1.0)))) + 1.0) - x)))))) - x))))))) + (1.0 * (1.0 - 1.0))) - x))) + exp(cos(((exp(1.0) + (1.0 - 1.0)) - x)))) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * ((1.0 + cos((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(((exp(exp(cos(cos((1.0 + cos((((exp(cos((exp(exp(cos(cos((1.0 + cos((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(1.0)) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((exp(1.0) + (cos((cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) + exp(x)) - 1.0))))) * (1.0 - 1.0))) * (1.0 - 1.0)))) + (1.0 * (1.0 - 1.0))) - x)))))) - x))))))) + (1.0 * (1.0 - 1.0))))) + (cos((1.0 - 1.0)) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((exp(1.0) + (cos(x) * (1.0 - 1.0)))) + 1.0) - x)))))) - x))))))) + (1.0 * (1.0 - 1.0))) - x))) + exp(cos(((exp(1.0) + (1.0 - 1.0)) - x)))) - 1.0))))) * (1.0 - 1.0))) + (x * (cos(cos((1.0 + cos((((1.0 + cos(((1.0 + (1.0 * (1.0 - 1.0))) - x))) + exp((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos((1.0 - x))) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((cos(1.0) + (1.0 * (1.0 - 1.0))) - x)))))) - x))) - 1.0))))) - (1.0 + cos(((exp((exp(1.0) + (cos(x) * (1.0 - 1.0)))) + (1.0 * (1.0 - 1.0))) - x)))))) - x))) + exp(cos(((exp(1.0) + (1.0 - 1.0)) - x)))) - 1.0))))) * (1.0 - 1.0))) + (x * (cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) + exp((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((exp(cos(x)) + (cos(1.0) * (1.0 - 1.0)))) + 1.0) - x)))))) - x))) - 1.0))))) - (1.0 + cos(((log((exp(1.0) + (cos(x) * (1.0 - 1.0)))) + (1.0 * (1.0 - 1.0))) - x)))))) - x))) - 1.0))) - x))) + exp((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((exp((exp(1.0) + (cos(x) * (1.0 - 1.0)))) + (cos(1.0) * (1.0 - 1.0)))) + (1.0 * ((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) - 1.0))) - x)))))) - x))) - 1.0))))) - (1.0 + cos(((exp((exp(1.0) + ((((1.0 + cos(1.0)) + exp(cos(((exp(1.0) + (1.0 - 1.0)) - x)))) - 1.0) * (1.0 - 1.0)))) + (1.0 * (1.0 - 1.0))) - x)))))) - x))))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp(cos(cos((1.0 + cos((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(((exp(exp(cos(cos((x + cos((((exp(cos(cos((cos(1.0) * (1.0 - 1.0))))) + (cos(cos((1.0 + cos((((1.0 + cos(1.0)) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((x + (cos(x) * (1.0 - 1.0)))) + 1.0) - x)))))) - x))))))) + (1.0 * (1.0 - 1.0))) - x))) + exp(cos(((exp(1.0) + (1.0 - 1.0)) - x)))) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * ((1.0 + cos((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(((exp(exp(cos(cos((1.0 + cos((((exp(cos((exp(exp(cos(cos((1.0 + cos((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(1.0)) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((exp(1.0) + (cos((cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) + exp(x)) - 1.0))))) * (1.0 - 1.0))) * (1.0 - 1.0)))) + (1.0 * (1.0 - 1.0))) - x)))))) - x))))))) + (1.0 * (1.0 - 1.0))))) + (cos((1.0 - 1.0)) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((exp(1.0) + (cos(x) * (1.0 - 1.0)))) + 1.0) - x)))))) - x))))))) + (1.0 * (1.0 - 1.0))) - x))) + exp(cos(((exp(1.0) + (1.0 - 1.0)) - x)))) - 1.0))))) * (1.0 - 1.0))) + (x * (cos(cos((1.0 + cos((((1.0 + cos(((1.0 + (1.0 * (1.0 - 1.0))) - x))) + exp((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos((1.0 - x))) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((cos(1.0) + (1.0 * (1.0 - 1.0))) - x)))))) - x))) - 1.0))))) - (1.0 + cos(((exp((exp(1.0) + (cos(x) * (1.0 - 1.0)))) + (1.0 * (1.0 - 1.0))) - x)))))) - x))) + exp(cos(((exp(1.0) + (1.0 - 1.0)) - x)))) - 1.0))))) * (1.0 - 1.0))) + (x * (cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) + exp((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((exp(cos(x)) + (cos(1.0) * (1.0 - 1.0)))) + 1.0) - x)))))) - x))) - 1.0))))) - (1.0 + cos(((log((exp(1.0) + (cos(x) * (1.0 - 1.0)))) + (1.0 * (1.0 - 1.0))) - x)))))) - x))) - 1.0))) - x))) + exp((((exp(cos(cos(1.0))) + (cos(cos((1.0 + cos((((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) + exp(x)) - 1.0))))) * (1.0 - 1.0))) + (cos(x) * (1.0 - (1.0 + cos(((exp((exp((exp(1.0) + (cos(x) * (1.0 - 1.0)))) + (cos(1.0) * (1.0 - 1.0)))) + (1.0 * ((1.0 + cos(((exp(1.0) + (1.0 * (1.0 - 1.0))) - x))) - 1.0))) - x)))))) - x))) - 1.0))))) - (1.0 + cos(((exp((exp(1.0) + ((((1.0 + cos(1.0)) + exp(cos(((exp(1.0) + (1.0 - 1.0)) - x)))) - 1.0) * (1.0 - 1.0)))) + (1.0 * (1.0 - 1.0))) - x)))))) - x))))))
+Node count: 654
+Final MSE:  0.56515178
+Status: BUDGET EXHAUSTED

@@ -1,0 +1,30 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1638104225
+GEN 0 BEST 8.462497541e+02 VAL 8.462497541e+02 NODES 69 MEDIAN 25
+GEN 1 BEST 8.462497541e+02 VAL 8.480052219e+02 NODES 34 MEDIAN 69
+GEN 2 BEST 8.408355770e+02 VAL 8.408355770e+02 NODES 81 MEDIAN 80
+GEN 3 BEST 6.111759848e+02 VAL 6.111759848e+02 NODES 51 MEDIAN 79
+GEN 4 BEST 6.111759848e+02 VAL 6.111759848e+02 NODES 51 MEDIAN 74
+GEN 5 BEST 6.111759848e+02 VAL 7.406751569e+02 NODES 61 MEDIAN 65
+GEN 6 BEST 6.111759848e+02 VAL 7.000075381e+02 NODES 87 MEDIAN 61
+GEN 7 BEST 5.903401369e+02 VAL 5.903401369e+02 NODES 45 MEDIAN 59
+GEN 8 BEST 5.903401369e+02 VAL 5.903401369e+02 NODES 45 MEDIAN 61
+GEN 9 BEST 5.900000000e+02 VAL 5.900000000e+02 NODES 62 MEDIAN 62
+GEN 10 BEST 2.550000000e+02 VAL 2.550000000e+02 NODES 70 MEDIAN 60
+GEN 11 BEST 2.550000000e+02 VAL 3.650000000e+02 NODES 62 MEDIAN 58
+GEN 12 BEST 4.986217150e-29 VAL 4.986217150e-29 NODES 50 MEDIAN 65
+Perfect solution found at generation 12! Stopping.
+STOP_REASON converged
+LAST_GEN 12
+FINAL_ERR 4.9862171498717213e-29
+FINAL_NODES 50
+FINAL_TREE ((exp(((((1.0 * log(x)) - exp((x / 1.0))) + log(1.0)) + ((1.0 * 1.0) - log(x)))) / ((x - (1.0 * x)) / log(log(x)))) / ((log(1.0) * exp(x)) + ((1.0 / ((1.0 - x) * (1.0 * x))) / (1.0 - x))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = ((exp(((((1.0 * log(x)) - exp((x / 1.0))) + log(1.0)) + ((1.0 * 1.0) - log(x)))) / ((x - (1.0 * x)) / log(log(x)))) / ((log(1.0) * exp(x)) + ((1.0 / ((1.0 - x) * (1.0 * x))) / (1.0 - x))))
+Node count: 50
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

@@ -138,7 +138,31 @@ def _all_nodes(tree):
     return result
 
 
-def ssc_crossover(tree1, tree2, variables, semantic_inputs, max_nodes=MAX_NODES, rng=None):
+UY_LOWER, UY_UPPER, UY_TRIALS = 1e-4, 0.4, 12   # Uy et al. (2011) SSC bounds and trial count
+
+
+def _uy_pick(nodes1, nodes2, variables, semantic_inputs, rng):
+    """Uy et al. SSC: up to UY_TRIALS random point pairs; accept the first whose
+    sampling semantic distance (mean |a-b| over the sample points) lies strictly
+    inside (UY_LOWER, UY_UPPER). Returns None if no pair qualifies (caller then
+    falls back to a random pair, as in the original algorithm)."""
+    for _ in range(UY_TRIALS):
+        c1, c2 = rng.choice(nodes1), rng.choice(nodes2)
+        tot, ok = 0.0, True
+        for kw in semantic_inputs:
+            try:
+                d = abs(c1[0].evaluate(**kw) - c2[0].evaluate(**kw))
+            except Exception:
+                ok = False; break
+            if math.isnan(d) or math.isinf(d):
+                ok = False; break
+            tot += d
+        if ok and UY_LOWER < tot / len(semantic_inputs) < UY_UPPER:
+            return c1, c2
+    return None
+
+
+def ssc_crossover(tree1, tree2, variables, semantic_inputs, max_nodes=MAX_NODES, rng=None, mode="min"):
     """
     SSC: sample N_CANDIDATES crossover points in each parent, pick the pair
     whose subtree outputs are most similar on semantic_inputs.  Fall back to
@@ -155,6 +179,14 @@ def ssc_crossover(tree1, tree2, variables, semantic_inputs, max_nodes=MAX_NODES,
 
     if not nodes1 or not nodes2:
         return new_tree1, new_tree2
+
+    if mode == "uy":
+        pick = _uy_pick(nodes1, nodes2, variables, semantic_inputs, rng)
+        if pick is None:
+            pick = (rng.choice(nodes1), rng.choice(nodes2))
+        cands1, cands2 = [pick[0]], [pick[1]]
+        best_i = best_j = 0
+        return _ssc_swap(tree1, tree2, new_tree1, new_tree2, cands1[0], cands2[0], max_nodes)
 
     # Sample candidate points
     cands1 = rng.choices(nodes1, k=min(N_CANDIDATES, len(nodes1)))
@@ -179,8 +211,12 @@ def ssc_crossover(tree1, tree2, variables, semantic_inputs, max_nodes=MAX_NODES,
         best_i = rng.randrange(len(cands1))
         best_j = rng.randrange(len(cands2))
 
-    node1, parent1, is_left1 = cands1[best_i]
-    node2, parent2, is_left2 = cands2[best_j]
+    return _ssc_swap(tree1, tree2, new_tree1, new_tree2, cands1[best_i], cands2[best_j], max_nodes)
+
+
+def _ssc_swap(tree1, tree2, new_tree1, new_tree2, c1, c2, max_nodes):
+    node1, parent1, is_left1 = c1
+    node2, parent2, is_left2 = c2
 
     # Perform the swap
     swap1 = node2.copy()
@@ -212,7 +248,8 @@ def ssc_crossover(tree1, tree2, variables, semantic_inputs, max_nodes=MAX_NODES,
 # ---------------------------------------------------------------------------
 # Single-run GP with SSC
 # ---------------------------------------------------------------------------
-def run_ssc(test_id, use_eml, seed, generations=GENERATIONS, pop_size=POP_SIZE):
+def run_ssc(test_id, use_eml, seed, generations=GENERATIONS, pop_size=POP_SIZE,
+            size_penalty=True, ssc_mode="min", trace=False):
     """
     Run one GP experiment (SSC crossover) and return per-generation records.
     Returns list of (generation, best_fitness) tuples.
@@ -291,7 +328,7 @@ def run_ssc(test_id, use_eml, seed, generations=GENERATIONS, pop_size=POP_SIZE):
 
     def training_fitness(tree, batch):
         mse = _mse(tree, batch)
-        if mse < 1e-5:
+        if size_penalty and mse < 1e-5:
             return mse + count_nodes(tree) * 0.0001
         return mse
 
@@ -330,6 +367,8 @@ def run_ssc(test_id, use_eml, seed, generations=GENERATIONS, pop_size=POP_SIZE):
             gens_no_improve += 1
 
         records.append((gen, best_val_error))
+        if trace:
+            print(f"GEN {gen} BEST {best_val_error:.9e}", flush=True)
 
         if best_val_error <= 1e-6:
             break
@@ -349,7 +388,8 @@ def run_ssc(test_id, use_eml, seed, generations=GENERATIONS, pop_size=POP_SIZE):
                 t2.sort(key=lambda x: x[1])
                 parent2 = t2[0][0]
                 child1, child2 = ssc_crossover(
-                    parent1, parent2, variables, semantic_inputs, MAX_NODES, evo_rng
+                    parent1, parent2, variables, semantic_inputs, MAX_NODES, evo_rng,
+                    mode=ssc_mode,
                 )
                 new_pop.extend([child1, child2])
             else:

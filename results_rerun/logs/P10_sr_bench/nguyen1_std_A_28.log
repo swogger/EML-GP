@@ -1,0 +1,5 @@
+GEN 0 BEST 1.909580352e-01
+GEN 1 BEST 4.596672330e-02
+GEN 2 BEST 4.596672330e-02
+GEN 3 BEST 1.746096236e-32
+RESULT {"final_err": "1.7460962358300776e-32", "last_gen": 3, "converged": true, "stop_reason": "converged"}

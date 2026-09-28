@@ -25,3 +25,7 @@ Thumbs.db
 # Git backups from submodules converted to directories
 .git_backup/
 
+
+# Revision working files (edit instructions, backups) — not part of the record
+revision/
+.obsidian/

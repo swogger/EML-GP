@@ -1,0 +1,23 @@
+Loaded Test 1.2: Phase 1: f(x) = ln(x)
+Mode: EML-only  |  operator set: ['eml']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=600  master_seed=626207371
+GEN 0 BEST 1.105988379e+00 VAL 1.105988379e+00 NODES 29 MEDIAN 63
+GEN 1 BEST 9.611819034e-01 VAL 9.611819034e-01 NODES 49 MEDIAN 81
+GEN 2 BEST 4.165004124e-01 VAL 4.165004124e-01 NODES 59 MEDIAN 97
+GEN 3 BEST 2.394121550e-02 VAL 2.394121550e-02 NODES 55 MEDIAN 123
+GEN 4 BEST 2.260095757e-06 VAL 2.260095757e-06 NODES 85 MEDIAN 65
+GEN 5 BEST 1.164706134e-33 VAL 1.164706134e-33 NODES 67 MEDIAN 65
+Perfect solution found at generation 5! Stopping.
+STOP_REASON converged
+LAST_GEN 5
+FINAL_ERR 1.164706133868181e-33
+FINAL_NODES 67
+FINAL_TREE ((x eml (((((x eml x) eml (1.0 eml x)) eml ((x eml 1.0) eml (x eml 1.0))) eml x) eml ((1.0 eml x) eml ((1.0 eml (x eml 1.0)) eml ((1.0 eml x) eml (1.0 eml 1.0)))))) eml ((((x eml ((x eml 1.0) eml x)) eml (((((x eml x) eml (1.0 eml x)) eml (x eml (1.0 eml 1.0))) eml 1.0) eml x)) eml x) eml 1.0))
+
+===============================
+EML GP Evolution complete.
+Best Formula: Result = ((x eml (((((x eml x) eml (1.0 eml x)) eml ((x eml 1.0) eml (x eml 1.0))) eml x) eml ((1.0 eml x) eml ((1.0 eml (x eml 1.0)) eml ((1.0 eml x) eml (1.0 eml 1.0)))))) eml ((((x eml ((x eml 1.0) eml x)) eml (((((x eml x) eml (1.0 eml x)) eml (x eml (1.0 eml 1.0))) eml 1.0) eml x)) eml x) eml 1.0))
+EML Raw Tree: ((x eml (((((x eml x) eml (1.0 eml x)) eml ((x eml 1.0) eml (x eml 1.0))) eml x) eml ((1.0 eml x) eml ((1.0 eml (x eml 1.0)) eml ((1.0 eml x) eml (1.0 eml 1.0)))))) eml ((((x eml ((x eml 1.0) eml x)) eml (((((x eml x) eml (1.0 eml x)) eml (x eml (1.0 eml 1.0))) eml 1.0) eml x)) eml x) eml 1.0))
+Node count: 67
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

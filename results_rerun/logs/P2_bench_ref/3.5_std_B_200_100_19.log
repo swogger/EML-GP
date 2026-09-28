@@ -1,0 +1,29 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Mode: Standard  |  operator set: ['+', '-', '*', '/']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=2067116796
+GEN 0 BEST 1.228736759e+03 VAL 1.228736759e+03 NODES 31 MEDIAN 63
+GEN 1 BEST 4.596784994e+02 VAL 4.596784994e+02 NODES 9 MEDIAN 29
+GEN 2 BEST 4.596784994e+02 VAL 4.180528031e+03 NODES 17 MEDIAN 41
+GEN 3 BEST 4.596784994e+02 VAL 1.525058623e+04 NODES 25 MEDIAN 45
+GEN 4 BEST 4.596784994e+02 VAL 4.134183479e+03 NODES 75 MEDIAN 43
+GEN 5 BEST 4.596784994e+02 VAL 3.810113358e+03 NODES 77 MEDIAN 43
+GEN 6 BEST 4.596784994e+02 VAL 3.810113358e+03 NODES 73 MEDIAN 67
+GEN 7 BEST 1.077779821e+01 VAL 1.077779821e+01 NODES 71 MEDIAN 71
+GEN 8 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 83 MEDIAN 81
+GEN 9 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 83 MEDIAN 85
+GEN 10 BEST 2.500000000e-01 VAL 2.500000000e-01 NODES 83 MEDIAN 89
+GEN 11 BEST 2.595057540e-02 VAL 2.595057540e-02 NODES 95 MEDIAN 89
+GEN 12 BEST 5.322318914e-29 VAL 5.322318914e-29 NODES 95 MEDIAN 89
+Perfect solution found at generation 12! Stopping.
+STOP_REASON converged
+LAST_GEN 12
+FINAL_ERR 5.322318914411427e-29
+FINAL_NODES 95
+FINAL_TREE ((((1.0 * 1.0) * (1.0 - x)) * ((x + x) - (((x - 1.0) * (x * 1.0)) + ((((1.0 + 1.0) + 1.0) * ((x + 1.0) + (1.0 * x))) / (1.0 - 1.0))))) - ((((x * x) / ((x - x) - ((((1.0 * 1.0) * (1.0 * x)) * (1.0 - (x / x))) + x))) / (x / 1.0)) + ((x / x) + (((x / x) - x) * ((x + x) + (((1.0 - (x / x)) - ((1.0 - 1.0) / (x + x))) - 1.0))))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = ((((1.0 * 1.0) * (1.0 - x)) * ((x + x) - (((x - 1.0) * (x * 1.0)) + ((((1.0 + 1.0) + 1.0) * ((x + 1.0) + (1.0 * x))) / (1.0 - 1.0))))) - ((((x * x) / ((x - x) - ((((1.0 * 1.0) * (1.0 * x)) * (1.0 - (x / x))) + x))) / (x / 1.0)) + ((x / x) + (((x / x) - x) * ((x + x) + (((1.0 - (x / x)) - ((1.0 - 1.0) / (x + x))) - 1.0))))))
+Node count: 95
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

@@ -191,7 +191,7 @@ def count_nodes(tree):
 # Single GP run (mirrors deduce_formula.py exactly)
 # ---------------------------------------------------------------------------
 def run_gp(bench_id, use_eml, mutation_only, seed,
-           generations=GENERATIONS, pop_size=POP_SIZE):
+           generations=GENERATIONS, pop_size=POP_SIZE, size_penalty=True, trace=False):
     """
     Run one GP experiment on a benchmark and return per-generation records.
     Returns list of (generation, best_val_error) tuples.
@@ -275,7 +275,7 @@ def run_gp(bench_id, use_eml, mutation_only, seed,
 
     def training_fitness(tree, batch):
         mse = _mse(tree, batch)
-        if mse < 1e-5:
+        if size_penalty and mse < 1e-5:
             return mse + count_nodes(tree) * 0.0001
         return mse
 
@@ -308,6 +308,8 @@ def run_gp(bench_id, use_eml, mutation_only, seed,
             gens_no_improve += 1
 
         records.append((gen, best_val_error))
+        if trace:
+            print(f"GEN {gen} BEST {best_val_error:.9e}", flush=True)
 
         if best_val_error <= 1e-6:
             converged = True

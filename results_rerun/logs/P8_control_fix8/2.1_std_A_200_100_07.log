@@ -1,0 +1,25 @@
+Loaded Test 2.1: Phase 2: f(x) = sin(x) + cos(x)
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log', 'sin', 'cos']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=418825361
+GEN 0 BEST 5.306366305e-01 VAL 5.306366305e-01 NODES 4 MEDIAN 19
+GEN 1 BEST 5.306366305e-01 VAL 5.306366305e-01 NODES 4 MEDIAN 7
+GEN 2 BEST 3.600087600e-01 VAL 3.600087600e-01 NODES 8 MEDIAN 8
+GEN 3 BEST 3.600087600e-01 VAL 3.600087600e-01 NODES 8 MEDIAN 8
+GEN 4 BEST 3.600087600e-01 VAL 3.600087600e-01 NODES 8 MEDIAN 9
+GEN 5 BEST 1.326591576e-01 VAL 1.326591576e-01 NODES 9 MEDIAN 8
+GEN 6 BEST 1.326591576e-01 VAL 1.326591576e-01 NODES 9 MEDIAN 8
+GEN 7 BEST 0.000000000e+00 VAL 0.000000000e+00 NODES 5 MEDIAN 9
+Perfect solution found at generation 7! Stopping.
+STOP_REASON converged
+LAST_GEN 7
+FINAL_ERR 0.0
+FINAL_NODES 5
+FINAL_TREE (cos(x) + sin(x))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (cos(x) + sin(x))
+Node count: 5
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

@@ -1,0 +1,32 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=2107424273
+GEN 0 BEST 1.001363358e+02 VAL 1.001363358e+02 NODES 37 MEDIAN 26
+GEN 1 BEST 1.001363358e+02 VAL 1.001363358e+02 NODES 37 MEDIAN 100
+GEN 2 BEST 4.128751391e+01 VAL 4.128751391e+01 NODES 45 MEDIAN 76
+GEN 3 BEST 4.128751391e+01 VAL 4.128751391e+01 NODES 45 MEDIAN 72
+GEN 4 BEST 4.128751391e+01 VAL 4.128751391e+01 NODES 45 MEDIAN 54
+GEN 5 BEST 3.187952141e+01 VAL 3.187952141e+01 NODES 50 MEDIAN 50
+GEN 6 BEST 1.410824623e+01 VAL 1.410824623e+01 NODES 59 MEDIAN 54
+GEN 7 BEST 8.419691015e+00 VAL 8.419691015e+00 NODES 49 MEDIAN 57
+GEN 8 BEST 8.419691015e+00 VAL 8.419691015e+00 NODES 49 MEDIAN 58
+GEN 9 BEST 3.402903186e-03 VAL 3.402903186e-03 NODES 58 MEDIAN 58
+GEN 10 BEST 3.402903186e-03 VAL 3.402903186e-03 NODES 58 MEDIAN 58
+GEN 11 BEST 3.402903186e-03 VAL 3.402903186e-03 NODES 58 MEDIAN 60
+GEN 12 BEST 1.698015407e-03 VAL 1.698015407e-03 NODES 65 MEDIAN 65
+GEN 13 BEST 1.040265711e-03 VAL 1.040265711e-03 NODES 74 MEDIAN 63
+GEN 14 BEST 3.441415906e-29 VAL 3.441415906e-29 NODES 70 MEDIAN 67
+Perfect solution found at generation 14! Stopping.
+STOP_REASON converged
+LAST_GEN 14
+FINAL_ERR 3.441415906455369e-29
+FINAL_NODES 70
+FINAL_TREE ((exp((log(1.0) / exp(1.0))) + ((x / (x / ((x - x) - (1.0 - 1.0)))) / log(1.0))) - ((((((1.0 - x) * (x - x)) + (1.0 + log(1.0))) + (x * x)) * ((1.0 * 1.0) + (1.0 - x))) + (exp(log(((1.0 * 1.0) - 1.0))) / ((log(1.0) - (log((1.0 + x)) * log((x - 1.0)))) / exp(x)))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = ((exp((log(1.0) / exp(1.0))) + ((x / (x / ((x - x) - (1.0 - 1.0)))) / log(1.0))) - ((((((1.0 - x) * (x - x)) + (1.0 + log(1.0))) + (x * x)) * ((1.0 * 1.0) + (1.0 - x))) + (exp(log(((1.0 * 1.0) - 1.0))) / ((log(1.0) - (log((1.0 + x)) * log((x - 1.0)))) / exp(x)))))
+Node count: 70
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

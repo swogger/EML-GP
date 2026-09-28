@@ -1,0 +1,15 @@
+== P2_bench_ref: 480 rows, 480 unique keys, duplicates 0, statuses {'converged': 358, 'budget': 118, 'cpu_limit': 4}
+   status vs final_err inconsistencies: 0 []
+   functional equivalence: 351/358 converged runs equivalent (1e-9 relative, dense grid)
+   by algo/regime: {'eml-A': '60/60', 'eml-B': '51/58', 'std-A': '120/120', 'std-B': '120/120'}
+   non-equivalent converged runs (key, worst rel err): [('1.2|eml|B|200|100|04', '2.43e-03'), ('1.2|eml|B|200|100|02', '1.95e-03'), ('1.2|eml|B|200|100|07', '1.21e-04'), ('1.2|eml|B|200|100|06', '1.90e-03'), ('1.2|eml|B|200|100|12', '2.43e-03'), ('1.2|eml|B|200|100|14', '2.30e-03'), ('1.2|eml|B|200|100|22', '1.03e-03')]
+== P6_native_grid: 960 rows, 960 unique keys, duplicates 0, statuses {'converged': 949, 'budget': 11}
+   status vs final_err inconsistencies: 0 []
+   functional equivalence: 904/949 converged runs equivalent (1e-9 relative, dense grid)
+   by algo/regime: {'eml-A': '237/240', 'eml-B': '187/229', 'std-A': '240/240', 'std-B': '240/240'}
+   non-equivalent converged runs (key, worst rel err): [('1.2|eml|B|100|100|02', '1.95e-03'), ('1.2|eml|B|100|100|04', '2.43e-03'), ('1.2|eml|B|100|100|07', '1.21e-04'), ('1.2|eml|B|100|100|06', '1.90e-03'), ('1.2|eml|B|100|100|12', '2.43e-03'), ('1.2|eml|B|100|100|14', '2.30e-03'), ('1.2|eml|A|100|200|16', '2.19e-06'), ('1.2|eml|B|100|200|08', '4.07e-06'), ('1.2|eml|B|100|200|07', '2.16e-05'), ('1.2|eml|B|100|200|10', '6.18e-08'), ('1.2|eml|B|100|500|09', '1.19e-04'), ('1.2|eml|B|100|500|08', '1.48e-05')]
+== P3_control_abl6: 360 rows, 360 unique keys, duplicates 0, statuses {'converged': 136, 'plateau': 149, 'budget': 74, 'cpu_limit': 1}
+   status vs final_err inconsistencies: 0 []
+   functional equivalence: 134/136 converged runs equivalent (1e-9 relative, dense grid)
+   by algo/regime: {'std-B': '134/136'}
+   non-equivalent converged runs (key, worst rel err): [('1.4|std|B|200|100|10', '5.89e-04'), ('3.3|std|B|200|100|03', '2.62e-07')]

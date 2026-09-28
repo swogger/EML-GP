@@ -1,0 +1,17 @@
+Loaded Test 1.1: Phase 1: f(x) = exp(x)
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=546657988
+GEN 0 BEST 0.000000000e+00 VAL 0.000000000e+00 NODES 2 MEDIAN 25
+Perfect solution found at generation 0! Stopping.
+STOP_REASON converged
+LAST_GEN 0
+FINAL_ERR 0.0
+FINAL_NODES 2
+FINAL_TREE exp(x)
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = exp(x)
+Node count: 2
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

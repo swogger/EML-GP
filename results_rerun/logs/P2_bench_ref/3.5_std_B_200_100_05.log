@@ -1,0 +1,24 @@
+Loaded Test 3.5: Phase 3: f(x) = x^3 - 2x^2 + x  [EML stress: integer powers]
+Mode: Standard  |  operator set: ['+', '-', '*', '/']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=1753007184
+GEN 0 BEST 9.171733539e+02 VAL 9.171733539e+02 NODES 31 MEDIAN 67
+GEN 1 BEST 9.171733539e+02 VAL 1.129612745e+03 NODES 17 MEDIAN 27
+GEN 2 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 25 MEDIAN 29
+GEN 3 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 25 MEDIAN 33
+GEN 4 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 25 MEDIAN 37
+GEN 5 BEST 1.586279533e-01 VAL 1.586279533e-01 NODES 37 MEDIAN 45
+GEN 6 BEST 1.586279533e-01 VAL 1.586279533e-01 NODES 37 MEDIAN 43
+GEN 7 BEST 5.321140697e-29 VAL 5.321140697e-29 NODES 33 MEDIAN 45
+Perfect solution found at generation 7! Stopping.
+STOP_REASON converged
+LAST_GEN 7
+FINAL_ERR 5.321140697027941e-29
+FINAL_NODES 33
+FINAL_TREE ((((x / x) + 1.0) * ((x - 1.0) * (1.0 - 1.0))) - ((x * x) - (((x / (x / 1.0)) - ((x * 1.0) - (x * x))) * x)))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = ((((x / x) + 1.0) * ((x - 1.0) * (1.0 - 1.0))) - ((x * x) - (((x / (x / 1.0)) - ((x * 1.0) - (x * x))) * x)))
+Node count: 33
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)

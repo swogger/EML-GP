@@ -1,0 +1,24 @@
+Loaded Test 1.3: Phase 1: f(x1, x2) = x1 + x2
+Operator-set override active: ['+', '-', '*', '/', 'exp', 'log']
+Mode: Standard  |  operator set: ['+', '-', '*', '/', 'exp', 'log']  |  terminal set: [1.0]
+Budget: MAX_DEPTH=10, MAX_NODES=2000, BATCH=75, VAL=200, PLATEAU_STOP=50  master_seed=18993484
+GEN 0 BEST 7.957245072e+00 VAL 7.957245072e+00 NODES 1 MEDIAN 32
+GEN 1 BEST 7.957245072e+00 VAL 8.558528149e+00 NODES 3 MEDIAN 14
+GEN 2 BEST 4.000000000e+00 VAL 4.000000000e+00 NODES 11 MEDIAN 17
+GEN 3 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 9 MEDIAN 18
+GEN 4 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 9 MEDIAN 22
+GEN 5 BEST 1.000000000e+00 VAL 1.000000000e+00 NODES 9 MEDIAN 24
+GEN 6 BEST 0.000000000e+00 VAL 0.000000000e+00 NODES 10 MEDIAN 34
+Perfect solution found at generation 6! Stopping.
+STOP_REASON converged
+LAST_GEN 6
+FINAL_ERR 0.0
+FINAL_NODES 10
+FINAL_TREE (((x1 + x2) / 1.0) + log(exp(log(1.0))))
+
+===============================
+Standard GP Evolution complete.
+Best Formula: Result = (((x1 + x2) / 1.0) + log(exp(log(1.0))))
+Node count: 10
+Final MSE:  0.00000000
+Status: CONVERGED (perfect solution)
